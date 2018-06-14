@@ -1096,9 +1096,15 @@ IndexedViewMethods.h
 
 ../eigenlib/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
+C:/Users/igorn/Documents/GitHub/FEMproject/elementIsopar_Q4.hpp
+Eigen/Dense
+-
+
 C:/Users/igorn/Documents/GitHub/FEMproject/main.cpp
 iostream
 -
 Eigen/Dense
 -
+elementIsopar_Q4.hpp
+C:/Users/igorn/Documents/GitHub/FEMproject/elementIsopar_Q4.hpp
 
