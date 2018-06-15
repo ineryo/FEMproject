@@ -3,7 +3,8 @@
 
 #include "elementIsopar_Q4.hpp"
 
-using Eigen::MatrixXd;
+using namespace Eigen;
+using namespace std;
 
 int main() {
 
