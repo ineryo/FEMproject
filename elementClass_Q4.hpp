@@ -22,7 +22,7 @@ public:
     elementClass_Q4();
 
     /// General Constructor
-    elementClass_Q4(const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord);
+    elementClass_Q4(numericType youngModulus,numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord);
 
     // METHODS
     /**
@@ -50,7 +50,7 @@ public:
      * Getter Method: Get the identificators of all nodes of this element.
      * @return the identificators of all nodes of this element.
      */
-    const vector<unsigned int> &getM_nodalConnectivity() const;
+    const std::vector<unsigned int> &getM_nodalConnectivity() const;
 
 private:
     // MEMBERS
@@ -70,9 +70,14 @@ private:
     Eigen::Matrix<numericType,4,2> m_nodalPosCoord;
 
     /**
-     * Member: constitutive matrix;
+     * Member: It stores the constitutive constant Young's Modulus (Hooke's Law).
      */
-    Eigen::SparseMatrix<numericType> m_constitutiveMatrix;
+    numericType m_youngModulus;
+
+    /**
+     * Member: It stores the constitutive constant Poisson Ratio.
+     */
+    numericType m_poissonRatio;
 
     // METHODS
     /**
@@ -96,6 +101,12 @@ private:
      */
     numericType evalJacobDet(const Matrix<numericType, 2, 1> &positionVec) const;
 
+    /**
+     * Method: Evaluate the constitutive matrix of the element.
+     * @return C(this->E,this->v).
+     */
+    Eigen::SparseMatrix<numericType>  evalConstitutiveMatrix() const;
+
 };
 
 /* ---------------------------------------- /\ definition | declaration \/ ---------------------------------------- */
@@ -112,8 +123,8 @@ elementClass_Q4()
 
 template <class numericType>
 elementClass_Q4<numericType>::
-elementClass_Q4(const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord):
-        m_nodalConnectivity(nodalConnectivity), m_nodalPosCoord(nodalPosCoord)
+elementClass_Q4(numericType youngModulus, numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord):
+        m_youngModulus(youngModulus), m_poissonRatio(poissonRatio), m_nodalConnectivity(nodalConnectivity), m_nodalPosCoord(nodalPosCoord)
 {
     this->m_interpFunCoeff <<   .25, .25, .25, .25,
             .25, -.25, .25, -.25,
@@ -187,7 +198,7 @@ sprMatK() const {
     Eigen::Matrix<numericType,2,1> pointVec;
     Eigen::SparseMatrix<numericType> B;
     Eigen::SparseMatrix<numericType> C;
-    C = this->m_constitutiveMatrix;
+    C = evalConstitutiveMatrix();
     numericType jacobDet = 0;
 
     Eigen::SparseMatrix<numericType> Kl;
@@ -257,25 +268,51 @@ evalInterpFuncDiff(const Matrix<numericType, 2, 1> &positionVec) const{
     Eigen::Matrix<numericType, 4, 1> tempMatrixOfVariablesDiffEta;          // Allocating memory for the polynomial terms (dN/dEta)
     tempMatrixOfVariablesDiffEta << 0, 0, 1, eps;                           // Evaluating the polynomial terms (dN/dEta)
 
-    /// Evaluating the return value
+    // Evaluating the return value
     B_compressed.row(0) = (this->m_interpFunCoeff*tempMatrixOfVariablesDiffEps).transpose();
     B_compressed.row(1) = (this->m_interpFunCoeff*tempMatrixOfVariablesDiffEta).transpose();
 
 
-    return B_compressed;    /// Returning the answer
+    return B_compressed;    // Returning the answer
 }
 
 template <class numericType>
 numericType elementClass_Q4<numericType>::
 evalJacobDet(const Matrix<numericType, 2, 1> &positionVec) const{
-
-    return ((this->evalInterpFunc(positionVec)) * (this->m_nodalPosCoord)).determinant();
+    return ((this->evalInterpFuncDiff(positionVec)) * (this->m_nodalPosCoord)).determinant();
 }
 
 template<class numericType>
-const vector<unsigned int> &elementClass_Q4<numericType>::getM_nodalConnectivity() const {
+const std::vector<unsigned int> &elementClass_Q4<numericType>::getM_nodalConnectivity() const {
     return m_nodalConnectivity;
 }
 
+template <class numericType>
+Eigen::SparseMatrix<numericType> elementClass_Q4<numericType>::
+evalConstitutiveMatrix() const{
+
+    // Auxiliar objects to help fill a sparse matrix
+    typedef Eigen::Triplet<numericType> TripNumericType;                // Triplet typedef for a sparse matrix
+    std::vector<TripNumericType> tripletList;                           // Triplet list for indexation of sparse matrix
+    tripletList.reserve(5);                                             // Allocating memory for the triplet list
+
+    Eigen::SparseMatrix<numericType> C(3,3);                            // Sparse matrix to be returned (must be filled)
+
+    // Plane Stress:
+    numericType poisson = this->m_poissonRatio;                         // Poisson
+    numericType auxValue1 = this->m_youngModulus/(1.-poisson*poisson);  // auxValue1 = E/(1-v^2)
+    numericType auxValue2 = poisson*auxValue1;                          // auxValue2 = v*E/(1-v^2)
+
+
+    // Feeding triplet to fill the sparse matrix
+    tripletList.push_back(TripNumericType(0, 0, auxValue1));
+    tripletList.push_back(TripNumericType(0, 1, auxValue2));
+    tripletList.push_back(TripNumericType(1, 0, auxValue2));
+    tripletList.push_back(TripNumericType(1, 1, auxValue1));
+    tripletList.push_back(TripNumericType(2, 2, auxValue1*(1.-poisson)*.5));
+
+    C.setFromTriplets(tripletList.begin(), tripletList.end());          // Filling the sparse matrix
+    return C;                                                           // Returning the answer
+}
 
 #endif //FEMPROJECT_ELEMENTISOPAR_Q4_HPP

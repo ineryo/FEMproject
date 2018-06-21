@@ -32,20 +32,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="689990d1-8a8a-49eb-bcc5-64b613622b12" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/elementClass_Q4.hpp" afterDir="false" />
+    <list default="true" id="689990d1-8a8a-49eb-bcc5-64b613622b12" name="Default" comment="Pega ai Lucas!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseElemClass.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseNodeClass.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/baseNodeClass.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/main.cpp.obj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/FEMproject.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/FEMproject.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/FEMproject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/FEMproject.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elementIsopar_Q4.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/elementClass_Q4.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/elementClass_Q4.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -62,8 +54,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="299">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -75,7 +67,10 @@
         <entry file="file://$PROJECT_DIR$/baseNodeClass.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="281">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+              <folding>
+                <element signature="e#187#238#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,14 +78,15 @@
       <file leaf-file-name="elementClass_Q4.hpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/elementClass_Q4.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="217" column="37" selection-start-line="217" selection-start-column="37" selection-end-line="217" selection-end-column="37" />
+            <state relative-caret-position="553">
+              <caret line="281" column="37" selection-start-line="281" selection-start-column="37" selection-end-line="281" selection-end-column="37" />
               <folding>
                 <element signature="e#264#286#0" expanded="true" />
                 <element signature="e#481#500#0" expanded="true" />
                 <element signature="e#10383#10402#0" expanded="true" />
                 <element signature="e#11689#11708#0" expanded="true" />
                 <element signature="e#11920#11939#0" expanded="true" />
+                <element signature="e#12503#12522#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -113,7 +109,13 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Igor Nery &lt;igornery.o@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -121,10 +123,10 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/nodeClass.hpp" />
         <option value="$PROJECT_DIR$/baseElemIsoparClass.hpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/baseNodeClass.hpp" />
         <option value="$PROJECT_DIR$/elementIsopar_Q4.hpp" />
         <option value="$PROJECT_DIR$/baseElemClass.hpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/elementClass_Q4.hpp" />
       </list>
     </option>
@@ -205,12 +207,20 @@
       <workItem from="1529438340720" duration="7000" />
       <workItem from="1529438823756" duration="692000" />
       <workItem from="1529501855983" duration="15383000" />
-      <workItem from="1529584048531" duration="7317000" />
+      <workItem from="1529584048531" duration="14738000" />
     </task>
+    <task id="LOCAL-00001" summary="Pega ai Lucas!">
+      <created>1529608391384</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1529608391385</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37070000" />
+    <option name="totallyTimeSpent" value="44491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -220,7 +230,7 @@
       <window_info anchor="bottom" id="Messages" order="7" weight="0.4325186" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32943678" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2805526" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2805526" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
@@ -266,6 +276,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Pega ai Lucas!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pega ai Lucas!" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="2" />
@@ -286,6 +302,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#187#238#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -299,6 +318,7 @@
             <element signature="e#10383#10402#0" expanded="true" />
             <element signature="e#11689#11708#0" expanded="true" />
             <element signature="e#11920#11939#0" expanded="true" />
+            <element signature="e#12503#12522#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -372,6 +392,7 @@
             <element signature="e#10383#10402#0" expanded="true" />
             <element signature="e#11689#11708#0" expanded="true" />
             <element signature="e#11920#11939#0" expanded="true" />
+            <element signature="e#12503#12522#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -535,16 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/baseElemIsoparClass.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2346">
@@ -569,30 +580,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseNodeClass.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TEMPORARIO_AQUI_LUCAS_parteDeLeituraDeArquivos.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iostream">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/Core">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="386" selection-start-line="386" selection-end-line="386" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/src/LU/Determinant.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseNodeClass.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding>
+            <element signature="e#187#238#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/elementClass_Q4.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="217" column="37" selection-start-line="217" selection-start-column="37" selection-end-line="217" selection-end-column="37" />
+        <state relative-caret-position="553">
+          <caret line="281" column="37" selection-start-line="281" selection-start-column="37" selection-end-line="281" selection-end-column="37" />
           <folding>
             <element signature="e#264#286#0" expanded="true" />
             <element signature="e#481#500#0" expanded="true" />
             <element signature="e#10383#10402#0" expanded="true" />
             <element signature="e#11689#11708#0" expanded="true" />
             <element signature="e#11920#11939#0" expanded="true" />
+            <element signature="e#12503#12522#0" expanded="true" />
           </folding>
         </state>
       </provider>
