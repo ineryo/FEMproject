@@ -4,7 +4,7 @@ from abaqus import *
 from abaqusConstants import *
 import __main__
 
-def viga_plana_01():
+
     import section
     import regionToolset
     import displayGroupMdbToolset as dgm
