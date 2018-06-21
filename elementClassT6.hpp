@@ -1,0 +1,8 @@
+//
+// Created by lucas_omena on 21/06/2018.
+//
+
+#ifndef FEMPROJECT_ELEMENTCLASST6_HPP
+#define FEMPROJECT_ELEMENTCLASST6_HPP
+
+#endif //FEMPROJECT_ELEMENTCLASST6_HPP
