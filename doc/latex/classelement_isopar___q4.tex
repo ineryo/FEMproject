@@ -1,0 +1,110 @@
+\hypertarget{classelement_isopar___q4}{}\section{element\+Isopar\+\_\+\+Q4$<$ numeric\+Type $>$ Class Template Reference}
+\label{classelement_isopar___q4}\index{element\+Isopar\+\_\+\+Q4$<$ numeric\+Type $>$@{element\+Isopar\+\_\+\+Q4$<$ numeric\+Type $>$}}
+
+
+{\ttfamily \#include $<$element\+Isopar\+\_\+\+Q4.\+hpp$>$}
+
+Inheritance diagram for element\+Isopar\+\_\+\+Q4$<$ numeric\+Type $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classelement_isopar___q4}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classelement_isopar___q4_ac3a11de857e7a1bc565bf4052e857c7f}\label{classelement_isopar___q4_ac3a11de857e7a1bc565bf4052e857c7f}} 
+\mbox{\hyperlink{classelement_isopar___q4_ac3a11de857e7a1bc565bf4052e857c7f}{element\+Isopar\+\_\+\+Q4}} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_isopar___q4_a0ebddfb8cbe82e5ab5593ca9c8f3e95e}{spr\+MatN}} (const Matrix$<$ numeric\+Type, 2, 1 $>$ \&position\+Vec) const
+\item 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_isopar___q4_a31ed84f904a48d20dac99efe4137d2b2}{spr\+MatB}} (const Matrix$<$ numeric\+Type, 2, 1 $>$ \&position\+Vec) const
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class numeric\+Type$>$\newline
+class element\+Isopar\+\_\+\+Q4$<$ numeric\+Type $>$}
+
+Q4 Isoparametric Element Class. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em numeric\+Type} & numeric type to be used, either float or double. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classelement_isopar___q4_a31ed84f904a48d20dac99efe4137d2b2}\label{classelement_isopar___q4_a31ed84f904a48d20dac99efe4137d2b2}} 
+\index{element\+Isopar\+\_\+\+Q4@{element\+Isopar\+\_\+\+Q4}!spr\+MatB@{spr\+MatB}}
+\index{spr\+MatB@{spr\+MatB}!element\+Isopar\+\_\+\+Q4@{element\+Isopar\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{spr\+Mat\+B()}{sprMatB()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_isopar___q4}{element\+Isopar\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::spr\+MatB (\begin{DoxyParamCaption}\item[{const Matrix$<$ numeric\+Type, 2, 1 $>$ \&}]{position\+Vec }\end{DoxyParamCaption}) const}
+
+Method\+: Get interpolation function derivatives of the isoparametric element. It returns the uncompressed format. 
+\begin{DoxyParams}{Parameters}
+{\em position\+Vec} & Position Vector of a point inside the element (to interpolate). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns B (uncompressed version)\+: A sparse matrix with the derivatives of the isoparametric element. B(3,4); 
+\end{DoxyReturn}
+Auxiliar objects to help fill a sparse matrix
+
+Triplet typedef for a sparse matrix
+
+Triplet list for indexation of sparse matrix
+
+Stores the compressed dense matrix B
+
+Evaluating the dense matrix B
+
+current node\textquotesingle{}s interpolation function
+
+current row
+
+Allocating memory for the triplet list
+
+Sparse matrix to be returned (must be filled)
+
+Feeding triplet to fill the sparse matrix
+
+Filling the sparse matrix
+
+Returning the answer (for this case) \mbox{\Hypertarget{classelement_isopar___q4_a0ebddfb8cbe82e5ab5593ca9c8f3e95e}\label{classelement_isopar___q4_a0ebddfb8cbe82e5ab5593ca9c8f3e95e}} 
+\index{element\+Isopar\+\_\+\+Q4@{element\+Isopar\+\_\+\+Q4}!spr\+MatN@{spr\+MatN}}
+\index{spr\+MatN@{spr\+MatN}!element\+Isopar\+\_\+\+Q4@{element\+Isopar\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{spr\+Mat\+N()}{sprMatN()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_isopar___q4}{element\+Isopar\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::spr\+MatN (\begin{DoxyParamCaption}\item[{const Matrix$<$ numeric\+Type, 2, 1 $>$ \&}]{position\+Vec }\end{DoxyParamCaption}) const}
+
+Method\+: Get interpolation functions of the isoparametric element. It returns the uncompressed format. 
+\begin{DoxyParams}{Parameters}
+{\em position\+Vec} & Position Vector of a point inside the element (to interpolate). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns N (uncompressed version)\+: Represents the nodal interpolation functions of the isoparametric element. N(2,4); 
+\end{DoxyReturn}
+Sparse matrix to be returned (must be filled)
+
+Auxiliar objects to help fill a sparse matrix
+
+Triplet typedef for a sparse matrix
+
+Triplet list for indexation of sparse matrix
+
+Allocating memory for the triplet list
+
+Stores the compressed N vector
+
+Evaluating the compressed N vector
+
+current node\textquotesingle{}s interpolation function
+
+current row 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/igorn/\+Documents/\+Git\+Hub/\+F\+E\+Mproject/element\+Isopar\+\_\+\+Q4.\+hpp\end{DoxyCompactItemize}

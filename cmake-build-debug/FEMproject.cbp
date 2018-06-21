@@ -84,13 +84,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/igorn/Documents/GitHub/FEMproject/baseElemClass.hpp">
-			<Option target="FEMproject"/>
-		</Unit>
 		<Unit filename="C:/Users/igorn/Documents/GitHub/FEMproject/baseNodeClass.hpp">
 			<Option target="FEMproject"/>
 		</Unit>
-		<Unit filename="C:/Users/igorn/Documents/GitHub/FEMproject/elementIsopar_Q4.hpp">
+		<Unit filename="C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_Q4.hpp">
 			<Option target="FEMproject"/>
 		</Unit>
 		<Unit filename="C:/Users/igorn/Documents/GitHub/FEMproject/main.cpp">

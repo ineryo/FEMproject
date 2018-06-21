@@ -15,7 +15,7 @@ class baseNodeClass {
 public:
     // CONSTRUCTOR
     // Default Constructor
-    baseNodeClass();
+    baseNodeClass() = default;
     // General Constructor
     explicit baseNodeClass(Eigen::Matrix<numericType,nSpatialDimension,1> position);
 
@@ -29,13 +29,6 @@ protected:
 };
 
 /* ---------------------------------------- /\ definition | declaration \/ ---------------------------------------- */
-
-template <unsigned int nSpatialDimension, class numericType>
-baseNodeClass<nSpatialDimension, numericType>
-        ::baseNodeClass()
-{
-
-}
 
 template <unsigned int nSpatialDimension, class numericType>
 baseNodeClass<nSpatialDimension, numericType>

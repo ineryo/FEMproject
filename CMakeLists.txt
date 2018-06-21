@@ -6,6 +6,6 @@ set(CMAKE_CXX_STANDARD 11)
 set(EIGEN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/eigenlib)                 # Setting Eigen directory
 include_directories(${EIGEN_DIR})                                   # Including Eigen directory
 
-add_executable(FEMproject main.cpp elementIsopar_Q4.hpp baseNodeClass.hpp baseElemClass.hpp)
+add_executable(FEMproject main.cpp elementClass_Q4.hpp baseNodeClass.hpp)
 
 target_link_libraries(FEMproject ${EIGEN_DIR})        # Something about Eigen lib

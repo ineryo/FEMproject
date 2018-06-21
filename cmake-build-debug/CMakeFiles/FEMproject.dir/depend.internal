@@ -8,10 +8,17 @@ CMakeFiles/FEMproject.dir/main.cpp.obj
  ../eigenlib/Eigen/Eigenvalues
  ../eigenlib/Eigen/Geometry
  ../eigenlib/Eigen/Householder
+ ../eigenlib/Eigen/IterativeLinearSolvers
  ../eigenlib/Eigen/Jacobi
  ../eigenlib/Eigen/LU
+ ../eigenlib/Eigen/OrderingMethods
  ../eigenlib/Eigen/QR
  ../eigenlib/Eigen/SVD
+ ../eigenlib/Eigen/Sparse
+ ../eigenlib/Eigen/SparseCholesky
+ ../eigenlib/Eigen/SparseCore
+ ../eigenlib/Eigen/SparseLU
+ ../eigenlib/Eigen/SparseQR
  ../eigenlib/Eigen/src/Cholesky/LDLT.h
  ../eigenlib/Eigen/src/Cholesky/LLT.h
  ../eigenlib/Eigen/src/Cholesky/LLT_LAPACKE.h
@@ -147,6 +154,7 @@ CMakeFiles/FEMproject.dir/main.cpp.obj
  ../eigenlib/Eigen/src/Core/util/Macros.h
  ../eigenlib/Eigen/src/Core/util/Memory.h
  ../eigenlib/Eigen/src/Core/util/Meta.h
+ ../eigenlib/Eigen/src/Core/util/NonMPL2.h
  ../eigenlib/Eigen/src/Core/util/ReenableStupidWarnings.h
  ../eigenlib/Eigen/src/Core/util/StaticAssert.h
  ../eigenlib/Eigen/src/Core/util/SymbolicIndex.h
@@ -188,6 +196,14 @@ CMakeFiles/FEMproject.dir/main.cpp.obj
  ../eigenlib/Eigen/src/Householder/BlockHouseholder.h
  ../eigenlib/Eigen/src/Householder/Householder.h
  ../eigenlib/Eigen/src/Householder/HouseholderSequence.h
+ ../eigenlib/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+ ../eigenlib/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+ ../eigenlib/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+ ../eigenlib/Eigen/src/IterativeLinearSolvers/IncompleteCholesky.h
+ ../eigenlib/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+ ../eigenlib/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
+ ../eigenlib/Eigen/src/IterativeLinearSolvers/LeastSquareConjugateGradient.h
+ ../eigenlib/Eigen/src/IterativeLinearSolvers/SolveWithGuess.h
  ../eigenlib/Eigen/src/Jacobi/Jacobi.h
  ../eigenlib/Eigen/src/LU/Determinant.h
  ../eigenlib/Eigen/src/LU/FullPivLU.h
@@ -195,6 +211,9 @@ CMakeFiles/FEMproject.dir/main.cpp.obj
  ../eigenlib/Eigen/src/LU/PartialPivLU.h
  ../eigenlib/Eigen/src/LU/PartialPivLU_LAPACKE.h
  ../eigenlib/Eigen/src/LU/arch/Inverse_SSE.h
+ ../eigenlib/Eigen/src/OrderingMethods/Amd.h
+ ../eigenlib/Eigen/src/OrderingMethods/Eigen_Colamd.h
+ ../eigenlib/Eigen/src/OrderingMethods/Ordering.h
  ../eigenlib/Eigen/src/QR/ColPivHouseholderQR.h
  ../eigenlib/Eigen/src/QR/ColPivHouseholderQR_LAPACKE.h
  ../eigenlib/Eigen/src/QR/CompleteOrthogonalDecomposition.h
@@ -206,6 +225,56 @@ CMakeFiles/FEMproject.dir/main.cpp.obj
  ../eigenlib/Eigen/src/SVD/JacobiSVD_LAPACKE.h
  ../eigenlib/Eigen/src/SVD/SVDBase.h
  ../eigenlib/Eigen/src/SVD/UpperBidiagonalization.h
+ ../eigenlib/Eigen/src/SparseCholesky/SimplicialCholesky.h
+ ../eigenlib/Eigen/src/SparseCholesky/SimplicialCholesky_impl.h
+ ../eigenlib/Eigen/src/SparseCore/AmbiVector.h
+ ../eigenlib/Eigen/src/SparseCore/CompressedStorage.h
+ ../eigenlib/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
+ ../eigenlib/Eigen/src/SparseCore/MappedSparseMatrix.h
+ ../eigenlib/Eigen/src/SparseCore/SparseAssign.h
+ ../eigenlib/Eigen/src/SparseCore/SparseBlock.h
+ ../eigenlib/Eigen/src/SparseCore/SparseColEtree.h
+ ../eigenlib/Eigen/src/SparseCore/SparseCompressedBase.h
+ ../eigenlib/Eigen/src/SparseCore/SparseCwiseBinaryOp.h
+ ../eigenlib/Eigen/src/SparseCore/SparseCwiseUnaryOp.h
+ ../eigenlib/Eigen/src/SparseCore/SparseDenseProduct.h
+ ../eigenlib/Eigen/src/SparseCore/SparseDiagonalProduct.h
+ ../eigenlib/Eigen/src/SparseCore/SparseDot.h
+ ../eigenlib/Eigen/src/SparseCore/SparseFuzzy.h
+ ../eigenlib/Eigen/src/SparseCore/SparseMap.h
+ ../eigenlib/Eigen/src/SparseCore/SparseMatrix.h
+ ../eigenlib/Eigen/src/SparseCore/SparseMatrixBase.h
+ ../eigenlib/Eigen/src/SparseCore/SparsePermutation.h
+ ../eigenlib/Eigen/src/SparseCore/SparseProduct.h
+ ../eigenlib/Eigen/src/SparseCore/SparseRedux.h
+ ../eigenlib/Eigen/src/SparseCore/SparseRef.h
+ ../eigenlib/Eigen/src/SparseCore/SparseSelfAdjointView.h
+ ../eigenlib/Eigen/src/SparseCore/SparseSolverBase.h
+ ../eigenlib/Eigen/src/SparseCore/SparseSparseProductWithPruning.h
+ ../eigenlib/Eigen/src/SparseCore/SparseTranspose.h
+ ../eigenlib/Eigen/src/SparseCore/SparseTriangularView.h
+ ../eigenlib/Eigen/src/SparseCore/SparseUtil.h
+ ../eigenlib/Eigen/src/SparseCore/SparseVector.h
+ ../eigenlib/Eigen/src/SparseCore/SparseView.h
+ ../eigenlib/Eigen/src/SparseCore/TriangularSolver.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLUImpl.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_Memory.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_Structs.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_SupernodalMatrix.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_Utils.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_column_bmod.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_column_dfs.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_copy_to_ucol.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_gemm_kernel.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_heap_relax_snode.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_kernel_bmod.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_panel_bmod.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_panel_dfs.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_pivotL.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_pruneL.h
+ ../eigenlib/Eigen/src/SparseLU/SparseLU_relax_snode.h
+ ../eigenlib/Eigen/src/SparseQR/SparseQR.h
  ../eigenlib/Eigen/src/misc/Image.h
  ../eigenlib/Eigen/src/misc/Kernel.h
  ../eigenlib/Eigen/src/misc/RealSvd2x2.h
@@ -220,5 +289,5 @@ CMakeFiles/FEMproject.dir/main.cpp.obj
  ../eigenlib/Eigen/src/plugins/IndexedViewMethods.h
  ../eigenlib/Eigen/src/plugins/MatrixCwiseBinaryOps.h
  ../eigenlib/Eigen/src/plugins/MatrixCwiseUnaryOps.h
- C:/Users/igorn/Documents/GitHub/FEMproject/elementIsopar_Q4.hpp
+ C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_Q4.hpp
  C:/Users/igorn/Documents/GitHub/FEMproject/main.cpp

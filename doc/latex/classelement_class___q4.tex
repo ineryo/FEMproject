@@ -1,0 +1,92 @@
+\hypertarget{classelement_class___q4}{}\section{element\+Class\+\_\+\+Q4$<$ numeric\+Type $>$ Class Template Reference}
+\label{classelement_class___q4}\index{element\+Class\+\_\+\+Q4$<$ numeric\+Type $>$@{element\+Class\+\_\+\+Q4$<$ numeric\+Type $>$}}
+
+
+{\ttfamily \#include $<$element\+Class\+\_\+\+Q4.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classelement_class___q4_a394807d1b7b587bdf8a9fef0ad207cb0}\label{classelement_class___q4_a394807d1b7b587bdf8a9fef0ad207cb0}} 
+\mbox{\hyperlink{classelement_class___q4_a394807d1b7b587bdf8a9fef0ad207cb0}{element\+Class\+\_\+\+Q4}} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classelement_class___q4_a26cbfc05c8238f05269a7a596bed8264}\label{classelement_class___q4_a26cbfc05c8238f05269a7a596bed8264}} 
+\mbox{\hyperlink{classelement_class___q4_a26cbfc05c8238f05269a7a596bed8264}{element\+Class\+\_\+\+Q4}} (const std\+::vector$<$ unsigned int $>$ \&nodal\+Connectivity, const Eigen\+::\+Matrix$<$ numeric\+Type, 4, 2 $>$ \&nodal\+Pos\+Coord)
+\begin{DoxyCompactList}\small\item\em General Constructor. \end{DoxyCompactList}\item 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___q4_adc47e0786349f327fe45e3744080d3c5}{spr\+MatN}} (const Matrix$<$ numeric\+Type, 2, 1 $>$ \&position\+Vec) const
+\item 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___q4_a7503f92c139700e19433c2843496b670}{spr\+MatB}} (const Matrix$<$ numeric\+Type, 2, 1 $>$ \&position\+Vec) const
+\item 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___q4_a0063f8e857239df14972ebcd95b9cdca}{spr\+MatK}} () const
+\item 
+const vector$<$ unsigned int $>$ \& \mbox{\hyperlink{classelement_class___q4_aa6a26e36d49ce1008285cf9eb6ef4748}{get\+M\+\_\+nodal\+Connectivity}} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class numeric\+Type$>$\newline
+class element\+Class\+\_\+\+Q4$<$ numeric\+Type $>$}
+
+Q4 Isoparametric Element Class. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em numeric\+Type} & numeric type to be used, either float or double. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classelement_class___q4_aa6a26e36d49ce1008285cf9eb6ef4748}\label{classelement_class___q4_aa6a26e36d49ce1008285cf9eb6ef4748}} 
+\index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!get\+M\+\_\+nodal\+Connectivity@{get\+M\+\_\+nodal\+Connectivity}}
+\index{get\+M\+\_\+nodal\+Connectivity@{get\+M\+\_\+nodal\+Connectivity}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{get\+M\+\_\+nodal\+Connectivity()}{getM\_nodalConnectivity()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+const vector$<$ unsigned int $>$ \& \mbox{\hyperlink{classelement_class___q4}{element\+Class\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::get\+M\+\_\+nodal\+Connectivity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter Method\+: Get the identificators of all nodes of this element. \begin{DoxyReturn}{Returns}
+the identificators of all nodes of this element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelement_class___q4_a7503f92c139700e19433c2843496b670}\label{classelement_class___q4_a7503f92c139700e19433c2843496b670}} 
+\index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!spr\+MatB@{spr\+MatB}}
+\index{spr\+MatB@{spr\+MatB}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{spr\+Mat\+B()}{sprMatB()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___q4}{element\+Class\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::spr\+MatB (\begin{DoxyParamCaption}\item[{const Matrix$<$ numeric\+Type, 2, 1 $>$ \&}]{position\+Vec }\end{DoxyParamCaption}) const}
+
+Method\+: Get interpolation function derivatives of the isoparametric element. It returns the uncompressed format. 
+\begin{DoxyParams}{Parameters}
+{\em position\+Vec} & Position Vector of a point inside the element (to interpolate). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns B (uncompressed version)\+: A sparse matrix with the derivatives of the isoparametric element. B(3,4); 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelement_class___q4_a0063f8e857239df14972ebcd95b9cdca}\label{classelement_class___q4_a0063f8e857239df14972ebcd95b9cdca}} 
+\index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!spr\+MatK@{spr\+MatK}}
+\index{spr\+MatK@{spr\+MatK}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{spr\+Mat\+K()}{sprMatK()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___q4}{element\+Class\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::spr\+MatK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Method\+: Evaluate the local stiffness matrix of the element. \begin{DoxyReturn}{Returns}
+local stiffness matrix of the element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelement_class___q4_adc47e0786349f327fe45e3744080d3c5}\label{classelement_class___q4_adc47e0786349f327fe45e3744080d3c5}} 
+\index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!spr\+MatN@{spr\+MatN}}
+\index{spr\+MatN@{spr\+MatN}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{spr\+Mat\+N()}{sprMatN()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___q4}{element\+Class\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::spr\+MatN (\begin{DoxyParamCaption}\item[{const Matrix$<$ numeric\+Type, 2, 1 $>$ \&}]{position\+Vec }\end{DoxyParamCaption}) const}
+
+Method\+: Get interpolation functions of the isoparametric element. It returns the uncompressed format. 
+\begin{DoxyParams}{Parameters}
+{\em position\+Vec} & Position Vector of a point inside the element (to interpolate). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns N (uncompressed version)\+: Represents the nodal interpolation functions of the isoparametric element. N(2,4); 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/igorn/\+Documents/\+Git\+Hub/\+F\+E\+Mproject/element\+Class\+\_\+\+Q4.\+hpp\end{DoxyCompactItemize}
