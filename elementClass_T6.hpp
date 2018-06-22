@@ -24,20 +24,20 @@ public:
     elementClass_T6();
 
     /// General Constructor
-    elementClass_T6(numericType youngModulus,numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord);
+    elementClass_T6(numericType youngModulus,numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,6,2> &nodalPosCoord);
 
     // METHODS
     /**
      * Method: Get interpolation functions of the isoparametric element. It returns the uncompressed format.
      * @param positionVec Position Vector of a point inside the element (to interpolate).
-     * @return Returns N (uncompressed version): Represents the nodal interpolation functions of the isoparametric element. N(2,4);
+     * @return Returns N (uncompressed version): Represents the nodal interpolation functions of the isoparametric element. N(2,6);
      */
     Eigen::SparseMatrix<numericType>  sprMatN(const Matrix<numericType, 2, 1> &positionVec) const;
 
     /**
      * Method: Get interpolation function derivatives of the isoparametric element. It returns the uncompressed format.
      * @param positionVec Position Vector of a point inside the element (to interpolate).
-     * @return Returns B (uncompressed version): A sparse matrix with the derivatives of the isoparametric element. B(3,4);
+     * @return Returns B (uncompressed version): A sparse matrix with the derivatives of the isoparametric element. B(3,6);
      */
     Eigen::SparseMatrix<numericType>  sprMatB(const Matrix<numericType, 2, 1> &positionVec) const;
 
@@ -127,7 +127,7 @@ elementClass_T6()
 
 template <class numericType>
 elementClass_T6<numericType>::
-elementClass_T6(numericType youngModulus, numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord):
+elementClass_T6(numericType youngModulus, numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,6,2> &nodalPosCoord):
         m_youngModulus(youngModulus), m_poissonRatio(poissonRatio), m_nodalConnectivity(nodalConnectivity), m_nodalPosCoord(nodalPosCoord)
 {
     this->m_interpFunCoeff <<   0, -1, 0, 2, 0, 0,
@@ -149,13 +149,13 @@ sprMatN(const Matrix<numericType, 2, 1> &positionVec) const {
     std::vector<TripNumericType> tripletList;                           // Triplet list for indexation of sparse matrix
     tripletList.reserve(8);                                             // Allocating memory for the triplet list
 
-    Eigen::Matrix<numericType, 4, 1>  N_compressed;                     // Stores the compressed N vector
+    Eigen::Matrix<numericType, 6, 1>  N_compressed;                     // Stores the compressed N vector
     N_compressed = this->evalInterpFunc(positionVec);                   // Evaluating the compressed N vector
 
     unsigned int curNodeFun = 0;    // current node's interpolation function
     unsigned int curRow = 0;        // current row
 
-    for(curNodeFun = 0; curNodeFun < 4; ++curNodeFun){
+    for(curNodeFun = 0; curNodeFun < 6; ++curNodeFun){
         for(curRow = 0; curRow < 2; ++curRow) {
             tripletList.push_back(TripNumericType(curRow, curRow+curNodeFun*2, N_compressed(curNodeFun,0)));    // [curRow,curRow+curNodeFun*spaceDimension]: interpFunVectorComp(curNodeFun,0)
         }
@@ -173,18 +173,18 @@ sprMatB(const Matrix<numericType, 2, 1> &positionVec) const {
     typedef Eigen::Triplet<numericType> TripNumericType;                // Triplet typedef for a sparse matrix
     std::vector<TripNumericType> tripletList;                           // Triplet list for indexation of sparse matrix
 
-    Eigen::Matrix<numericType,2,4> B_compressed;                        // Stores the compressed dense matrix B
+    Eigen::Matrix<numericType,2,6> B_compressed;                        // Stores the compressed dense matrix B
     B_compressed = this->evalInterpFuncDiff(positionVec);                // Evaluating the dense matrix B
 
 
     unsigned int curNodeFun = 0;                                        // current node's interpolation function
     unsigned int curRow = 0;                                            // current row
 
-    tripletList.reserve(4*4);                                           // Allocating memory for the triplet list
+    tripletList.reserve(6*6);                                           // Allocating memory for the triplet list
     Eigen::SparseMatrix<numericType> B_uncompressed(3,8);               // Sparse matrix to be returned (must be filled)
 
     // Feeding triplet to fill the sparse matrix
-    for(curNodeFun = 0; curNodeFun < 4; ++curNodeFun){
+    for(curNodeFun = 0; curNodeFun < 6; ++curNodeFun){
 
         tripletList.push_back(TripNumericType(0, 0+2*curNodeFun, B_compressed(0,curNodeFun)));
         tripletList.push_back(TripNumericType(1, 1+2*curNodeFun, B_compressed(1,curNodeFun)));
@@ -237,21 +237,41 @@ sprMatK() const {
     jacobDet = this->evalJacobDet(pointVec);
     k4 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
-    Kl = k1+k2+k3+k4;
+    // Point ( +1/sqrt(3) , +1/sqrt(3))
+    Eigen::SparseMatrix<numericType> k4;
+    pointVec << -1./std::sqrt(3), -1./std::sqrt(3);
+    B = this->sprMatB(pointVec);
+    jacobDet = this->evalJacobDet(pointVec);
+    k4 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
+
+    // Point ( +1/sqrt(3) , +1/sqrt(3))
+    Eigen::SparseMatrix<numericType> k5;
+    pointVec << -1./std::sqrt(3), -1./std::sqrt(3);
+    B = this->sprMatB(pointVec);
+    jacobDet = this->evalJacobDet(pointVec);
+    k5 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
+
+    // Point ( +1/sqrt(3) , +1/sqrt(3))
+    Eigen::SparseMatrix<numericType> k6;
+    pointVec << -1./std::sqrt(3), -1./std::sqrt(3);
+    B = this->sprMatB(pointVec);
+    jacobDet = this->evalJacobDet(pointVec);
+    k6 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
+    Kl = k1+k2+k3+k6;
 
     return Kl;
 }
 
 template <class numericType>
-Eigen::Matrix<numericType, 4, 1> elementClass_T6<numericType>::
+Eigen::Matrix<numericType, 6, 1> elementClass_T6<numericType>::
 evalInterpFunc(const Matrix<numericType, 2, 1> &positionVec) const{
 
     numericType eps = positionVec(0);                                       // Storing the first spatial coordinate
     numericType eta = positionVec(1);                                       // Storing the second spatial coordinate
 
-    Eigen::Matrix<numericType, 4, 1> N_compressed;                          // Allocating memory for the return value
+    Eigen::Matrix<numericType, 6, 1> N_compressed;                          // Allocating memory for the return value
 
-    Eigen::Matrix<numericType, 4, 1> tempMatrixOfVariables;                 // Allocating memory for the polynomial terms
+    Eigen::Matrix<numericType, 6, 1> tempMatrixOfVariables;                 // Allocating memory for the polynomial terms
     tempMatrixOfVariables << 1., eps, eta, eps*eta;                         // Evaluating the polynomial terms
 
     N_compressed.noalias() = this->m_interpFunCoeff*tempMatrixOfVariables;  // Evaluating the return value
@@ -260,18 +280,18 @@ evalInterpFunc(const Matrix<numericType, 2, 1> &positionVec) const{
 }
 
 template <class numericType>
-Eigen::Matrix<numericType, 2,4> elementClass_T6<numericType>::
+Eigen::Matrix<numericType, 2,6> elementClass_T6<numericType>::
 evalInterpFuncDiff(const Matrix<numericType, 2, 1> &positionVec) const{
 
     numericType eps = positionVec(0);                                       // Storing the first spatial coordinate
     numericType eta = positionVec(1);                                       // Storing the second spatial coordinate
 
-    Eigen::Matrix<numericType, 2, 4> B_compressed;                          // Allocating memory for the return value
+    Eigen::Matrix<numericType, 2, 6> B_compressed;                          // Allocating memory for the return value
 
-    Eigen::Matrix<numericType, 4, 1> tempMatrixOfVariablesDiffEps;          // Allocating memory for the polynomial terms (dN/dEps)
+    Eigen::Matrix<numericType, 6, 1> tempMatrixOfVariablesDiffEps;          // Allocating memory for the polynomial terms (dN/dEps)
     tempMatrixOfVariablesDiffEps << 0, 1, 0, eta;                           // Evaluating the polynomial terms (dN/dEps)
 
-    Eigen::Matrix<numericType, 4, 1> tempMatrixOfVariablesDiffEta;          // Allocating memory for the polynomial terms (dN/dEta)
+    Eigen::Matrix<numericType, 6, 1> tempMatrixOfVariablesDiffEta;          // Allocating memory for the polynomial terms (dN/dEta)
     tempMatrixOfVariablesDiffEta << 0, 0, 1, eps;                           // Evaluating the polynomial terms (dN/dEta)
 
     // Evaluating the return value
