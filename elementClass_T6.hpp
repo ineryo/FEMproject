@@ -207,35 +207,29 @@ sprMatK() const {
 
     Eigen::SparseMatrix<numericType> Kl;
 
-    // Point ( +1/sqrt(3) , +1/sqrt(3))
+    // Point ( +1/2 , +1/2, 0)
     Eigen::SparseMatrix<numericType> k1;
-    pointVec << +1./std::sqrt(3), +1./std::sqrt(3);
+    pointVec << 0.5, 0.5;
     B = this->sprMatB(pointVec);
     jacobDet = this->evalJacobDet(pointVec);
     k1 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
-    // Point ( +1/sqrt(3) , -1/sqrt(3))
+    // Point ( 1/2 , 0, 1/2)
     Eigen::SparseMatrix<numericType> k2;
-    pointVec << +1./std::sqrt(3), -1./std::sqrt(3);
+    pointVec << 0.5, 0;
     B = this->sprMatB(pointVec);
     jacobDet = this->evalJacobDet(pointVec);
     k2 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
-    // Point ( +1/sqrt(3) , +1/sqrt(3))
+    // Point ( 0 , 1/2, 1/2)
     Eigen::SparseMatrix<numericType> k3;
-    pointVec << -1./std::sqrt(3), +1./std::sqrt(3);
+    pointVec << 0, 0.5;
     B = this->sprMatB(pointVec);
     jacobDet = this->evalJacobDet(pointVec);
     k3 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
-    // Point ( +1/sqrt(3) , +1/sqrt(3))
-    Eigen::SparseMatrix<numericType> k4;
-    pointVec << -1./std::sqrt(3), -1./std::sqrt(3);
-    B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
-    k4 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
-    Kl = 0.5*(k1+k2+k3+k4);
+    Kl = 0.5*(k1+k2+k3);
 
     return Kl;
 }
