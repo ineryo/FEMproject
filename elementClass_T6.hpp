@@ -272,7 +272,7 @@ evalInterpFunc(const Matrix<numericType, 2, 1> &positionVec) const{
     Eigen::Matrix<numericType, 6, 1> N_compressed;                          // Allocating memory for the return value
 
     Eigen::Matrix<numericType, 6, 1> tempMatrixOfVariables;                 // Allocating memory for the polynomial terms
-    tempMatrixOfVariables << 1., eps, eta, eps*eta;                         // Evaluating the polynomial terms
+    tempMatrixOfVariables << 1., eps, eta, eps*eps, eps*eta, eta*eta;                         // Evaluating the polynomial terms
 
     N_compressed.noalias() = this->m_interpFunCoeff*tempMatrixOfVariables;  // Evaluating the return value
 
@@ -289,10 +289,10 @@ evalInterpFuncDiff(const Matrix<numericType, 2, 1> &positionVec) const{
     Eigen::Matrix<numericType, 2, 6> B_compressed;                          // Allocating memory for the return value
 
     Eigen::Matrix<numericType, 6, 1> tempMatrixOfVariablesDiffEps;          // Allocating memory for the polynomial terms (dN/dEps)
-    tempMatrixOfVariablesDiffEps << 0, 1, 0, eta;                           // Evaluating the polynomial terms (dN/dEps)
+    tempMatrixOfVariablesDiffEps << 0, 1, 0, 2, eta, 0;                           // Evaluating the polynomial terms (dN/dEps)
 
     Eigen::Matrix<numericType, 6, 1> tempMatrixOfVariablesDiffEta;          // Allocating memory for the polynomial terms (dN/dEta)
-    tempMatrixOfVariablesDiffEta << 0, 0, 1, eps;                           // Evaluating the polynomial terms (dN/dEta)
+    tempMatrixOfVariablesDiffEta << 0, 0, 1, 0, eps, 2;                           // Evaluating the polynomial terms (dN/dEta)
 
     // Evaluating the return value
     B_compressed.row(0) = (this->m_interpFunCoeff*tempMatrixOfVariablesDiffEps).transpose();
