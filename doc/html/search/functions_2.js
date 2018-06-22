@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['sprmatb',['sprMatB',['../classelement_class___q4.html#a7503f92c139700e19433c2843496b670',1,'elementClass_Q4']]],
-  ['sprmatk',['sprMatK',['../classelement_class___q4.html#a0063f8e857239df14972ebcd95b9cdca',1,'elementClass_Q4']]],
-  ['sprmatn',['sprMatN',['../classelement_class___q4.html#adc47e0786349f327fe45e3744080d3c5',1,'elementClass_Q4']]]
+  ['getm_5fnodalconnectivity',['getM_nodalConnectivity',['../classelement_class___q4.html#abe3f00cce16a360c1810f50f56fff445',1,'elementClass_Q4::getM_nodalConnectivity()'],['../classelement_class___t6.html#aee26f002dd5cc8d34f03e7ef008a7208',1,'elementClass_T6::getM_nodalConnectivity()']]]
 ];

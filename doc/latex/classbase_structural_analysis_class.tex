@@ -1,0 +1,181 @@
+\hypertarget{classbase_structural_analysis_class}{}\section{base\+Structural\+Analysis\+Class$<$ numeric\+Type, elem\+Class, node\+Class $>$ Class Template Reference}
+\label{classbase_structural_analysis_class}\index{base\+Structural\+Analysis\+Class$<$ numeric\+Type, elem\+Class, node\+Class $>$@{base\+Structural\+Analysis\+Class$<$ numeric\+Type, elem\+Class, node\+Class $>$}}
+
+
+{\ttfamily \#include $<$base\+Structural\+Analysis\+Class.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbase_structural_analysis_class_a743a6d6c9b29ce5c7e299ed246691b9a}{base\+Structural\+Analysis\+Class}} ()
+\item 
+\mbox{\hyperlink{classbase_structural_analysis_class_ac51091bf5f718cdc746c20d9cd5a0cab}{base\+Structural\+Analysis\+Class}} (std\+::string file\+Name)
+\item 
+\mbox{\hyperlink{classbase_structural_analysis_class_a70a5a3407cdeb6f32f69fb1fd7ba6e75}{$\sim$base\+Structural\+Analysis\+Class}} ()
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_adea296e2d4cafa290794599b62e2abdd}\label{classbase_structural_analysis_class_adea296e2d4cafa290794599b62e2abdd}} 
+virtual unsigned int {\bfseries do\+Structural\+Analysis} ()
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_aa21d6e5d9eea16e4fb57845d93d1ec4b}\label{classbase_structural_analysis_class_aa21d6e5d9eea16e4fb57845d93d1ec4b}} 
+virtual bool {\bfseries read\+Formated\+File} (std\+::string file\+Name)
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a57fe62169a4032b8c8393d9adb058343}\label{classbase_structural_analysis_class_a57fe62169a4032b8c8393d9adb058343}} 
+virtual bool {\bfseries read\+From\+File\+\_\+\+Elem\+List} (std\+::ifstream $\ast$opened\+File)
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_ad81d20f7c98e21692e68db5019d0e8ae}\label{classbase_structural_analysis_class_ad81d20f7c98e21692e68db5019d0e8ae}} 
+virtual bool {\bfseries read\+From\+File\+\_\+\+Node\+List} (std\+::ifstream $\ast$opened\+File)
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_aa1ca226998df962bc3ea65513da9b938}\label{classbase_structural_analysis_class_aa1ca226998df962bc3ea65513da9b938}} 
+virtual bool {\bfseries read\+From\+File\+\_\+\+Material} (std\+::ifstream $\ast$opened\+File)
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_aca53b1f1642a1dae799df8f906479f93}\label{classbase_structural_analysis_class_aca53b1f1642a1dae799df8f906479f93}} 
+virtual Eigen\+::\+Matrix$<$ unsigned int, Eigen\+::\+Dynamic, 1 $>$ {\bfseries compute\+Degrees\+Of\+Freedom} ()
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}\label{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}} 
+virtual Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ {\bfseries evaluate\+Global\+Stiff\+Mat} ()
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a8ae8b924f3c1c20f131db1570544cb90}\label{classbase_structural_analysis_class_a8ae8b924f3c1c20f131db1570544cb90}} 
+virtual Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ {\bfseries evaluate\+Global\+Displac\+Vec} ()
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a110e4cdc86a9e8611dade6db8751f02d}\label{classbase_structural_analysis_class_a110e4cdc86a9e8611dade6db8751f02d}} 
+virtual Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ {\bfseries rotation\+Matrix} (Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ \&dir\+Elem\+Vec) const =0
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_ad40dbcb71e338b8cd998ad4bf80fef1a}\label{classbase_structural_analysis_class_ad40dbcb71e338b8cd998ad4bf80fef1a}} 
+unsigned int {\bfseries m\+\_\+n\+Dim}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_af7ea30f9a3e3c353eeaba07c31c445a0}\label{classbase_structural_analysis_class_af7ea30f9a3e3c353eeaba07c31c445a0}} 
+unsigned int {\bfseries m\+\_\+max\+Node\+Deg\+Free}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_aed50959156544fc3d15af79eb38d6ae0}\label{classbase_structural_analysis_class_aed50959156544fc3d15af79eb38d6ae0}} 
+unsigned int {\bfseries m\+\_\+n\+Node\+Per\+Elem}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_abec1d294a55c84f5ef8e227a69d4e5f4}\label{classbase_structural_analysis_class_abec1d294a55c84f5ef8e227a69d4e5f4}} 
+unsigned int {\bfseries m\+\_\+n\+Prop\+Per\+Elem}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a9c1dbd7cb8a65f514211505672854330}\label{classbase_structural_analysis_class_a9c1dbd7cb8a65f514211505672854330}} 
+unsigned int {\bfseries m\+\_\+n\+Total\+DoF}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a7e59de3567f891a9e6ea32378f0d7435}\label{classbase_structural_analysis_class_a7e59de3567f891a9e6ea32378f0d7435}} 
+numeric\+Type {\bfseries m\+\_\+penalty}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a5366e9b75e98f8360ac90c72ea121dcd}\label{classbase_structural_analysis_class_a5366e9b75e98f8360ac90c72ea121dcd}} 
+const numeric\+Type {\bfseries m\+\_\+penalty\+\_\+multiplier} = 1e20
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a80ad4a3ce359b44670321a7d4cefef58}\label{classbase_structural_analysis_class_a80ad4a3ce359b44670321a7d4cefef58}} 
+std\+::vector$<$ elem\+Class $>$ {\bfseries m\+\_\+elem\+List}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a53cf915dc1fc9fcb8ff58b20bfac5632}\label{classbase_structural_analysis_class_a53cf915dc1fc9fcb8ff58b20bfac5632}} 
+std\+::vector$<$ unsigned int $>$ {\bfseries m\+\_\+elem\+List\+With\+Pressure\+Applied}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a1007e2a6feb183e4f2aa79cc44eb9bd1}\label{classbase_structural_analysis_class_a1007e2a6feb183e4f2aa79cc44eb9bd1}} 
+std\+::vector$<$ node\+Class $>$ {\bfseries m\+\_\+node\+List}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a7a950eab6be3c966121023a6a9797184}\label{classbase_structural_analysis_class_a7a950eab6be3c966121023a6a9797184}} 
+std\+::vector$<$ unsigned int $>$ {\bfseries m\+\_\+fixed\+Nodes}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_af71b3fd8032c8ac1e177ae6b97a91d1c}\label{classbase_structural_analysis_class_af71b3fd8032c8ac1e177ae6b97a91d1c}} 
+std\+::string {\bfseries m\+\_\+file\+Input\+Name}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a610e3e0a3be5e5daa43615f21675b63c}\label{classbase_structural_analysis_class_a610e3e0a3be5e5daa43615f21675b63c}} 
+\mbox{\hyperlink{classeigen_linear_solver_info}{eigen\+Linear\+Solver\+Info}} {\bfseries m\+\_\+lin\+Solver\+Info}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a06dce5c9f7beb2873fe6c00c66e985a7}\label{classbase_structural_analysis_class_a06dce5c9f7beb2873fe6c00c66e985a7}} 
+numeric\+Type {\bfseries m\+\_\+young\+Modulus}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_adacc82b7726291dd9a0a2441863858b4}\label{classbase_structural_analysis_class_adacc82b7726291dd9a0a2441863858b4}} 
+numeric\+Type {\bfseries m\+\_\+poisson\+Ratio}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a30c9d240e183d6ed546127192b342086}\label{classbase_structural_analysis_class_a30c9d240e183d6ed546127192b342086}} 
+Eigen\+::\+Matrix$<$ unsigned int, Eigen\+::\+Dynamic, 1 $>$ {\bfseries m\+\_\+deg\+Free\+Vec}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a32476178ae646ba8324440cc1d2efd11}\label{classbase_structural_analysis_class_a32476178ae646ba8324440cc1d2efd11}} 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ {\bfseries m\+\_\+glb\+Stiff\+Mat}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a5b4cc2b24256ee92b746ef463f34d035}\label{classbase_structural_analysis_class_a5b4cc2b24256ee92b746ef463f34d035}} 
+Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ {\bfseries m\+\_\+glbnode\+Force\+Vec}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a9c92d5720fc03e77a2b30a8e5277aeba}\label{classbase_structural_analysis_class_a9c92d5720fc03e77a2b30a8e5277aeba}} 
+Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ {\bfseries m\+\_\+glb\+Displac\+Vec}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a3497fd3dc60eb8cf056a3d3828000bb2}\label{classbase_structural_analysis_class_a3497fd3dc60eb8cf056a3d3828000bb2}} 
+bool {\bfseries m\+\_\+is\+Elem\+List\+Saved}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a9a89aee1ea437bb8f1a633860b306633}\label{classbase_structural_analysis_class_a9a89aee1ea437bb8f1a633860b306633}} 
+bool {\bfseries m\+\_\+is\+Node\+List\+Saved}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_aeda5815de358a24f99b194854252e94b}\label{classbase_structural_analysis_class_aeda5815de358a24f99b194854252e94b}} 
+bool {\bfseries m\+\_\+is\+Initial\+Structure\+Saved}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_ad5e1782b128ac071695aae4ee8d7d23a}\label{classbase_structural_analysis_class_ad5e1782b128ac071695aae4ee8d7d23a}} 
+bool {\bfseries m\+\_\+is\+Local\+Rotation\+Matrix\+Computed}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a60baf19b10caa39342408548d5a834ac}\label{classbase_structural_analysis_class_a60baf19b10caa39342408548d5a834ac}} 
+bool {\bfseries m\+\_\+is\+Degree\+Of\+Freedom\+Vec\+Computed}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_af6d2f4bea68e4bd857a2ac6bea8194ec}\label{classbase_structural_analysis_class_af6d2f4bea68e4bd857a2ac6bea8194ec}} 
+bool {\bfseries m\+\_\+is\+Glb\+Stiff\+Mat\+Computed}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a779af0fab2226dacec87b0f6a05e1956}\label{classbase_structural_analysis_class_a779af0fab2226dacec87b0f6a05e1956}} 
+bool {\bfseries m\+\_\+is\+Glbnode\+Force\+Vec\+Computed}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a920c4ef5aedc3e9bf397c7d67786e696}\label{classbase_structural_analysis_class_a920c4ef5aedc3e9bf397c7d67786e696}} 
+bool {\bfseries m\+\_\+is\+Glb\+Displac\+Vec\+Computed}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_ac89e923d65f5fc5f8e08d15bf5b65bb5}\label{classbase_structural_analysis_class_ac89e923d65f5fc5f8e08d15bf5b65bb5}} 
+bool {\bfseries m\+\_\+is\+Local\+Elem\+Info\+Updated}
+\item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_a5930a49c82de1cc5d03d0b44788f8af0}\label{classbase_structural_analysis_class_a5930a49c82de1cc5d03d0b44788f8af0}} 
+bool {\bfseries m\+\_\+is\+Local\+Node\+Info\+Updated}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class numeric\+Type, class elem\+Class, class node\+Class$>$\newline
+class base\+Structural\+Analysis\+Class$<$ numeric\+Type, elem\+Class, node\+Class $>$}
+
+Structural Analysis superclass to store and compute the analysis. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em numeric\+Type} & numeric type to be used, either float or double. \\
+\hline
+{\em elem\+Class} & Class to be used to store and compute the elements. \\
+\hline
+{\em node\+Class} & Class to be used to store and compute the nodes. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbase_structural_analysis_class_a743a6d6c9b29ce5c7e299ed246691b9a}\label{classbase_structural_analysis_class_a743a6d6c9b29ce5c7e299ed246691b9a}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{base\+Structural\+Analysis\+Class()}{baseStructuralAnalysisClass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+\mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::\mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{classbase_structural_analysis_class_ac51091bf5f718cdc746c20d9cd5a0cab}\label{classbase_structural_analysis_class_ac51091bf5f718cdc746c20d9cd5a0cab}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{base\+Structural\+Analysis\+Class()}{baseStructuralAnalysisClass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+\mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::\mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}} (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Read-\/file constructor. 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & Name of the file to be read. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbase_structural_analysis_class_a70a5a3407cdeb6f32f69fb1fd7ba6e75}\label{classbase_structural_analysis_class_a70a5a3407cdeb6f32f69fb1fd7ba6e75}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!````~base\+Structural\+Analysis\+Class@{$\sim$base\+Structural\+Analysis\+Class}}
+\index{````~base\+Structural\+Analysis\+Class@{$\sim$base\+Structural\+Analysis\+Class}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{$\sim$base\+Structural\+Analysis\+Class()}{~baseStructuralAnalysisClass()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+\mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::$\sim$\mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default Destructor. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/igorn/\+Documents/\+Git\+Hub/\+F\+E\+Mproject/base\+Structural\+Analysis\+Class.\+hpp\end{DoxyCompactItemize}

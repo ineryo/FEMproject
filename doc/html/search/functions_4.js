@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ebaseelemisoparclass',['~baseElemIsoparClass',['../classbase_elem_isopar_class.html#a4af2c68ee324c3f47bf75dfdb395eaee',1,'baseElemIsoparClass']]]
+  ['_7ebasestructuralanalysisclass',['~baseStructuralAnalysisClass',['../classbase_structural_analysis_class.html#a70a5a3407cdeb6f32f69fb1fd7ba6e75',1,'baseStructuralAnalysisClass']]]
 ];

@@ -1,0 +1,92 @@
+\hypertarget{classelement_class___t6}{}\section{element\+Class\+\_\+\+T6$<$ numeric\+Type $>$ Class Template Reference}
+\label{classelement_class___t6}\index{element\+Class\+\_\+\+T6$<$ numeric\+Type $>$@{element\+Class\+\_\+\+T6$<$ numeric\+Type $>$}}
+
+
+{\ttfamily \#include $<$element\+Class\+\_\+\+T6.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classelement_class___t6_ae5cf7beb6805a64e843bde5b86411ba1}\label{classelement_class___t6_ae5cf7beb6805a64e843bde5b86411ba1}} 
+\mbox{\hyperlink{classelement_class___t6_ae5cf7beb6805a64e843bde5b86411ba1}{element\+Class\+\_\+\+T6}} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classelement_class___t6_ac18008e975c7da2a42eb2b952c335faf}\label{classelement_class___t6_ac18008e975c7da2a42eb2b952c335faf}} 
+\mbox{\hyperlink{classelement_class___t6_ac18008e975c7da2a42eb2b952c335faf}{element\+Class\+\_\+\+T6}} (numeric\+Type young\+Modulus, numeric\+Type poisson\+Ratio, const std\+::vector$<$ unsigned int $>$ \&nodal\+Connectivity, const Eigen\+::\+Matrix$<$ numeric\+Type, 6, 2 $>$ \&nodal\+Pos\+Coord)
+\begin{DoxyCompactList}\small\item\em General Constructor. \end{DoxyCompactList}\item 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___t6_ad8f57028dfbb4215979ef16b88d65957}{spr\+MatN}} (const Matrix$<$ numeric\+Type, 2, 1 $>$ \&position\+Vec) const
+\item 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___t6_a03adb5b9a48edd11f48d1749e388ab40}{spr\+MatB}} (const Matrix$<$ numeric\+Type, 2, 1 $>$ \&position\+Vec) const
+\item 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___t6_a7f9d1575134a4afe28a5505ce4e6de4d}{spr\+MatK}} () const
+\item 
+const std\+::vector$<$ unsigned int $>$ \& \mbox{\hyperlink{classelement_class___t6_aee26f002dd5cc8d34f03e7ef008a7208}{get\+M\+\_\+nodal\+Connectivity}} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class numeric\+Type$>$\newline
+class element\+Class\+\_\+\+T6$<$ numeric\+Type $>$}
+
+T6 Isoparametric Element Class. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em numeric\+Type} & numeric type to be used, either float or double. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classelement_class___t6_aee26f002dd5cc8d34f03e7ef008a7208}\label{classelement_class___t6_aee26f002dd5cc8d34f03e7ef008a7208}} 
+\index{element\+Class\+\_\+\+T6@{element\+Class\+\_\+\+T6}!get\+M\+\_\+nodal\+Connectivity@{get\+M\+\_\+nodal\+Connectivity}}
+\index{get\+M\+\_\+nodal\+Connectivity@{get\+M\+\_\+nodal\+Connectivity}!element\+Class\+\_\+\+T6@{element\+Class\+\_\+\+T6}}
+\subsubsection{\texorpdfstring{get\+M\+\_\+nodal\+Connectivity()}{getM\_nodalConnectivity()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+const std\+::vector$<$ unsigned int $>$ \& \mbox{\hyperlink{classelement_class___t6}{element\+Class\+\_\+\+T6}}$<$ numeric\+Type $>$\+::get\+M\+\_\+nodal\+Connectivity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter Method\+: Get the identificators of all nodes of this element. \begin{DoxyReturn}{Returns}
+the identificators of all nodes of this element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelement_class___t6_a03adb5b9a48edd11f48d1749e388ab40}\label{classelement_class___t6_a03adb5b9a48edd11f48d1749e388ab40}} 
+\index{element\+Class\+\_\+\+T6@{element\+Class\+\_\+\+T6}!spr\+MatB@{spr\+MatB}}
+\index{spr\+MatB@{spr\+MatB}!element\+Class\+\_\+\+T6@{element\+Class\+\_\+\+T6}}
+\subsubsection{\texorpdfstring{spr\+Mat\+B()}{sprMatB()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___t6}{element\+Class\+\_\+\+T6}}$<$ numeric\+Type $>$\+::spr\+MatB (\begin{DoxyParamCaption}\item[{const Matrix$<$ numeric\+Type, 2, 1 $>$ \&}]{position\+Vec }\end{DoxyParamCaption}) const}
+
+Method\+: Get interpolation function derivatives of the isoparametric element. It returns the uncompressed format. 
+\begin{DoxyParams}{Parameters}
+{\em position\+Vec} & Position Vector of a point inside the element (to interpolate). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns B (uncompressed version)\+: A sparse matrix with the derivatives of the isoparametric element. B(3,6); 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelement_class___t6_a7f9d1575134a4afe28a5505ce4e6de4d}\label{classelement_class___t6_a7f9d1575134a4afe28a5505ce4e6de4d}} 
+\index{element\+Class\+\_\+\+T6@{element\+Class\+\_\+\+T6}!spr\+MatK@{spr\+MatK}}
+\index{spr\+MatK@{spr\+MatK}!element\+Class\+\_\+\+T6@{element\+Class\+\_\+\+T6}}
+\subsubsection{\texorpdfstring{spr\+Mat\+K()}{sprMatK()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___t6}{element\+Class\+\_\+\+T6}}$<$ numeric\+Type $>$\+::spr\+MatK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Method\+: Evaluate the local stiffness matrix of the element. \begin{DoxyReturn}{Returns}
+local stiffness matrix of the element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelement_class___t6_ad8f57028dfbb4215979ef16b88d65957}\label{classelement_class___t6_ad8f57028dfbb4215979ef16b88d65957}} 
+\index{element\+Class\+\_\+\+T6@{element\+Class\+\_\+\+T6}!spr\+MatN@{spr\+MatN}}
+\index{spr\+MatN@{spr\+MatN}!element\+Class\+\_\+\+T6@{element\+Class\+\_\+\+T6}}
+\subsubsection{\texorpdfstring{spr\+Mat\+N()}{sprMatN()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___t6}{element\+Class\+\_\+\+T6}}$<$ numeric\+Type $>$\+::spr\+MatN (\begin{DoxyParamCaption}\item[{const Matrix$<$ numeric\+Type, 2, 1 $>$ \&}]{position\+Vec }\end{DoxyParamCaption}) const}
+
+Method\+: Get interpolation functions of the isoparametric element. It returns the uncompressed format. 
+\begin{DoxyParams}{Parameters}
+{\em position\+Vec} & Position Vector of a point inside the element (to interpolate). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns N (uncompressed version)\+: Represents the nodal interpolation functions of the isoparametric element. N(2,6); 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/igorn/\+Documents/\+Git\+Hub/\+F\+E\+Mproject/element\+Class\+\_\+\+T6.\+hpp\end{DoxyCompactItemize}
