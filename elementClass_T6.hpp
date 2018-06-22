@@ -5,8 +5,6 @@
 #ifndef FEMPROJECT_ELEMENTCLASST6_HPP
 #define FEMPROJECT_ELEMENTCLASST6_HPP
 
-#endif //FEMPROJECT_ELEMENTCLASST6_HPP
-
 #include <Eigen/Dense>
 #include <Eigen/Sparse>
 
@@ -142,12 +140,12 @@ template <class numericType>
 Eigen::SparseMatrix<numericType>  elementClass_T6<numericType>::
 sprMatN(const Matrix<numericType, 2, 1> &positionVec) const {
 
-    Eigen::SparseMatrix<numericType> N_uncompressed(2,8); // Sparse matrix to be returned (must be filled)
+    Eigen::SparseMatrix<numericType> N_uncompressed(2,12); // Sparse matrix to be returned (must be filled)
 
     // Auxiliar objects to help fill a sparse matrix
     typedef Eigen::Triplet<numericType> TripNumericType;                // Triplet typedef for a sparse matrix
     std::vector<TripNumericType> tripletList;                           // Triplet list for indexation of sparse matrix
-    tripletList.reserve(8);                                             // Allocating memory for the triplet list
+    tripletList.reserve(12);                                             // Allocating memory for the triplet list
 
     Eigen::Matrix<numericType, 6, 1>  N_compressed;                     // Stores the compressed N vector
     N_compressed = this->evalInterpFunc(positionVec);                   // Evaluating the compressed N vector
@@ -181,7 +179,7 @@ sprMatB(const Matrix<numericType, 2, 1> &positionVec) const {
     unsigned int curRow = 0;                                            // current row
 
     tripletList.reserve(6*6);                                           // Allocating memory for the triplet list
-    Eigen::SparseMatrix<numericType> B_uncompressed(3,8);               // Sparse matrix to be returned (must be filled)
+    Eigen::SparseMatrix<numericType> B_uncompressed(3,12);               // Sparse matrix to be returned (must be filled)
 
     // Feeding triplet to fill the sparse matrix
     for(curNodeFun = 0; curNodeFun < 6; ++curNodeFun){
@@ -237,27 +235,7 @@ sprMatK() const {
     jacobDet = this->evalJacobDet(pointVec);
     k4 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
-    // Point ( +1/sqrt(3) , +1/sqrt(3))
-    Eigen::SparseMatrix<numericType> k4;
-    pointVec << -1./std::sqrt(3), -1./std::sqrt(3);
-    B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
-    k4 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
-
-    // Point ( +1/sqrt(3) , +1/sqrt(3))
-    Eigen::SparseMatrix<numericType> k5;
-    pointVec << -1./std::sqrt(3), -1./std::sqrt(3);
-    B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
-    k5 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
-
-    // Point ( +1/sqrt(3) , +1/sqrt(3))
-    Eigen::SparseMatrix<numericType> k6;
-    pointVec << -1./std::sqrt(3), -1./std::sqrt(3);
-    B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
-    k6 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
-    Kl = k1+k2+k3+k6;
+    Kl = k1+k2+k3+k4;
 
     return Kl;
 }
