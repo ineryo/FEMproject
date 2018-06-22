@@ -1450,6 +1450,12 @@ Eigen/Dense
 Eigen/Sparse
 -
 
+C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_T6.hpp
+Eigen/Dense
+-
+Eigen/Sparse
+-
+
 C:/Users/igorn/Documents/GitHub/FEMproject/main.cpp
 iostream
 -
@@ -1457,4 +1463,6 @@ Eigen/Dense
 -
 elementClass_Q4.hpp
 C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_Q4.hpp
+elementClass_T6.hpp
+C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_T6.hpp
 

@@ -22,7 +22,7 @@ public:
     elementClass_Q4();
 
     /// General Constructor
-    elementClass_Q4(numericType youngModulus,numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord);
+    elementClass_Q4(const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord);
 
     // METHODS
     /**
@@ -41,9 +41,11 @@ public:
 
     /**
      * Method: Evaluate the local stiffness matrix of the element.
+     * @param youngModulus Young's Modulus of the element.
+     * @param poissonRatio Poisson Ratio of the element.
      * @return local stiffness matrix of the element.
      */
-    Eigen::SparseMatrix<numericType> sprMatK() const;
+    Eigen::SparseMatrix<numericType> sprMatK(numericType youngModulus,numericType poissonRatio) const;
 
     // GETTER & SETTER
     /**
@@ -69,16 +71,6 @@ private:
      */
     Eigen::Matrix<numericType,4,2> m_nodalPosCoord;
 
-    /**
-     * Member: It stores the constitutive constant Young's Modulus (Hooke's Law).
-     */
-    numericType m_youngModulus;
-
-    /**
-     * Member: It stores the constitutive constant Poisson Ratio.
-     */
-    numericType m_poissonRatio;
-
     // METHODS
     /**
      * Method: Get interpolation functions of the isoparametric element at a point. It returns the compressed format.
@@ -103,9 +95,11 @@ private:
 
     /**
      * Method: Evaluate the constitutive matrix of the element.
-     * @return C(this->E,this->v).
+     * @param youngModulus Young's Modulus of the element.
+     * @param poissonRatio Poisson Ratio of the element.
+     * @return C(E,v).
      */
-    Eigen::SparseMatrix<numericType>  evalConstitutiveMatrix() const;
+    Eigen::SparseMatrix<numericType>  evalConstitutiveMatrix(numericType youngModulus,numericType poissonRatio) const;
 
 };
 
@@ -123,8 +117,8 @@ elementClass_Q4()
 
 template <class numericType>
 elementClass_Q4<numericType>::
-elementClass_Q4(numericType youngModulus, numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord):
-        m_youngModulus(youngModulus), m_poissonRatio(poissonRatio), m_nodalConnectivity(nodalConnectivity), m_nodalPosCoord(nodalPosCoord)
+elementClass_Q4(const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord):
+        m_nodalConnectivity(nodalConnectivity), m_nodalPosCoord(nodalPosCoord)
 {
     this->m_interpFunCoeff <<   .25, .25, .25, .25,
             .25, -.25, .25, -.25,
@@ -193,12 +187,12 @@ sprMatB(const Matrix<numericType, 2, 1> &positionVec) const {
 
 template <class numericType>
 Eigen::SparseMatrix<numericType>  elementClass_Q4<numericType>::
-sprMatK() const {
+sprMatK(numericType youngModulus,numericType poissonRatio) const {
 
     Eigen::Matrix<numericType,2,1> pointVec;
     Eigen::SparseMatrix<numericType> B;
     Eigen::SparseMatrix<numericType> C;
-    C = evalConstitutiveMatrix();
+    C = evalConstitutiveMatrix(youngModulus,poissonRatio);
     numericType jacobDet = 0;
 
     Eigen::SparseMatrix<numericType> Kl;
@@ -289,7 +283,7 @@ const std::vector<unsigned int> &elementClass_Q4<numericType>::getM_nodalConnect
 
 template <class numericType>
 Eigen::SparseMatrix<numericType> elementClass_Q4<numericType>::
-evalConstitutiveMatrix() const{
+evalConstitutiveMatrix(numericType youngModulus,numericType poissonRatio) const{
 
     // Auxiliar objects to help fill a sparse matrix
     typedef Eigen::Triplet<numericType> TripNumericType;                // Triplet typedef for a sparse matrix
@@ -299,9 +293,8 @@ evalConstitutiveMatrix() const{
     Eigen::SparseMatrix<numericType> C(3,3);                            // Sparse matrix to be returned (must be filled)
 
     // Plane Stress:
-    numericType poisson = this->m_poissonRatio;                         // Poisson
-    numericType auxValue1 = this->m_youngModulus/(1.-poisson*poisson);  // auxValue1 = E/(1-v^2)
-    numericType auxValue2 = poisson*auxValue1;                          // auxValue2 = v*E/(1-v^2)
+    numericType auxValue1 = youngModulus/(1.-poissonRatio*poissonRatio);  // auxValue1 = E/(1-v^2)
+    numericType auxValue2 = poissonRatio*auxValue1;                          // auxValue2 = v*E/(1-v^2)
 
 
     // Feeding triplet to fill the sparse matrix
@@ -309,7 +302,7 @@ evalConstitutiveMatrix() const{
     tripletList.push_back(TripNumericType(0, 1, auxValue2));
     tripletList.push_back(TripNumericType(1, 0, auxValue2));
     tripletList.push_back(TripNumericType(1, 1, auxValue1));
-    tripletList.push_back(TripNumericType(2, 2, auxValue1*(1.-poisson)*.5));
+    tripletList.push_back(TripNumericType(2, 2, auxValue1*(1.-poissonRatio)*.5));
 
     C.setFromTriplets(tripletList.begin(), tripletList.end());          // Filling the sparse matrix
     return C;                                                           // Returning the answer

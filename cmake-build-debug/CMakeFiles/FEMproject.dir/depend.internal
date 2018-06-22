@@ -290,4 +290,5 @@ CMakeFiles/FEMproject.dir/main.cpp.obj
  ../eigenlib/Eigen/src/plugins/MatrixCwiseBinaryOps.h
  ../eigenlib/Eigen/src/plugins/MatrixCwiseUnaryOps.h
  C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_Q4.hpp
+ C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_T6.hpp
  C:/Users/igorn/Documents/GitHub/FEMproject/main.cpp

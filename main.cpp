@@ -44,10 +44,9 @@ int main() {
     double poissonRatio = .5;
     std::vector<unsigned int>  nodalConnectivity;   nodalConnectivity.push_back(0); nodalConnectivity.push_back(1); nodalConnectivity.push_back(2); nodalConnectivity.push_back(3);
     Eigen::Matrix<double,4,2> nodalPosCoord;        nodalPosCoord << 1., 1., -1, 1, -1, -1, 1, -1;  nodalPosCoord *= 5;
-    elementClass_Q4<double> foi(youngModulus,poissonRatio, nodalConnectivity, nodalPosCoord);
+    elementClass_Q4<double> foi( nodalConnectivity, nodalPosCoord);
 
 
-//    std::cout << std::endl << std::endl << "Nodal Connectivity:" << std::endl <<  foi.getM_nodalConnectivity() << std::endl;
 
     std::cout << std::endl << std::endl << "1st Point / uncompressed N:" << std::endl <<  foi.sprMatN(pos1) << std::endl;
     std::cout << std::endl << std::endl << "2nd Point / uncompressed N:" << std::endl <<  foi.sprMatN(pos2) << std::endl;
@@ -59,7 +58,7 @@ int main() {
     std::cout << std::endl << std::endl << "3rd Point / uncompressed B:" << std::endl <<  foi.sprMatB(pos3) << std::endl;
     std::cout << std::endl << std::endl << "4rd Point / uncompressed B:" << std::endl <<  foi.sprMatB(pos4) << std::endl;
 
-    std::cout << std::endl << std::endl << "1st Point / uncompressed B:" << std::endl <<  foi.sprMatK() << std::endl;
+    std::cout << std::endl << std::endl << "1st Point / uncompressed B:" << std::endl <<  foi.sprMatK(youngModulus,poissonRatio) << std::endl;
 
 
 
