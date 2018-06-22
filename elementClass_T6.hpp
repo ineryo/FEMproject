@@ -235,7 +235,7 @@ sprMatK() const {
     jacobDet = this->evalJacobDet(pointVec);
     k4 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
-    Kl = k1+k2+k3+k4;
+    Kl = 0.5*(k1+k2+k3+k4);
 
     return Kl;
 }
