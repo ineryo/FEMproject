@@ -1,9 +1,9 @@
 <!-- $theme: gaia -->
 # FEMproject
-  Trabaho Final da Disciplina de Introdução ao Metodo dos Elementos FInitos
+  Trabaho Final da Disciplina de Introdução ao Metodo dos Elementos Finitos
 
 # Autores 
-  Igor de Melo Nery de Oliveira
+  Igor de Melo Nery de Oliveira,
   Lucas Gouveia Omena Lopes
 
 # Projeto Final
@@ -12,38 +12,35 @@ Implementação dos Elementos Finitos Q4 e T6
 
 # Problema Estudado
 
-Pilar En
+Pilar submetido a carga distribuída vertical:
 
-##  ![](Figuras/img11_correlationExamples.png)
+##  ![](Figuras/problema.png)
 
 
-# Introdução
+# Elementos em Estudo 
 
-##### Correlação:
-* É qualquer relação dentro de uma ampla classe de relações estatísticas que envolva dependência entre duas variáveis
-* É comumente denotada como a medida de relação entre duas variáveis aleatórias
-* Em alguns casos, correlação não identifica dependência entre as variáveis
+##### Elemento Q4:
+* Elemento Quadilateral de 4 nós
 
-Fonte: [wikipedia](https://en.wikipedia.org/wiki/Sensitivity_analysis)
+##  ![](Figuras/elementQ4.png)
 
----
+##### Elemento T6:
+* Elemento Triangular de 6 nós
 
-# Introdução
+##  ![](Figuras/T6.png)
 
-##### Correlação não indica casualidade! 
 
-##  ![](Figuras/img13_correlationAndCausation.png)
-Fontes: [wikiversity](https://en.wikiversity.org/wiki/Correlation) | [wikipedia](https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation)
+# Objetivos
 
----
+* Implementação e uso dos elementos Q4 e t6 na resolução do problema proposto;
+* Avaliação dos resultadsos e comparação dos mesmos com os do software Abaqus;
 
-# Formulação
 
-##### Correlação populacional
+# Resultados
 
-Trata da medida da direção e do grau com que as variáveis X  e Y se associam linearmente em uma população
+##### Abaqus
 
-$$ \rho_{X,Y}= \frac{cov(X,Y)}{\sigma_X \sigma_Y}=\frac{E \left[ \left( X-\mu_X \right) \left( Y-\mu_Y \right) \right]}{\sigma_X \sigma_Y} $$
+* Foram testados exemplos, utilizando como material o aço (Modulo de Young 200 GPa e coeficiente de Poisson 0.3), e estudados os efeitos do tipo de elemento e refinamento da malha nos resultados obtidos. Esses resultados, visulaizados através das ferramentas do software abaqus 
 
 
 ---
