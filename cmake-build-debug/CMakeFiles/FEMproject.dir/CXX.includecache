@@ -1444,6 +1444,30 @@ IndexedViewMethods.h
 
 ../eigenlib/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
+C:/Users/igorn/Documents/GitHub/FEMproject/baseNodeClass.hpp
+Eigen/Dense
+-
+
+C:/Users/igorn/Documents/GitHub/FEMproject/baseStructuralAnalysisClass.hpp
+iostream
+-
+iomanip
+-
+type_traits
+-
+string
+-
+set
+-
+fstream
+-
+Eigen/Dense
+-
+Eigen/Sparse
+-
+Eigen/IterativeLinearSolvers
+-
+
 C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_Q4.hpp
 Eigen/Dense
 -
@@ -1467,4 +1491,8 @@ elementClass_Q4.hpp
 C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_Q4.hpp
 elementClass_T6.hpp
 C:/Users/igorn/Documents/GitHub/FEMproject/elementClass_T6.hpp
+baseNodeClass.hpp
+C:/Users/igorn/Documents/GitHub/FEMproject/baseNodeClass.hpp
+baseStructuralAnalysisClass.hpp
+C:/Users/igorn/Documents/GitHub/FEMproject/baseStructuralAnalysisClass.hpp
 

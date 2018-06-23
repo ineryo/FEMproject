@@ -5,6 +5,8 @@
 
 #include "elementClass_Q4.hpp"
 #include "elementClass_T6.hpp"
+#include "baseNodeClass.hpp"
+#include "baseStructuralAnalysisClass.hpp"
 
 using namespace Eigen;
 using namespace std;
@@ -119,7 +121,6 @@ int main() {
 
     std::cout << std::endl << std::endl << "K:" << std::endl <<  foi_T6.sprMatK() << std::endl;
 
-    std::cout << "Hello, World!" << std::endl;
 
 
     std::set<unsigned int> lista;
@@ -132,6 +133,18 @@ int main() {
 
     for (auto it = lista.begin(); it != lista.end(); ++it)
         std::cout << *it << "\n";
+
+
+    baseStructuralAnalysisClass<double,elementClass_Q4<double>,baseNodeClass<2,double>> fudeu;
+
+
+
+
+
+
+    std::cout << "Hello, World!" << std::endl;
+
+
 
 
     return 0;

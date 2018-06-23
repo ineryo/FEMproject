@@ -288,6 +288,8 @@ CMakeFiles/FEMproject.dir/main.cpp.obj: ../eigenlib/Eigen/src/plugins/CommonCwis
 CMakeFiles/FEMproject.dir/main.cpp.obj: ../eigenlib/Eigen/src/plugins/IndexedViewMethods.h
 CMakeFiles/FEMproject.dir/main.cpp.obj: ../eigenlib/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 CMakeFiles/FEMproject.dir/main.cpp.obj: ../eigenlib/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+CMakeFiles/FEMproject.dir/main.cpp.obj: ../baseNodeClass.hpp
+CMakeFiles/FEMproject.dir/main.cpp.obj: ../baseStructuralAnalysisClass.hpp
 CMakeFiles/FEMproject.dir/main.cpp.obj: ../elementClass_Q4.hpp
 CMakeFiles/FEMproject.dir/main.cpp.obj: ../elementClass_T6.hpp
 CMakeFiles/FEMproject.dir/main.cpp.obj: ../main.cpp
