@@ -58,14 +58,12 @@ Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 ## Reações
 ###  ![](Figuras/45RF.png)
 
-## Defromações
+## Deformações
 ###  ![](Figuras/45E.png)
 
 ## Número de Elementos x Deslocamentos 
 
 
-
-[
 
 
 # Análise dos resultados
