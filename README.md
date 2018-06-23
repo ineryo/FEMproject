@@ -49,22 +49,30 @@ Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 
 * Foram testados exemplos, utilizando como material o aço (Modulo de Young 200 GPa e coeficiente de Poisson 0.3), e estudados os efeitos do tipo de elemento e refinamento da malha nos resultados obtidos. Esses resultados, visulaizados através das ferramentas do software Abaqus. Os campos avaliados foram os deslocamentos (U),tensões (S), reações de apoio (RF) e deformações na estrutura (E).
 
-## Deslocamentos
+### Deslocamentos
 ###  ![](Figuras/45U.png)
 
-## Tensões
+### Tensões
 ###  ![](Figuras/45S.png)
 
-## Reações
+### Reações
 ###  ![](Figuras/45RF.png)
 
-## Deformações
+### Deformações
 ###  ![](Figuras/45E.png)
 
 ## Número de Elementos x Deslocamentos 
+* Para avaliarmos a interferência do refinamento da malha nos resultados obtidos, realizou-se um estudo das tensões e deformações medidas nos elementos. Esse estudo pode ser fisto nas figuras a seguir (simulações do Abqus para variadas divisões de elementos), e no gráfico, que mostra a influência do resultado de acordo com o número de elementos.
 
+### Q4
+###  ![](Figuras/stress.png)
 
+###  ![](Figuras/strain.png)
 
+### T6
+###  ![](Figuras/stress_t6.png)
+
+###  ![](Figuras/strain_t6.png)
 
 # Análise dos resultados
 
