@@ -63,7 +63,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classbase_structural_analysis_class-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">baseStructuralAnalysisClass&lt; numericType, elemClass, nodeClass &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -83,23 +84,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adea296e2d4cafa290794599b62e2abdd"><td class="memItemLeft" align="right" valign="top"><a id="adea296e2d4cafa290794599b62e2abdd"></a>
 virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>doStructuralAnalysis</b> ()</td></tr>
 <tr class="separator:adea296e2d4cafa290794599b62e2abdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa21d6e5d9eea16e4fb57845d93d1ec4b"><td class="memItemLeft" align="right" valign="top"><a id="aa21d6e5d9eea16e4fb57845d93d1ec4b"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>readFormatedFile</b> (std::string fileName)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:aa21d6e5d9eea16e4fb57845d93d1ec4b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_structural_analysis_class.html#aa21d6e5d9eea16e4fb57845d93d1ec4b">readFormatedFile</a> (std::string fileName)</td></tr>
 <tr class="separator:aa21d6e5d9eea16e4fb57845d93d1ec4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57fe62169a4032b8c8393d9adb058343"><td class="memItemLeft" align="right" valign="top"><a id="a57fe62169a4032b8c8393d9adb058343"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>readFromFile_ElemList</b> (std::ifstream *openedFile)</td></tr>
+<tr class="memitem:a57fe62169a4032b8c8393d9adb058343"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_structural_analysis_class.html#a57fe62169a4032b8c8393d9adb058343">readFromFile_ElemList</a> (std::ifstream *openedFile)</td></tr>
 <tr class="separator:a57fe62169a4032b8c8393d9adb058343"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad81d20f7c98e21692e68db5019d0e8ae"><td class="memItemLeft" align="right" valign="top"><a id="ad81d20f7c98e21692e68db5019d0e8ae"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>readFromFile_NodeList</b> (std::ifstream *openedFile)</td></tr>
+<tr class="memitem:ad81d20f7c98e21692e68db5019d0e8ae"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_structural_analysis_class.html#ad81d20f7c98e21692e68db5019d0e8ae">readFromFile_NodeList</a> (std::ifstream *openedFile)</td></tr>
 <tr class="separator:ad81d20f7c98e21692e68db5019d0e8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1ca226998df962bc3ea65513da9b938"><td class="memItemLeft" align="right" valign="top"><a id="aa1ca226998df962bc3ea65513da9b938"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>readFromFile_Material</b> (std::ifstream *openedFile)</td></tr>
-<tr class="separator:aa1ca226998df962bc3ea65513da9b938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca53b1f1642a1dae799df8f906479f93"><td class="memItemLeft" align="right" valign="top"><a id="aca53b1f1642a1dae799df8f906479f93"></a>
-virtual Eigen::Matrix&lt; unsigned int, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>computeDegreesOfFreedom</b> ()</td></tr>
+<tr class="memitem:aca53b1f1642a1dae799df8f906479f93"><td class="memItemLeft" align="right" valign="top">virtual Eigen::Matrix&lt; unsigned int, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_structural_analysis_class.html#aca53b1f1642a1dae799df8f906479f93">computeDegreesOfFreedom</a> ()</td></tr>
 <tr class="separator:aca53b1f1642a1dae799df8f906479f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a773fa080feae6b17e47e58e5ed810885"><td class="memItemLeft" align="right" valign="top"><a id="a773fa080feae6b17e47e58e5ed810885"></a>
-virtual Eigen::SparseMatrix&lt; numericType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateGlobalStiffMat</b> ()</td></tr>
+<tr class="memitem:a773fa080feae6b17e47e58e5ed810885"><td class="memItemLeft" align="right" valign="top">virtual Eigen::SparseMatrix&lt; numericType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_structural_analysis_class.html#a773fa080feae6b17e47e58e5ed810885">evaluateGlobalStiffMat</a> ()</td></tr>
 <tr class="separator:a773fa080feae6b17e47e58e5ed810885"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ae8b924f3c1c20f131db1570544cb90"><td class="memItemLeft" align="right" valign="top"><a id="a8ae8b924f3c1c20f131db1570544cb90"></a>
 virtual Eigen::Matrix&lt; numericType, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateGlobalDisplacVec</b> ()</td></tr>
@@ -108,8 +104,8 @@ virtual Eigen::Matrix&lt; numericType, Eigen::Dynamic, 1 &gt;&#160;</td><td clas
 virtual Eigen::Matrix&lt; numericType, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rotationMatrix</b> (Eigen::Matrix&lt; numericType, Eigen::Dynamic, 1 &gt; &amp;dirElemVec) const =0</td></tr>
 <tr class="separator:a110e4cdc86a9e8611dade6db8751f02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr class="memitem:ad40dbcb71e338b8cd998ad4bf80fef1a"><td class="memItemLeft" align="right" valign="top"><a id="ad40dbcb71e338b8cd998ad4bf80fef1a"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>m_nDim</b></td></tr>
 <tr class="separator:ad40dbcb71e338b8cd998ad4bf80fef1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,9 +136,9 @@ std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bot
 <tr class="memitem:a1007e2a6feb183e4f2aa79cc44eb9bd1"><td class="memItemLeft" align="right" valign="top"><a id="a1007e2a6feb183e4f2aa79cc44eb9bd1"></a>
 std::vector&lt; nodeClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_nodeList</b></td></tr>
 <tr class="separator:a1007e2a6feb183e4f2aa79cc44eb9bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a950eab6be3c966121023a6a9797184"><td class="memItemLeft" align="right" valign="top"><a id="a7a950eab6be3c966121023a6a9797184"></a>
-std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_fixedNodes</b></td></tr>
-<tr class="separator:a7a950eab6be3c966121023a6a9797184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037d04d00f755b1d9d95e880e5c09312"><td class="memItemLeft" align="right" valign="top"><a id="a037d04d00f755b1d9d95e880e5c09312"></a>
+std::set&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_fixedNodes</b></td></tr>
+<tr class="separator:a037d04d00f755b1d9d95e880e5c09312"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af71b3fd8032c8ac1e177ae6b97a91d1c"><td class="memItemLeft" align="right" valign="top"><a id="af71b3fd8032c8ac1e177ae6b97a91d1c"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_fileInputName</b></td></tr>
 <tr class="separator:af71b3fd8032c8ac1e177ae6b97a91d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -290,6 +286,168 @@ template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Default Destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aca53b1f1642a1dae799df8f906479f93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca53b1f1642a1dae799df8f906479f93">&#9670;&nbsp;</a></span>computeDegreesOfFreedom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt; unsigned int, Eigen::Dynamic, 1 &gt; <a class="el" href="classbase_structural_analysis_class.html">baseStructuralAnalysisClass</a>&lt; numericType, elemClass, nodeClass &gt;::computeDegreesOfFreedom </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Method to run all the set of nodes and create the DoF order. </p><dl class="section return"><dt>Returns</dt><dd>vector with </dd></dl>
+
+</div>
+</div>
+<a id="a773fa080feae6b17e47e58e5ed810885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a773fa080feae6b17e47e58e5ed810885">&#9670;&nbsp;</a></span>evaluateGlobalStiffMat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::SparseMatrix&lt; numericType &gt; <a class="el" href="classbase_structural_analysis_class.html">baseStructuralAnalysisClass</a>&lt; numericType, elemClass, nodeClass &gt;::evaluateGlobalStiffMat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Method to evaluate the global stiffness matrix. </p><dl class="section return"><dt>Returns</dt><dd>Global stiffness matrix. </dd></dl>
+
+</div>
+</div>
+<a id="aa21d6e5d9eea16e4fb57845d93d1ec4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa21d6e5d9eea16e4fb57845d93d1ec4b">&#9670;&nbsp;</a></span>readFormatedFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classbase_structural_analysis_class.html">baseStructuralAnalysisClass</a>&lt; numericType, elemClass, nodeClass &gt;::readFormatedFile </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Method: reads a formated file to store all initial information about the structure. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>file name (and optional directory). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>flag. </dd></dl>
+
+</div>
+</div>
+<a id="a57fe62169a4032b8c8393d9adb058343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57fe62169a4032b8c8393d9adb058343">&#9670;&nbsp;</a></span>readFromFile_ElemList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classbase_structural_analysis_class.html">baseStructuralAnalysisClass</a>&lt; numericType, elemClass, nodeClass &gt;::readFromFile_ElemList </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream *&#160;</td>
+          <td class="paramname"><em>openedFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Method: reads PART of a formated file to store the list of elements. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>opened file (and already positioned). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>flag. </dd></dl>
+
+</div>
+</div>
+<a id="ad81d20f7c98e21692e68db5019d0e8ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad81d20f7c98e21692e68db5019d0e8ae">&#9670;&nbsp;</a></span>readFromFile_NodeList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classbase_structural_analysis_class.html">baseStructuralAnalysisClass</a>&lt; numericType, elemClass, nodeClass &gt;::readFromFile_NodeList </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream *&#160;</td>
+          <td class="paramname"><em>openedFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Method: reads PART of a formated file to store the list of nodes. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>opened file (and already positioned). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>flag. </dd></dl>
 
 </div>
 </div>

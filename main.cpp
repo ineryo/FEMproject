@@ -1,5 +1,7 @@
+
 #include <iostream>
 #include <Eigen/Dense>
+#include <set>
 
 #include "elementClass_Q4.hpp"
 #include "elementClass_T6.hpp"
@@ -118,6 +120,19 @@ int main() {
     std::cout << std::endl << std::endl << "K:" << std::endl <<  foi_T6.sprMatK() << std::endl;
 
     std::cout << "Hello, World!" << std::endl;
+
+
+    std::set<unsigned int> lista;
+    lista.insert(1);
+    lista.insert(3);
+    lista.insert(5);
+    lista.insert(10);
+    lista.insert(2);
+    lista.insert(0);
+
+    for (auto it = lista.begin(); it != lista.end(); ++it)
+        std::cout << *it << "\n";
+
 
     return 0;
 }

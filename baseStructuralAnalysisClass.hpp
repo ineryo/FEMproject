@@ -9,6 +9,7 @@
 #include <iomanip>
 #include <type_traits>
 #include <string>
+#include <set>
 #include <fstream>
 #include <Eigen/Dense>
 #include <Eigen/Sparse>
@@ -72,14 +73,39 @@ public:
     // VIRTUAL METHODS
     virtual unsigned int doStructuralAnalysis();
 
-//protected:
-    // VIRTUAL METHODS
+protected:
+    /**
+     * Method: reads a formated file to store all initial information about the structure.
+     * @param fileName file name (and optional directory).
+     * @return flag.
+     */
     virtual bool readFormatedFile(std::string fileName);
-    virtual bool readFromFile_ElemList(std::ifstream* openedFile);
-    virtual bool readFromFile_NodeList(std::ifstream* openedFile);
-    virtual bool readFromFile_Material(std::ifstream* openedFile);
 
+    /**
+     * Method: reads PART of a formated file to store the list of elements.
+     * @param fileName opened file (and already positioned).
+     * @return flag.
+     */
+    virtual bool readFromFile_ElemList(std::ifstream* openedFile);
+
+
+    /**
+     * Method: reads PART of a formated file to store the list of nodes.
+     * @param fileName opened file (and already positioned).
+     * @return flag.
+     */
+    virtual bool readFromFile_NodeList(std::ifstream* openedFile);
+
+    /**
+     * Method to run all the set of nodes and create the DoF order.
+     * @return vector with
+     */
     virtual Eigen::Matrix<unsigned int,Eigen::Dynamic,1>computeDegreesOfFreedom();
+
+    /**
+     * Method to evaluate the global stiffness matrix.
+     * @return Global stiffness matrix.
+     */
     virtual Eigen::SparseMatrix<numericType>    evaluateGlobalStiffMat();
     virtual Eigen::Matrix<numericType,Eigen::Dynamic,1>evaluateGlobalDisplacVec();
 
@@ -107,7 +133,7 @@ public:
     // List of nodes
     std::vector<nodeClass> m_nodeList;
     // List of fixed nodes
-    std::vector<unsigned int> m_fixedNodes;
+    std::set<unsigned int> m_fixedNodes;
     // Name of the file input
     std::string m_fileInputName;
     // Report status of the linear solver computation
@@ -174,51 +200,47 @@ template<class numericType, class elemClass, class nodeClass>
 unsigned int baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
 ::doStructuralAnalysis()
 {
-    bool flag = true;
+    bool flag = m_isInitialStructureSaved;
     unsigned int numOperations = 0;
 
     // Read file!
-    flag = readFormatedFile(m_fileInputName);
-    if (flag)
-    {
+    if(!flag) {
+        flag = readFormatedFile(m_fileInputName);
+    }
+
+    if (flag) {
         ++numOperations;
         // evaluate all Local Rotation Matrix!
         //flag = evaluateLocalRotationMat();
-        if (flag)
-        {
+        if (flag) {
             ++numOperations;
             // compute Degrees of Freedom!
             computeDegreesOfFreedom();
             flag = m_isDegreeOfFreedomVecComputed;
-            if (flag)
-            {
+            if (flag) {
                 ++numOperations;
                 // evaluate Global Force Vector!
                 evaluateGlobalnodeForceVec();
                 flag = m_isGlbnodeForceVecComputed;
-                if (flag)
-                {
+                if (flag) {
                     ++numOperations;
                     // evaluate Global Stiffness Matrix!
                     evaluateGlobalStiffMat();
                     flag = m_isGlbStiffMatComputed;
-                    if (flag)
-                    {
+                    if (flag) {
                         ++numOperations;
                         // evaluate Global Displacement Vector (solve problem)!
                         evaluateGlobalDisplacVec();
                         flag = m_isGlbDisplacVecComputed;
-                        if (flag)
-                        {
+                        if (flag) {
                             ++numOperations;
                             // update Local Nodal Information!
                             flag = updateLocalNodeInfo();
-                            if (flag)
-                            {
+                            if (flag) {
                                 ++numOperations;
                                 // evaluate Local Element Information!
                                 flag = updateLocalElemInfo();
-                                if (flag)   {   ++numOperations;    }
+                                if (flag) { ++numOperations; }
                             }
                         }
                     }
@@ -236,6 +258,8 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
     bool flagOpen = false;
     bool flagElem = false;
     bool flagNode = false;
+    bool flagForceElem = false;
+    bool flagFixedNode = false;
 
     if( !m_isInitialStructureSaved )
     {
@@ -291,6 +315,7 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                     while (std::getline(thisLine, pieceLine, ',')){
                         m_elemListWithPressureApplied.push_back(curAux++);
                     }
+                    flagForceElem = true;
                 }
 
                 // Check if it list fixed nodes
@@ -311,15 +336,16 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
 
                     unsigned int curValue;
                     for(curValue=(auxBegin-1); curValue<auxEnd; curValue+=auxStep) {
-                        m_fixedNodes.push_back(curValue);
+                        m_fixedNodes.insert(curValue);
                     }
                 }
+                flagFixedNode = true;
             }
             inFile.close();
         }
     }
 
-    m_isInitialStructureSaved = (m_isInitialStructureSaved) || (flagOpen && flagElem && flagNode);
+    m_isInitialStructureSaved = (m_isInitialStructureSaved) || (flagOpen && flagElem && flagNode && flagForceElem && flagFixedNode);
     return m_isInitialStructureSaved;
 }
 
@@ -449,27 +475,25 @@ Eigen::Matrix<unsigned int, Eigen::Dynamic, 1> baseStructuralAnalysisClass<numer
         Eigen::Matrix<numericType,Eigen::Dynamic,1> curNode_isFixedVec;
         unsigned int actualDegreeFreedom = 0;
         unsigned int curNode;
+        unsigned int firstNonFixed = 0;
+        unsigned int nextFixed = 0;
         unsigned int curDegAtNode;
 
         // Searching all nodes
-        for(curNode = 0; curNode<numNode; ++curNode)
-        {
-            // Saving "DoF" of each node
-            curNode_isFixedVec = m_nodeList[curNode].isItFixed();
-
-            // Searching all "DoF" at current node
-            for(curDegAtNode = 0; curDegAtNode<numNodeDegFree; ++curDegAtNode)
-            {
-                // Verifying each "DoF" at current node
-                if( curNode_isFixedVec(curDegAtNode) == 0 )
-                {
+        for (auto it = m_fixedNodes.begin(); it != m_fixedNodes.end(); ++it) {
+            nextFixed = *it;
+            for (curNode = firstNonFixed; curNode < nextFixed; ++curNode) {
+                // Searching all "DoF" at current node
+                for (curDegAtNode = 0; curDegAtNode < numNodeDegFree; ++curDegAtNode) {
                     // If it is an actual free degree, update the number of actual DoF and save it
-                    degreesFreedomVec(curNode*numNodeDegFree+curDegAtNode) = ++actualDegreeFreedom;
+                    degreesFreedomVec(curDegAtNode + curNode * numNodeDegFree) = ++actualDegreeFreedom;
                 }
             }
+            m_nTotalDoF = actualDegreeFreedom;
+            m_degFreeVec = degreesFreedomVec;
+
+            firstNonFixed = nextFixed+1;
         }
-        m_nTotalDoF = actualDegreeFreedom;
-        m_degFreeVec = degreesFreedomVec;
     }
 
     // Updating flag

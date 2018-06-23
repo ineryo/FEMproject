@@ -34,36 +34,40 @@
   <component name="ChangeListManager">
     <list default="true" id="689990d1-8a8a-49eb-bcc5-64b613622b12" name="Default" comment="Pega ai Lucas!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEMPORARIO_AQUI_LUCAS_parteDeLeituraDeArquivos.hpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/baseStructuralAnalysisClass.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/baseStructuralAnalysisClass.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/main.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/annotated.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/annotated.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/classelement_class___q4-members.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/classelement_class___q4-members.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/classelement_class___q4.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/classelement_class___q4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/classes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/element_class___q4_8hpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/element_class___q4_8hpp_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/files.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/files.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/functions.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/functions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/functions_func.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/functions_func.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/all_0.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/all_0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/all_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/all_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/all_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/all_3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/all_4.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/all_4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/all_5.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/all_5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/all_6.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/all_6.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/classes_0.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/classes_0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/classes_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/classes_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/functions_0.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/functions_0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/functions_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/functions_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/functions_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/functions_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/functions_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/functions_3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/functions_4.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/functions_4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/searchdata.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/searchdata.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/latex/annotated.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/latex/annotated.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/latex/classelement_class___q4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/latex/classelement_class___q4.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/latex/refman.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/latex/refman.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elementClass_Q4.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/elementClass_Q4.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileComunicationFunctions.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/FEMproject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/FEMproject.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_t_e_m_p_o_r_a_r_i_o___a_q_u_i___l_u_c_a_s__parte_de_leitura_de_arquivos_8hpp_source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/base_elem_class_8hpp_source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/base_elem_isopar_class_8hpp_source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classbase_elem_class-members.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classbase_elem_class.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classbase_elem_isopar_class-members.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classbase_elem_isopar_class.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classelement_isopar___q4-members.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classelement_isopar___q4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classelement_isopar___q4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classin_base_structural_analysis-members.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classin_base_structural_analysis.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/element_isopar___q4_8hpp_source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/file_comunication_functions_8hpp_source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/functions_vars.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/hierarchy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/all_6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/all_6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/classes_2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/classes_2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/variables_0.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/variables_0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/classbase_elem_class.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/classbase_elem_isopar_class.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/classelement_isopar___q4.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/classelement_isopar___q4.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/classin_base_structural_analysis.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/hierarchy.tex" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -80,10 +84,10 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="60" column="127" selection-start-line="60" selection-start-column="127" selection-end-line="60" selection-end-column="127" />
+            <state relative-caret-position="459">
+              <caret line="133" column="33" selection-start-line="132" selection-start-column="4" selection-end-line="133" selection-end-column="33" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#1#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,12 +117,16 @@
       <file leaf-file-name="baseStructuralAnalysisClass.hpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/baseStructuralAnalysisClass.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="379" column="29" lean-forward="true" selection-start-line="379" selection-start-column="29" selection-end-line="379" selection-end-column="29" />
+            <state relative-caret-position="396">
+              <caret line="224" column="27" lean-forward="true" selection-start-line="224" selection-start-column="27" selection-end-line="224" selection-end-column="27" />
               <folding>
                 <element signature="e#145#164#0" expanded="true" />
-                <element signature="e#5790#5843#0" expanded="true" />
-                <element signature="e#13352#13405#0" expanded="true" />
+                <element signature="e#6555#6608#0" expanded="true" />
+                <element signature="e#7831#9170#0" />
+                <element signature="e#9172#11333#0" />
+                <element signature="e#11335#13342#0" />
+                <element signature="e#16194#16247#0" expanded="true" />
+                <element signature="e#16145#17981#0" />
               </folding>
             </state>
           </provider>
@@ -137,7 +145,7 @@
         <entry file="file://$PROJECT_DIR$/Q4_encastre.inp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="389">
-              <caret line="81" column="10" lean-forward="true" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
+              <caret line="81" column="10" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -169,9 +177,9 @@
         <option value="$PROJECT_DIR$/elementIsopar_Q4.hpp" />
         <option value="$PROJECT_DIR$/baseElemClass.hpp" />
         <option value="$PROJECT_DIR$/Q4_encastre.inp" />
-        <option value="$PROJECT_DIR$/baseStructuralAnalysisClass.hpp" />
         <option value="$PROJECT_DIR$/elementClass_Q4.hpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/baseStructuralAnalysisClass.hpp" />
       </list>
     </option>
   </component>
@@ -215,6 +223,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -254,7 +263,7 @@
       <workItem from="1529501855983" duration="15383000" />
       <workItem from="1529584048531" duration="21213000" />
       <workItem from="1529690469349" duration="5104000" />
-      <workItem from="1529696242322" duration="9649000" />
+      <workItem from="1529696242322" duration="18455000" />
     </task>
     <task id="LOCAL-00001" summary="Pega ai Lucas!">
       <created>1529608391384</created>
@@ -267,7 +276,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65719000" />
+    <option name="totallyTimeSpent" value="74525000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -351,8 +360,12 @@
           <caret line="307" column="21" lean-forward="true" selection-start-line="307" selection-start-column="21" selection-end-line="309" selection-end-column="64" />
           <folding>
             <element signature="e#145#164#0" expanded="true" />
-            <element signature="e#5790#5843#0" expanded="true" />
-            <element signature="e#13352#13405#0" expanded="true" />
+            <element signature="e#6555#6608#0" expanded="true" />
+            <element signature="e#7831#9170#0" />
+            <element signature="e#9172#11333#0" />
+            <element signature="e#11335#13342#0" />
+            <element signature="e#16194#16247#0" expanded="true" />
+            <element signature="e#16145#17981#0" />
           </folding>
         </state>
       </provider>
@@ -362,7 +375,7 @@
         <state relative-caret-position="714">
           <caret line="42" column="29" lean-forward="true" selection-start-line="42" selection-start-column="29" selection-end-line="43" selection-end-column="71" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -397,8 +410,12 @@
           <caret line="297" column="17" lean-forward="true" selection-start-line="297" selection-start-column="17" selection-end-line="297" selection-end-column="17" />
           <folding>
             <element signature="e#145#164#0" expanded="true" />
-            <element signature="e#5790#5843#0" expanded="true" />
-            <element signature="e#13352#13405#0" expanded="true" />
+            <element signature="e#6555#6608#0" expanded="true" />
+            <element signature="e#7831#9170#0" />
+            <element signature="e#9172#11333#0" />
+            <element signature="e#11335#13342#0" />
+            <element signature="e#16194#16247#0" expanded="true" />
+            <element signature="e#16145#17981#0" />
           </folding>
         </state>
       </provider>
@@ -408,7 +425,7 @@
         <state relative-caret-position="510">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -443,7 +460,7 @@
         <state relative-caret-position="85">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -475,7 +492,7 @@
         <state relative-caret-position="85">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -507,7 +524,7 @@
         <state relative-caret-position="85">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -539,7 +556,7 @@
         <state relative-caret-position="85">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -571,7 +588,7 @@
         <state relative-caret-position="340">
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -657,17 +674,7 @@
     <entry file="file://$PROJECT_DIR$/Q4_encastre.inp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
-          <caret line="81" column="10" lean-forward="true" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="60" column="127" selection-start-line="60" selection-start-column="127" selection-end-line="60" selection-end-column="127" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+          <caret line="81" column="10" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -678,14 +685,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="133" column="33" selection-start-line="132" selection-start-column="4" selection-end-line="133" selection-end-column="33" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/baseStructuralAnalysisClass.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="379" column="29" lean-forward="true" selection-start-line="379" selection-start-column="29" selection-end-line="379" selection-end-column="29" />
+        <state relative-caret-position="396">
+          <caret line="224" column="27" lean-forward="true" selection-start-line="224" selection-start-column="27" selection-end-line="224" selection-end-column="27" />
           <folding>
             <element signature="e#145#164#0" expanded="true" />
-            <element signature="e#5790#5843#0" expanded="true" />
-            <element signature="e#13352#13405#0" expanded="true" />
+            <element signature="e#6555#6608#0" expanded="true" />
+            <element signature="e#7831#9170#0" />
+            <element signature="e#9172#11333#0" />
+            <element signature="e#11335#13342#0" />
+            <element signature="e#16194#16247#0" expanded="true" />
+            <element signature="e#16145#17981#0" />
           </folding>
         </state>
       </provider>

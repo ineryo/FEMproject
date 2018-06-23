@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['setvalues',['setValues',['../classeigen_linear_solver_info.html#ac7e5d54107cd77c21fc6865d3e9f8905',1,'eigenLinearSolverInfo']]],
-  ['sprmatb',['sprMatB',['../classelement_class___q4.html#a7503f92c139700e19433c2843496b670',1,'elementClass_Q4::sprMatB()'],['../classelement_class___t6.html#a03adb5b9a48edd11f48d1749e388ab40',1,'elementClass_T6::sprMatB()']]],
-  ['sprmatk',['sprMatK',['../classelement_class___q4.html#afcfb65b64fe9909300405219739ed496',1,'elementClass_Q4::sprMatK()'],['../classelement_class___t6.html#a7f9d1575134a4afe28a5505ce4e6de4d',1,'elementClass_T6::sprMatK()']]],
-  ['sprmatn',['sprMatN',['../classelement_class___q4.html#adc47e0786349f327fe45e3744080d3c5',1,'elementClass_Q4::sprMatN()'],['../classelement_class___t6.html#ad8f57028dfbb4215979ef16b88d65957',1,'elementClass_T6::sprMatN()']]]
+  ['getm_5fnodalconnectivity',['getM_nodalConnectivity',['../classelement_class___q4.html#abe3f00cce16a360c1810f50f56fff445',1,'elementClass_Q4::getM_nodalConnectivity()'],['../classelement_class___t6.html#aee26f002dd5cc8d34f03e7ef008a7208',1,'elementClass_T6::getM_nodalConnectivity()']]]
 ];

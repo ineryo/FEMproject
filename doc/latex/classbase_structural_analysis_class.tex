@@ -15,24 +15,19 @@
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_adea296e2d4cafa290794599b62e2abdd}\label{classbase_structural_analysis_class_adea296e2d4cafa290794599b62e2abdd}} 
 virtual unsigned int {\bfseries do\+Structural\+Analysis} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_aa21d6e5d9eea16e4fb57845d93d1ec4b}\label{classbase_structural_analysis_class_aa21d6e5d9eea16e4fb57845d93d1ec4b}} 
-virtual bool {\bfseries read\+Formated\+File} (std\+::string file\+Name)
+virtual bool \mbox{\hyperlink{classbase_structural_analysis_class_aa21d6e5d9eea16e4fb57845d93d1ec4b}{read\+Formated\+File}} (std\+::string file\+Name)
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_a57fe62169a4032b8c8393d9adb058343}\label{classbase_structural_analysis_class_a57fe62169a4032b8c8393d9adb058343}} 
-virtual bool {\bfseries read\+From\+File\+\_\+\+Elem\+List} (std\+::ifstream $\ast$opened\+File)
+virtual bool \mbox{\hyperlink{classbase_structural_analysis_class_a57fe62169a4032b8c8393d9adb058343}{read\+From\+File\+\_\+\+Elem\+List}} (std\+::ifstream $\ast$opened\+File)
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_ad81d20f7c98e21692e68db5019d0e8ae}\label{classbase_structural_analysis_class_ad81d20f7c98e21692e68db5019d0e8ae}} 
-virtual bool {\bfseries read\+From\+File\+\_\+\+Node\+List} (std\+::ifstream $\ast$opened\+File)
+virtual bool \mbox{\hyperlink{classbase_structural_analysis_class_ad81d20f7c98e21692e68db5019d0e8ae}{read\+From\+File\+\_\+\+Node\+List}} (std\+::ifstream $\ast$opened\+File)
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_aa1ca226998df962bc3ea65513da9b938}\label{classbase_structural_analysis_class_aa1ca226998df962bc3ea65513da9b938}} 
-virtual bool {\bfseries read\+From\+File\+\_\+\+Material} (std\+::ifstream $\ast$opened\+File)
+virtual Eigen\+::\+Matrix$<$ unsigned int, Eigen\+::\+Dynamic, 1 $>$ \mbox{\hyperlink{classbase_structural_analysis_class_aca53b1f1642a1dae799df8f906479f93}{compute\+Degrees\+Of\+Freedom}} ()
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_aca53b1f1642a1dae799df8f906479f93}\label{classbase_structural_analysis_class_aca53b1f1642a1dae799df8f906479f93}} 
-virtual Eigen\+::\+Matrix$<$ unsigned int, Eigen\+::\+Dynamic, 1 $>$ {\bfseries compute\+Degrees\+Of\+Freedom} ()
-\item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}\label{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}} 
-virtual Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ {\bfseries evaluate\+Global\+Stiff\+Mat} ()
+virtual Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}{evaluate\+Global\+Stiff\+Mat}} ()
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_a8ae8b924f3c1c20f131db1570544cb90}\label{classbase_structural_analysis_class_a8ae8b924f3c1c20f131db1570544cb90}} 
 virtual Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ {\bfseries evaluate\+Global\+Displac\+Vec} ()
@@ -40,7 +35,7 @@ virtual Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ {\bfseries
 \mbox{\Hypertarget{classbase_structural_analysis_class_a110e4cdc86a9e8611dade6db8751f02d}\label{classbase_structural_analysis_class_a110e4cdc86a9e8611dade6db8751f02d}} 
 virtual Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ {\bfseries rotation\+Matrix} (Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ \&dir\+Elem\+Vec) const =0
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_ad40dbcb71e338b8cd998ad4bf80fef1a}\label{classbase_structural_analysis_class_ad40dbcb71e338b8cd998ad4bf80fef1a}} 
@@ -73,8 +68,8 @@ std\+::vector$<$ unsigned int $>$ {\bfseries m\+\_\+elem\+List\+With\+Pressure\+
 \mbox{\Hypertarget{classbase_structural_analysis_class_a1007e2a6feb183e4f2aa79cc44eb9bd1}\label{classbase_structural_analysis_class_a1007e2a6feb183e4f2aa79cc44eb9bd1}} 
 std\+::vector$<$ node\+Class $>$ {\bfseries m\+\_\+node\+List}
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_a7a950eab6be3c966121023a6a9797184}\label{classbase_structural_analysis_class_a7a950eab6be3c966121023a6a9797184}} 
-std\+::vector$<$ unsigned int $>$ {\bfseries m\+\_\+fixed\+Nodes}
+\mbox{\Hypertarget{classbase_structural_analysis_class_a037d04d00f755b1d9d95e880e5c09312}\label{classbase_structural_analysis_class_a037d04d00f755b1d9d95e880e5c09312}} 
+std\+::set$<$ unsigned int $>$ {\bfseries m\+\_\+fixed\+Nodes}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_af71b3fd8032c8ac1e177ae6b97a91d1c}\label{classbase_structural_analysis_class_af71b3fd8032c8ac1e177ae6b97a91d1c}} 
 std\+::string {\bfseries m\+\_\+file\+Input\+Name}
@@ -175,6 +170,74 @@ Read-\/file constructor.
 \mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::$\sim$\mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Default Destructor. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbase_structural_analysis_class_aca53b1f1642a1dae799df8f906479f93}\label{classbase_structural_analysis_class_aca53b1f1642a1dae799df8f906479f93}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!compute\+Degrees\+Of\+Freedom@{compute\+Degrees\+Of\+Freedom}}
+\index{compute\+Degrees\+Of\+Freedom@{compute\+Degrees\+Of\+Freedom}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{compute\+Degrees\+Of\+Freedom()}{computeDegreesOfFreedom()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+Eigen\+::\+Matrix$<$ unsigned int, Eigen\+::\+Dynamic, 1 $>$ \mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::compute\+Degrees\+Of\+Freedom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Method to run all the set of nodes and create the DoF order. \begin{DoxyReturn}{Returns}
+vector with 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}\label{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!evaluate\+Global\+Stiff\+Mat@{evaluate\+Global\+Stiff\+Mat}}
+\index{evaluate\+Global\+Stiff\+Mat@{evaluate\+Global\+Stiff\+Mat}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{evaluate\+Global\+Stiff\+Mat()}{evaluateGlobalStiffMat()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::evaluate\+Global\+Stiff\+Mat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Method to evaluate the global stiffness matrix. \begin{DoxyReturn}{Returns}
+Global stiffness matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbase_structural_analysis_class_aa21d6e5d9eea16e4fb57845d93d1ec4b}\label{classbase_structural_analysis_class_aa21d6e5d9eea16e4fb57845d93d1ec4b}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!read\+Formated\+File@{read\+Formated\+File}}
+\index{read\+Formated\+File@{read\+Formated\+File}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{read\+Formated\+File()}{readFormatedFile()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+bool \mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::read\+Formated\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Method\+: reads a formated file to store all initial information about the structure. 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & file name (and optional directory). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+flag. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbase_structural_analysis_class_a57fe62169a4032b8c8393d9adb058343}\label{classbase_structural_analysis_class_a57fe62169a4032b8c8393d9adb058343}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!read\+From\+File\+\_\+\+Elem\+List@{read\+From\+File\+\_\+\+Elem\+List}}
+\index{read\+From\+File\+\_\+\+Elem\+List@{read\+From\+File\+\_\+\+Elem\+List}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{read\+From\+File\+\_\+\+Elem\+List()}{readFromFile\_ElemList()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+bool \mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::read\+From\+File\+\_\+\+Elem\+List (\begin{DoxyParamCaption}\item[{std\+::ifstream $\ast$}]{opened\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Method\+: reads P\+A\+RT of a formated file to store the list of elements. 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & opened file (and already positioned). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+flag. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbase_structural_analysis_class_ad81d20f7c98e21692e68db5019d0e8ae}\label{classbase_structural_analysis_class_ad81d20f7c98e21692e68db5019d0e8ae}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!read\+From\+File\+\_\+\+Node\+List@{read\+From\+File\+\_\+\+Node\+List}}
+\index{read\+From\+File\+\_\+\+Node\+List@{read\+From\+File\+\_\+\+Node\+List}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{read\+From\+File\+\_\+\+Node\+List()}{readFromFile\_NodeList()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+bool \mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::read\+From\+File\+\_\+\+Node\+List (\begin{DoxyParamCaption}\item[{std\+::ifstream $\ast$}]{opened\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Method\+: reads P\+A\+RT of a formated file to store the list of nodes. 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & opened file (and already positioned). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+flag. 
+\end{DoxyReturn}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

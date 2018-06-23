@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My FEM Project: FEMproject</title>
+<title>My FEM Project: README</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,27 +62,133 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">FEMproject </div>  </div>
+<div class="title">README </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Finite Element Method's Project</p>
-<h1>Igor-Lucas</h1>
-<h2>Projeto atual</h2>
-<p>Projeto Final Elementos FInitos</p>
-<h2>Status</h2>
-<h3>Pre-Processamento</h3>
+<div class="textblock"><h1>FEMproject</h1>
+<p>Trabaho Final da Disciplina de Introdução ao Metodo dos Elementos FInitos</p>
+<h1>Autores</h1>
+<p>Igor de Melo Nery de Oliveira Lucas Gouveia Omena Lopes</p>
+<h1>Projeto Final</h1>
+<p>Implementação dos Elementos Finitos Q4 e T6</p>
+<h1>Problema Estudado</h1>
+<p>Pilar En</p>
+<h2></h2>
+<h1>Introdução</h1>
+<h5>Correlação:</h5>
 <ul>
-<li>[X] Instalar Eigen</li>
-<li>[ ] Classe Elementos (Q4 e T6)</li>
-<li>[ ] Classe Nó</li>
-<li>[ ] Obtenção das propriedades globais</li>
-<li>[ ] Cálculo das tensões e deformações</li>
-<li>[ ] Leitura do Arquivo Abaqus</li>
-<li>[ ] Escrita dos resultados (arquivo de saida)</li>
-<li>[ ] Definição de exemplos a serem rodados</li>
-<li>[ ] Comparação de resultados com o abaqus</li>
-<li>[ ] Relatório</li>
+<li>É qualquer relação dentro de uma ampla classe de relações estatísticas que envolva dependência entre duas variáveis</li>
+<li>É comumente denotada como a medida de relação entre duas variáveis aleatórias</li>
+<li>Em alguns casos, correlação não identifica dependência entre as variáveis</li>
 </ul>
+<p>Fonte: <a href="https://en.wikipedia.org/wiki/Sensitivity_analysis">wikipedia</a> </p><hr/>
+<h1>Introdução</h1>
+<h5>Correlação não indica casualidade!</h5>
+<h2></h2>
+<p>Fontes: <a href="https://en.wikiversity.org/wiki/Correlation">wikiversity</a> | <a href="https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation">wikipedia</a> </p><hr/>
+<h1>Formulação</h1>
+<h5>Correlação populacional</h5>
+<p>Trata da medida da direção e do grau com que as variáveis X e Y se associam linearmente em uma população</p>
+<p>$$ {X,Y}= {cov(X,Y)}{ }={E [ ( X- ) ( Y- ) ]}{ } $$</p>
+<hr/>
+<h1>Formulação</h1>
+<h5>Correlação amostral (Pearson)</h5>
+<p>$$ r_{x,y} = {{i=1}^n ( x_i-u_x ) ( y_i-u_y ) }{S_x S_y} $$ $$ = {{i=1}^n ( x_i y_i ) -nu_xu_y }{n S_x S_y} $$</p>
+<h2>##  </h2>
+<h1>Metodologia</h1>
+<h5>Foi realizada a correlação entre as v.a. por tubo</h5>
+<ul>
+<li>avgWT: espessura média</li>
+<li>minWT: espessura mínima</li>
+<li>Ecc: excentricidade</li>
+<li>Ov: ovalização</li>
+<li>avgOD: diâmetro médio</li>
+<li>D/t: avgOD/minWT</li>
+</ul>
+<h1>Resultados</h1>
+<h1>Resultados</h1>
+<h5>Correlação por tubo e por v.a.</h5>
+<p>tubo x coeficiente de correlação </p><h2></h2>
+<hr/>
+<h1>Análise dos resultados</h1>
+<p>Espera-se que a correlação entre duas v.a., caso exista, seja constante para os diferentes tubos, o que resultaria numa curva aproximandamente constante.</p>
+<p>Ocorre grande variação desta curva para alguns pares de v.a., ainda que a média do coeficiente de correlação tenda a valores pequenos (&lt; 10%) em alguns casos.</p>
+<p>Destaca-se o valor médio obtido para minWT e Ecc, indicando forte correlação negativa. Maiores valores de excentricidade levam a espessuras mínimas cada vez menores, resultado coerente. </p><hr/>
+<h1>Análise dos resultados</h1>
+<p>A seguir apresentam-se gráficos com os valores dos pares de v.a., para todos os tubos. Cada ponto representa valores aferidos entre as duas v.a. na mesma seção transversal.</p>
+<p>Cada ponto apresenta uma seção, os mesmos foram coloridos de forma a representarem seus tubos.</p>
+<p>O gráfico a seguir demonstra a importância de realizar a análise de correlação tubo a tubo, em complemento a uma análise global, a qual pode indicar correlações equivocadas IGOR, SÃO EQUIVOCADAS MESMO? SERÁ QUE ELAS NÃO REFLETEM A REALIDADE DO PROBLEMA? VOCÊ ESCREVER ISSO ESTÁ CORRETO, PARA VALORIZAR O TUBO COMO UMA ENTIDADE ÚNICA DO PROCESSO DE MANUFATURA. PORÉM, PRECISAMOS PENSAR NO "PRODUTO" COMO UM TODO. </p><hr/>
+<h1>Resultados</h1>
+<h5>avgWT x minWT (fraca correlação linear positiva)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>avgWT x Ecc (não há correlação linear)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>avgWT x Ov (não há correlação linear)</h5>
+<h2></h2>
+<hr/>
+ <h1>Resultados</h1>
+<h5>avgWT x avgOD (moderada correlação linear negativa)</h5>
+<h2></h2>
+<hr/>
+ <h1>Resultados</h1>
+<h5>minWT x Ecc (forte correlação linear negativa)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>minWT x Ov (não há correlação linear)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>minWT x avgOD (não há correlação linear)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>Ecc x Ov (não há correlação linear)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>Ecc x avgOD (fraca correlação linear negativa)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
+<h2></h2>
+<hr/>
+<h1>Resultados</h1>
+<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
+<h2></h2>
+<hr/>
+<h1>FINAL</h1>
+<h6>Análise de correlação entre os dados</h6>
+<ul>
+<li>Avg WT x Min WT: a espessura média, calculada com base em valores mínimo e máximo daquela seção, reflete variações na espessura mínima.</li>
+<li>Avg WT x Avg OD: tendência de preservar a área da seção transversal, mesmo em face da variabilidade das dimensões.</li>
+<li>Min WT x Ecc: correlação alta, esperada. Espessuras mínimas pequenas mostram a tendência de excentricidade na seção.</li>
+<li>Ov x Avg OD: a média dos diâmetros é penalizada com a ocorrência de maiores valores de ovalização.</li>
+<li>Ecc x Avg OD: correlação não esperada, explicada pelas correlações destas v.a. com a espessura mínima [Min WT]</li>
+</ul>
+<h6>Igor de Melo Nery Oliveira</h6>
+<h6>Editado em: 13/06/2018</h6>
 <h2>Referencias até o momento</h2>
 <p><a href="http://eigen.tuxfamily.org/index.php?title=IDEs#Visual_Studio">Eigen Website - Instalation</a> </p>
 </div></div><!-- contents -->
