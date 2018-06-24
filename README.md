@@ -61,8 +61,10 @@ Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 ### Deformações
 ###  ![](Figuras/45E.png)
 
-## Número de Elementos x Deslocamentos 
+## Influência do Número de Elementos
 * Para avaliarmos a interferência do refinamento da malha nos resultados obtidos, realizou-se um estudo das tensões e deformações medidas nos elementos. Esse estudo pode ser fisto nas figuras a seguir (simulações do Abqus para variadas divisões de elementos), e no gráfico, que mostra a influência do resultado de acordo com o número de elementos.
+
+###  ![](Figuras/tabela.png)
 
 ### Q4
 ###  ![](Figuras/stress.png)
@@ -74,9 +76,29 @@ Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 
 ###  ![](Figuras/strain_t6.png)
 
+## Gráfico Número de Elementos x Tensões Máximas
+
+### Q4
+###  ![](Figuras/q4_elementxstress.png)
+
+
+### T6
+###  ![](Figuras/t6_elementxstress.png)
+
+## Gráfico Número de Elementos x Deformações Máximas
+
+### Q4
+###  ![](Figuras/q4_elementxstrain.png)
+
+
+### T6
+###  ![](Figuras/t6_elementxstrain.png)
+
+
 # Análise dos resultados
 
-
+* A partir dos resultados, avaliou-se a influência do refinamento da malha nos resultados das análises de elementos finitos. Malhas mais refinadas, além de fornecerem resultados com maior grau de suavidade e continuidade, apresentão um comportamento menos rígido em relação as malhas menos refinadas. Apesar de ser uma diferença não tão pronunciada, foi observado que elementos mais refinados tem tanto deformações quanto tensões mais acentuadas.
+* Foi constatado também que, para os elementos do tipo T6, a qualidade da resposta é inferior ao Q4, apesar das funções de interpolação quadrádicas utilizadas.
 
 
 ## Referencias até o momento
