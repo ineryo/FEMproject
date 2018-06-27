@@ -87,8 +87,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7503f92c139700e19433c2843496b670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcfb65b64fe9909300405219739ed496"><td class="memItemLeft" align="right" valign="top">Eigen::SparseMatrix&lt; numericType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classelement_class___q4.html#afcfb65b64fe9909300405219739ed496">sprMatK</a> (numericType youngModulus, numericType poissonRatio) const</td></tr>
 <tr class="separator:afcfb65b64fe9909300405219739ed496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69d0aa4dabfb2555d6d47d93fcfb34be"><td class="memItemLeft" align="right" valign="top">numericType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classelement_class___q4.html#a69d0aa4dabfb2555d6d47d93fcfb34be">evalArea</a> () const</td></tr>
+<tr class="separator:a69d0aa4dabfb2555d6d47d93fcfb34be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe3f00cce16a360c1810f50f56fff445"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classelement_class___q4.html#abe3f00cce16a360c1810f50f56fff445">getM_nodalConnectivity</a> () const</td></tr>
 <tr class="separator:abe3f00cce16a360c1810f50f56fff445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70653030dc6fd2a1032e1056d3e856e1"><td class="memItemLeft" align="right" valign="top">const Matrix&lt; numericType, 8, 1 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classelement_class___q4.html#a70653030dc6fd2a1032e1056d3e856e1">get_uVec</a> () const</td></tr>
+<tr class="separator:a70653030dc6fd2a1032e1056d3e856e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fe7247b89edfe1c70d3d81e6607d27a"><td class="memItemLeft" align="right" valign="top">const Matrix&lt; numericType, 3, 1 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classelement_class___q4.html#a8fe7247b89edfe1c70d3d81e6607d27a">get_eVec</a> () const</td></tr>
+<tr class="separator:a8fe7247b89edfe1c70d3d81e6607d27a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac170a307dec6500c8af43d45eb2589ff"><td class="memItemLeft" align="right" valign="top">const Matrix&lt; numericType, 3, 1 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classelement_class___q4.html#ac170a307dec6500c8af43d45eb2589ff">get_sigVec</a> () const</td></tr>
+<tr class="separator:ac170a307dec6500c8af43d45eb2589ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1be80202b67c397bfccbd406bb8e88f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classelement_class___q4.html#aa1be80202b67c397bfccbd406bb8e88f">evaluateStressStrain</a> (const Matrix&lt; numericType, 8, 1 &gt; &amp;uVec, numericType youngModulus, numericType posissonRatio)</td></tr>
+<tr class="separator:aa1be80202b67c397bfccbd406bb8e88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class numericType&gt;<br />
@@ -101,6 +111,152 @@ class elementClass_Q4&lt; numericType &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a69d0aa4dabfb2555d6d47d93fcfb34be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d0aa4dabfb2555d6d47d93fcfb34be">&#9670;&nbsp;</a></span>evalArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">numericType <a class="el" href="classelement_class___q4.html">elementClass_Q4</a>&lt; numericType &gt;::evalArea </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Evaluate the area of the element. </p><dl class="section return"><dt>Returns</dt><dd>area of the element. </dd></dl>
+
+</div>
+</div>
+<a id="aa1be80202b67c397bfccbd406bb8e88f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1be80202b67c397bfccbd406bb8e88f">&#9670;&nbsp;</a></span>evaluateStressStrain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classelement_class___q4.html">elementClass_Q4</a>&lt; numericType &gt;::evaluateStressStrain </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix&lt; numericType, 8, 1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>uVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">numericType&#160;</td>
+          <td class="paramname"><em>youngModulus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">numericType&#160;</td>
+          <td class="paramname"><em>posissonRatio</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Evaluates stress strain and saves it. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uVec</td><td>displacement vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8fe7247b89edfe1c70d3d81e6607d27a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe7247b89edfe1c70d3d81e6607d27a">&#9670;&nbsp;</a></span>get_eVec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Matrix&lt;numericType, 3, 1&gt;&amp; <a class="el" href="classelement_class___q4.html">elementClass_Q4</a>&lt; numericType &gt;::get_eVec </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the strain vector. </p><dl class="section return"><dt>Returns</dt><dd>displacement vector. </dd></dl>
+
+</div>
+</div>
+<a id="ac170a307dec6500c8af43d45eb2589ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac170a307dec6500c8af43d45eb2589ff">&#9670;&nbsp;</a></span>get_sigVec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Matrix&lt;numericType, 3, 1&gt;&amp; <a class="el" href="classelement_class___q4.html">elementClass_Q4</a>&lt; numericType &gt;::get_sigVec </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the stress vector. </p><dl class="section return"><dt>Returns</dt><dd>displacement vector. </dd></dl>
+
+</div>
+</div>
+<a id="a70653030dc6fd2a1032e1056d3e856e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70653030dc6fd2a1032e1056d3e856e1">&#9670;&nbsp;</a></span>get_uVec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Matrix&lt;numericType, 8, 1&gt;&amp; <a class="el" href="classelement_class___q4.html">elementClass_Q4</a>&lt; numericType &gt;::get_uVec </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the displacement vector. </p><dl class="section return"><dt>Returns</dt><dd>displacement vector. </dd></dl>
+
+</div>
+</div>
 <a id="abe3f00cce16a360c1810f50f56fff445"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abe3f00cce16a360c1810f50f56fff445">&#9670;&nbsp;</a></span>getM_nodalConnectivity()</h2>
 

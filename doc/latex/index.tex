@@ -1,274 +1,139 @@
 \section*{F\+E\+Mproject}
 
-Trabaho Final da Disciplina de Introdução ao Metodo dos Elementos F\+Initos
+Trabaho Final da Disciplina de Introdução ao Método dos Elementos Finitos
 
 \section*{Autores}
 
-Igor de Melo Nery de Oliveira Lucas Gouveia Omena Lopes
+
+\begin{DoxyItemize}
+\item Igor de Melo Nery de Oliveira
+\item Lucas Gouveia Omena Lopes
+\end{DoxyItemize}
 
 \section*{Projeto Final}
 
-Implementação dos Elementos Finitos Q4 e T6
+
+\begin{DoxyItemize}
+\item Implementação dos Elementos Finitos Q4 e T6 para resolução de um problema de uma estrutura submetida ao estado plano de tensões.
+\end{DoxyItemize}
 
 \section*{Problema Estudado}
 
-Pilar En
+Pilar engastado na base, e submetido a uma carga distribuída vertical no topo\+:
 
 \subsection*{}
 
-\section*{Introdução}
+\section*{Elementos em Estudo}
 
-\subparagraph*{Correlação\+:}
+\subparagraph*{Elemento Q4\+:}
 
 
 \begin{DoxyItemize}
-\item É qualquer relação dentro de uma ampla classe de relações estatísticas que envolva dependência entre duas variáveis
-\item É comumente denotada como a medida de relação entre duas variáveis aleatórias
-\item Em alguns casos, correlação não identifica dependência entre as variáveis
+\item Elemento Quadilateral de 4 nós
 \end{DoxyItemize}
 
-Fonte\+: \href{https://en.wikipedia.org/wiki/Sensitivity_analysis}{\tt wikipedia} 
-
-
-
-\section*{Introdução}
-
-\subparagraph*{Correlação não indica casualidade!}
-
 \subsection*{}
 
-Fontes\+: \href{https://en.wikiversity.org/wiki/Correlation}{\tt wikiversity} $\vert$ \href{https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation}{\tt wikipedia} 
-
-
-
-\section*{Formulação}
-
-\subparagraph*{Correlação populacional}
-
-Trata da medida da direção e do grau com que as variáveis X e Y se associam linearmente em uma população
-
-\$\$ \{X,Y\}= \{cov(\+X,\+Y)\}\{ \}=\{E \mbox{[} ( X-\/ ) ( Y-\/ ) \mbox{]}\}\{ \} \$\$
-
-
-
-
-
-\section*{Formulação}
-
-\subparagraph*{Correlação amostral (Pearson)}
-
-\$\$ r\+\_\+\{x,y\} = \{\{i=1\}$^\wedge$n ( x\+\_\+i-\/u\+\_\+x ) ( y\+\_\+i-\/u\+\_\+y ) \}\{S\+\_\+x S\+\_\+y\} \$\$ \$\$ = \{\{i=1\}$^\wedge$n ( x\+\_\+i y\+\_\+i ) -\/nu\+\_\+xu\+\_\+y \}\{n S\+\_\+x S\+\_\+y\} \$\$
-
-\subsection*{\#\#  }
-
-\section*{Metodologia}
-
-\subparagraph*{Foi realizada a correlação entre as v.\+a. por tubo}
+\subparagraph*{Elemento T6\+:}
 
 
 \begin{DoxyItemize}
-\item avg\+WT\+: espessura média
-\item min\+WT\+: espessura mínima
-\item Ecc\+: excentricidade
-\item Ov\+: ovalização
-\item avg\+OD\+: diâmetro médio
-\item D/t\+: avg\+O\+D/min\+WT
+\item Elemento Triangular de 6 nós
+\end{DoxyItemize}
+
+\subsection*{}
+
+\section*{Objetivos}
+
+
+\begin{DoxyItemize}
+\item Implementação e uso dos elementos Q4 e T6 na resolução do problema proposto;
+\item Avaliação dos resultadsos e comparação dos mesmos com os do software Abaqus.
 \end{DoxyItemize}
 
 \section*{Resultados}
 
-\section*{Resultados}
-
-\subparagraph*{Correlação por tubo e por v.\+a.}
-
-tubo x coeficiente de correlação \subsection*{}
+\subsection*{Implementação Computacional dos Elementos T6 e Q4}
 
 
+\begin{DoxyItemize}
+\item As implementações dos elementos, juntamente com um código de análise de problemas usando o Método dos Elementos Finitos, foram feitas fazendo-\/se uso da linguagem de programação C++;
+\item Os códigos e documentações seguem junto a esse P\+DF, podendo ser acessados de maneira iterativa através do arquivo H\+T\+ML, onde toda documentação e comentários se encontram.
+\item A implementação apresentada faz uso do arquivo de entrada do software comercial Abaqus, afim de tirar proveito da ferramenta de geração de malhas do mesmo;
+\item Os resultados obtidos através dessa implementação são verificados através do Abaqus, e serão apresentados posteriormente.
+\end{DoxyItemize}
+
+\subsection*{Abaqus}
 
 
+\begin{DoxyItemize}
+\item Foram testados exemplos, utilizando como material o aço (Modulo de Young 200 G\+Pa e coeficiente de Poisson 0.\+3), e estudados os efeitos do tipo de elemento e refinamento da malha nos resultados obtidos. Esses resultados, visulaizados através das ferramentas do software Abaqus. Os campos avaliados foram os deslocamentos (U),tensões (S), reações de apoio (RF) e deformações na estrutura (E).
+\end{DoxyItemize}
+
+\subsubsection*{Deslocamentos}
+
+\subsubsection*{}
+
+\subsubsection*{Tensões}
+
+\subsubsection*{}
+
+\subsubsection*{Reações}
+
+\subsubsection*{}
+
+\subsubsection*{Deformações}
+
+\subsubsection*{}
+
+\subsection*{Influência do Número de Elementos}
+
+
+\begin{DoxyItemize}
+\item Para avaliarmos a interferência do refinamento da malha nos resultados obtidos, realizou-\/se um estudo das tensões e deformações medidas nos elementos. Esse estudo pode ser fisto nas figuras a seguir (simulações do Abqus para variadas divisões de elementos), e no gráfico, que mostra a influência do resultado de acordo com o número de elementos.
+\end{DoxyItemize}
+
+\subsubsection*{}
+
+\subsubsection*{Q4}
+
+\subsubsection*{}
+
+\subsubsection*{}
+
+\subsubsection*{T6}
+
+\subsubsection*{}
+
+\subsubsection*{}
+
+\subsection*{Gráfico Número de Elementos x Tensões Máximas}
+
+\subsubsection*{Q4}
+
+\subsubsection*{}
+
+\subsubsection*{T6}
+
+\subsubsection*{}
+
+\subsection*{Gráfico Número de Elementos x Deformações Máximas}
+
+\subsubsection*{Q4}
+
+\subsubsection*{}
+
+\subsubsection*{T6}
+
+\subsubsection*{}
 
 \section*{Análise dos resultados}
 
-Espera-\/se que a correlação entre duas v.\+a., caso exista, seja constante para os diferentes tubos, o que resultaria numa curva aproximandamente constante.
-
-Ocorre grande variação desta curva para alguns pares de v.\+a., ainda que a média do coeficiente de correlação tenda a valores pequenos ($<$ 10\%) em alguns casos.
-
-Destaca-\/se o valor médio obtido para min\+WT e Ecc, indicando forte correlação negativa. Maiores valores de excentricidade levam a espessuras mínimas cada vez menores, resultado coerente. 
-
-
-
-\section*{Análise dos resultados}
-
-A seguir apresentam-\/se gráficos com os valores dos pares de v.\+a., para todos os tubos. Cada ponto representa valores aferidos entre as duas v.\+a. na mesma seção transversal.
-
-Cada ponto apresenta uma seção, os mesmos foram coloridos de forma a representarem seus tubos.
-
-O gráfico a seguir demonstra a importância de realizar a análise de correlação tubo a tubo, em complemento a uma análise global, a qual pode indicar correlações equivocadas I\+G\+OR, SÃO E\+Q\+U\+I\+V\+O\+C\+A\+D\+AS M\+E\+S\+MO? S\+E\+RÁ Q\+UE E\+L\+AS NÃO R\+E\+F\+L\+E\+T\+EM A R\+E\+A\+L\+I\+D\+A\+DE DO P\+R\+O\+B\+L\+E\+MA? V\+O\+CÊ E\+S\+C\+R\+E\+V\+ER I\+S\+SO E\+S\+TÁ C\+O\+R\+R\+E\+TO, P\+A\+RA V\+A\+L\+O\+R\+I\+Z\+AR O T\+U\+BO C\+O\+MO U\+MA E\+N\+T\+I\+D\+A\+DE Ú\+N\+I\+CA DO P\+R\+O\+C\+E\+S\+SO DE M\+A\+N\+U\+F\+A\+T\+U\+RA. P\+O\+RÉM, P\+R\+E\+C\+I\+S\+A\+M\+OS P\+E\+N\+S\+AR NO \char`\"{}\+P\+R\+O\+D\+U\+T\+O\char`\"{} C\+O\+MO UM T\+O\+DO. 
-
-
-
-\section*{Resultados}
-
-\subparagraph*{avg\+WT x min\+WT (fraca correlação linear positiva)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{avg\+WT x Ecc (não há correlação linear)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{avg\+WT x Ov (não há correlação linear)}
-
-\subsection*{}
-
-
-
- \section*{Resultados}
-
-\subparagraph*{avg\+WT x avg\+OD (moderada correlação linear negativa)}
-
-\subsection*{}
-
-
-
- \section*{Resultados}
-
-\subparagraph*{min\+WT x Ecc (forte correlação linear negativa)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{min\+WT x Ov (não há correlação linear)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{min\+WT x avg\+OD (não há correlação linear)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{Ecc x Ov (não há correlação linear)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{Ecc x avg\+OD (fraca correlação linear negativa)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{Ov x avg\+OD (fraca correlação linear negativa)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{Ov x avg\+OD (fraca correlação linear negativa)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{Ov x avg\+OD (fraca correlação linear negativa)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{Ov x avg\+OD (fraca correlação linear negativa)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{Ov x avg\+OD (fraca correlação linear negativa)}
-
-\subsection*{}
-
-
-
-
-
-\section*{Resultados}
-
-\subparagraph*{Ov x avg\+OD (fraca correlação linear negativa)}
-
-\subsection*{}
-
-
-
-
-
-\section*{F\+I\+N\+AL}
-
-\subparagraph*{Análise de correlação entre os dados}
-
 
 \begin{DoxyItemize}
-\item Avg WT x Min WT\+: a espessura média, calculada com base em valores mínimo e máximo daquela seção, reflete variações na espessura mínima.
-\item Avg WT x Avg OD\+: tendência de preservar a área da seção transversal, mesmo em face da variabilidade das dimensões.
-\item Min WT x Ecc\+: correlação alta, esperada. Espessuras mínimas pequenas mostram a tendência de excentricidade na seção.
-\item Ov x Avg OD\+: a média dos diâmetros é penalizada com a ocorrência de maiores valores de ovalização.
-\item Ecc x Avg OD\+: correlação não esperada, explicada pelas correlações destas v.\+a. com a espessura mínima \mbox{[}Min WT\mbox{]}
+\item A partir dos resultados, avaliou-\/se a influência do refinamento da malha nos resultados das análises de elementos finitos. Malhas mais refinadas, além de fornecerem resultados com maior grau de suavidade e continuidade, apresentão um comportamento menos rígido em relação as malhas menos refinadas. Apesar de ser uma diferença não tão pronunciada, foi observado que elementos mais refinados tem tanto deformações quanto tensões mais acentuadas.
+\item Foi constatado também que, para os elementos do tipo T6, a qualidade da resposta é inferior ao Q4, apesar das funções de interpolação quadrádicas utilizadas.
 \end{DoxyItemize}
-
-\subparagraph*{Igor de Melo Nery Oliveira}
-
-\subparagraph*{Editado em\+: 13/06/2018}
 
 \subsection*{Referencias até o momento}
 

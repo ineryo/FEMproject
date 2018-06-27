@@ -66,129 +66,81 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1>FEMproject</h1>
-<p>Trabaho Final da Disciplina de Introdução ao Metodo dos Elementos FInitos</p>
+<p>Trabaho Final da Disciplina de Introdução ao Método dos Elementos Finitos</p>
 <h1>Autores</h1>
-<p>Igor de Melo Nery de Oliveira Lucas Gouveia Omena Lopes</p>
+<ul>
+<li>Igor de Melo Nery de Oliveira</li>
+<li>Lucas Gouveia Omena Lopes</li>
+</ul>
 <h1>Projeto Final</h1>
-<p>Implementação dos Elementos Finitos Q4 e T6</p>
+<ul>
+<li>Implementação dos Elementos Finitos Q4 e T6 para resolução de um problema de uma estrutura submetida ao estado plano de tensões.</li>
+</ul>
 <h1>Problema Estudado</h1>
-<p>Pilar En</p>
+<p>Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:</p>
 <h2></h2>
-<h1>Introdução</h1>
-<h5>Correlação:</h5>
+<h1>Elementos em Estudo</h1>
+<h5>Elemento Q4:</h5>
 <ul>
-<li>É qualquer relação dentro de uma ampla classe de relações estatísticas que envolva dependência entre duas variáveis</li>
-<li>É comumente denotada como a medida de relação entre duas variáveis aleatórias</li>
-<li>Em alguns casos, correlação não identifica dependência entre as variáveis</li>
+<li>Elemento Quadilateral de 4 nós</li>
 </ul>
-<p>Fonte: <a href="https://en.wikipedia.org/wiki/Sensitivity_analysis">wikipedia</a> </p><hr/>
-<h1>Introdução</h1>
-<h5>Correlação não indica casualidade!</h5>
 <h2></h2>
-<p>Fontes: <a href="https://en.wikiversity.org/wiki/Correlation">wikiversity</a> | <a href="https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation">wikipedia</a> </p><hr/>
-<h1>Formulação</h1>
-<h5>Correlação populacional</h5>
-<p>Trata da medida da direção e do grau com que as variáveis X e Y se associam linearmente em uma população</p>
-<p>$$ {X,Y}= {cov(X,Y)}{ }={E [ ( X- ) ( Y- ) ]}{ } $$</p>
-<hr/>
-<h1>Formulação</h1>
-<h5>Correlação amostral (Pearson)</h5>
-<p>$$ r_{x,y} = {{i=1}^n ( x_i-u_x ) ( y_i-u_y ) }{S_x S_y} $$ $$ = {{i=1}^n ( x_i y_i ) -nu_xu_y }{n S_x S_y} $$</p>
-<h2>##  </h2>
-<h1>Metodologia</h1>
-<h5>Foi realizada a correlação entre as v.a. por tubo</h5>
+<h5>Elemento T6:</h5>
 <ul>
-<li>avgWT: espessura média</li>
-<li>minWT: espessura mínima</li>
-<li>Ecc: excentricidade</li>
-<li>Ov: ovalização</li>
-<li>avgOD: diâmetro médio</li>
-<li>D/t: avgOD/minWT</li>
+<li>Elemento Triangular de 6 nós</li>
+</ul>
+<h2></h2>
+<h1>Objetivos</h1>
+<ul>
+<li>Implementação e uso dos elementos Q4 e T6 na resolução do problema proposto;</li>
+<li>Avaliação dos resultadsos e comparação dos mesmos com os do software Abaqus.</li>
 </ul>
 <h1>Resultados</h1>
-<h1>Resultados</h1>
-<h5>Correlação por tubo e por v.a.</h5>
-<p>tubo x coeficiente de correlação </p><h2></h2>
-<hr/>
+<h2>Implementação Computacional dos Elementos T6 e Q4</h2>
+<ul>
+<li>As implementações dos elementos, juntamente com um código de análise de problemas usando o Método dos Elementos Finitos, foram feitas fazendo-se uso da linguagem de programação C++;</li>
+<li>Os códigos e documentações seguem junto a esse PDF, podendo ser acessados de maneira iterativa através do arquivo HTML, onde toda documentação e comentários se encontram.</li>
+<li>A implementação apresentada faz uso do arquivo de entrada do software comercial Abaqus, afim de tirar proveito da ferramenta de geração de malhas do mesmo;</li>
+<li>Os resultados obtidos através dessa implementação são verificados através do Abaqus, e serão apresentados posteriormente.</li>
+</ul>
+<h2>Abaqus</h2>
+<ul>
+<li>Foram testados exemplos, utilizando como material o aço (Modulo de Young 200 GPa e coeficiente de Poisson 0.3), e estudados os efeitos do tipo de elemento e refinamento da malha nos resultados obtidos. Esses resultados, visulaizados através das ferramentas do software Abaqus. Os campos avaliados foram os deslocamentos (U),tensões (S), reações de apoio (RF) e deformações na estrutura (E).</li>
+</ul>
+<h3>Deslocamentos</h3>
+<h3></h3>
+<h3>Tensões</h3>
+<h3></h3>
+<h3>Reações</h3>
+<h3></h3>
+<h3>Deformações</h3>
+<h3></h3>
+<h2>Influência do Número de Elementos</h2>
+<ul>
+<li>Para avaliarmos a interferência do refinamento da malha nos resultados obtidos, realizou-se um estudo das tensões e deformações medidas nos elementos. Esse estudo pode ser fisto nas figuras a seguir (simulações do Abqus para variadas divisões de elementos), e no gráfico, que mostra a influência do resultado de acordo com o número de elementos.</li>
+</ul>
+<h3></h3>
+<h3>Q4</h3>
+<h3></h3>
+<h3></h3>
+<h3>T6</h3>
+<h3></h3>
+<h3></h3>
+<h2>Gráfico Número de Elementos x Tensões Máximas</h2>
+<h3>Q4</h3>
+<h3></h3>
+<h3>T6</h3>
+<h3></h3>
+<h2>Gráfico Número de Elementos x Deformações Máximas</h2>
+<h3>Q4</h3>
+<h3></h3>
+<h3>T6</h3>
+<h3></h3>
 <h1>Análise dos resultados</h1>
-<p>Espera-se que a correlação entre duas v.a., caso exista, seja constante para os diferentes tubos, o que resultaria numa curva aproximandamente constante.</p>
-<p>Ocorre grande variação desta curva para alguns pares de v.a., ainda que a média do coeficiente de correlação tenda a valores pequenos (&lt; 10%) em alguns casos.</p>
-<p>Destaca-se o valor médio obtido para minWT e Ecc, indicando forte correlação negativa. Maiores valores de excentricidade levam a espessuras mínimas cada vez menores, resultado coerente. </p><hr/>
-<h1>Análise dos resultados</h1>
-<p>A seguir apresentam-se gráficos com os valores dos pares de v.a., para todos os tubos. Cada ponto representa valores aferidos entre as duas v.a. na mesma seção transversal.</p>
-<p>Cada ponto apresenta uma seção, os mesmos foram coloridos de forma a representarem seus tubos.</p>
-<p>O gráfico a seguir demonstra a importância de realizar a análise de correlação tubo a tubo, em complemento a uma análise global, a qual pode indicar correlações equivocadas IGOR, SÃO EQUIVOCADAS MESMO? SERÁ QUE ELAS NÃO REFLETEM A REALIDADE DO PROBLEMA? VOCÊ ESCREVER ISSO ESTÁ CORRETO, PARA VALORIZAR O TUBO COMO UMA ENTIDADE ÚNICA DO PROCESSO DE MANUFATURA. PORÉM, PRECISAMOS PENSAR NO "PRODUTO" COMO UM TODO. </p><hr/>
-<h1>Resultados</h1>
-<h5>avgWT x minWT (fraca correlação linear positiva)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>avgWT x Ecc (não há correlação linear)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>avgWT x Ov (não há correlação linear)</h5>
-<h2></h2>
-<hr/>
- <h1>Resultados</h1>
-<h5>avgWT x avgOD (moderada correlação linear negativa)</h5>
-<h2></h2>
-<hr/>
- <h1>Resultados</h1>
-<h5>minWT x Ecc (forte correlação linear negativa)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>minWT x Ov (não há correlação linear)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>minWT x avgOD (não há correlação linear)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>Ecc x Ov (não há correlação linear)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>Ecc x avgOD (fraca correlação linear negativa)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
-<h2></h2>
-<hr/>
-<h1>Resultados</h1>
-<h5>Ov x avgOD (fraca correlação linear negativa)</h5>
-<h2></h2>
-<hr/>
-<h1>FINAL</h1>
-<h6>Análise de correlação entre os dados</h6>
 <ul>
-<li>Avg WT x Min WT: a espessura média, calculada com base em valores mínimo e máximo daquela seção, reflete variações na espessura mínima.</li>
-<li>Avg WT x Avg OD: tendência de preservar a área da seção transversal, mesmo em face da variabilidade das dimensões.</li>
-<li>Min WT x Ecc: correlação alta, esperada. Espessuras mínimas pequenas mostram a tendência de excentricidade na seção.</li>
-<li>Ov x Avg OD: a média dos diâmetros é penalizada com a ocorrência de maiores valores de ovalização.</li>
-<li>Ecc x Avg OD: correlação não esperada, explicada pelas correlações destas v.a. com a espessura mínima [Min WT]</li>
+<li>A partir dos resultados, avaliou-se a influência do refinamento da malha nos resultados das análises de elementos finitos. Malhas mais refinadas, além de fornecerem resultados com maior grau de suavidade e continuidade, apresentão um comportamento menos rígido em relação as malhas menos refinadas. Apesar de ser uma diferença não tão pronunciada, foi observado que elementos mais refinados tem tanto deformações quanto tensões mais acentuadas.</li>
+<li>Foi constatado também que, para os elementos do tipo T6, a qualidade da resposta é inferior ao Q4, apesar das funções de interpolação quadrádicas utilizadas.</li>
 </ul>
-<h6>Igor de Melo Nery Oliveira</h6>
-<h6>Editado em: 13/06/2018</h6>
 <h2>Referencias até o momento</h2>
 <p><a href="http://eigen.tuxfamily.org/index.php?title=IDEs#Visual_Studio">Eigen Website - Instalation</a> </p>
 </div></div><!-- contents -->

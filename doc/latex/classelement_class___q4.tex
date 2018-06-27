@@ -19,7 +19,17 @@ Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_cla
 \item 
 Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classelement_class___q4_afcfb65b64fe9909300405219739ed496}{spr\+MatK}} (numeric\+Type young\+Modulus, numeric\+Type poisson\+Ratio) const
 \item 
+numeric\+Type \mbox{\hyperlink{classelement_class___q4_a69d0aa4dabfb2555d6d47d93fcfb34be}{eval\+Area}} () const
+\item 
 const std\+::vector$<$ unsigned int $>$ \& \mbox{\hyperlink{classelement_class___q4_abe3f00cce16a360c1810f50f56fff445}{get\+M\+\_\+nodal\+Connectivity}} () const
+\item 
+const Matrix$<$ numeric\+Type, 8, 1 $>$ \& \mbox{\hyperlink{classelement_class___q4_a70653030dc6fd2a1032e1056d3e856e1}{get\+\_\+u\+Vec}} () const
+\item 
+const Matrix$<$ numeric\+Type, 3, 1 $>$ \& \mbox{\hyperlink{classelement_class___q4_a8fe7247b89edfe1c70d3d81e6607d27a}{get\+\_\+e\+Vec}} () const
+\item 
+const Matrix$<$ numeric\+Type, 3, 1 $>$ \& \mbox{\hyperlink{classelement_class___q4_ac170a307dec6500c8af43d45eb2589ff}{get\+\_\+sig\+Vec}} () const
+\item 
+void \mbox{\hyperlink{classelement_class___q4_aa1be80202b67c397bfccbd406bb8e88f}{evaluate\+Stress\+Strain}} (const Matrix$<$ numeric\+Type, 8, 1 $>$ \&u\+Vec, numeric\+Type young\+Modulus, numeric\+Type posisson\+Ratio)
 \end{DoxyCompactItemize}
 
 
@@ -35,6 +45,58 @@ Q4 Isoparametric Element Class.
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classelement_class___q4_a69d0aa4dabfb2555d6d47d93fcfb34be}\label{classelement_class___q4_a69d0aa4dabfb2555d6d47d93fcfb34be}} 
+\index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!eval\+Area@{eval\+Area}}
+\index{eval\+Area@{eval\+Area}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{eval\+Area()}{evalArea()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+numeric\+Type \mbox{\hyperlink{classelement_class___q4}{element\+Class\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::eval\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Evaluate the area of the element. \begin{DoxyReturn}{Returns}
+area of the element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelement_class___q4_aa1be80202b67c397bfccbd406bb8e88f}\label{classelement_class___q4_aa1be80202b67c397bfccbd406bb8e88f}} 
+\index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!evaluate\+Stress\+Strain@{evaluate\+Stress\+Strain}}
+\index{evaluate\+Stress\+Strain@{evaluate\+Stress\+Strain}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{evaluate\+Stress\+Strain()}{evaluateStressStrain()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+void \mbox{\hyperlink{classelement_class___q4}{element\+Class\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::evaluate\+Stress\+Strain (\begin{DoxyParamCaption}\item[{const Matrix$<$ numeric\+Type, 8, 1 $>$ \&}]{u\+Vec,  }\item[{numeric\+Type}]{young\+Modulus,  }\item[{numeric\+Type}]{posisson\+Ratio }\end{DoxyParamCaption})}
+
+Evaluates stress strain and saves it. 
+\begin{DoxyParams}{Parameters}
+{\em u\+Vec} & displacement vector. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classelement_class___q4_a8fe7247b89edfe1c70d3d81e6607d27a}\label{classelement_class___q4_a8fe7247b89edfe1c70d3d81e6607d27a}} 
+\index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!get\+\_\+e\+Vec@{get\+\_\+e\+Vec}}
+\index{get\+\_\+e\+Vec@{get\+\_\+e\+Vec}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{get\+\_\+e\+Vec()}{get\_eVec()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+const Matrix$<$numeric\+Type, 3, 1$>$\& \mbox{\hyperlink{classelement_class___q4}{element\+Class\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::get\+\_\+e\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the strain vector. \begin{DoxyReturn}{Returns}
+displacement vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelement_class___q4_ac170a307dec6500c8af43d45eb2589ff}\label{classelement_class___q4_ac170a307dec6500c8af43d45eb2589ff}} 
+\index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!get\+\_\+sig\+Vec@{get\+\_\+sig\+Vec}}
+\index{get\+\_\+sig\+Vec@{get\+\_\+sig\+Vec}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{get\+\_\+sig\+Vec()}{get\_sigVec()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+const Matrix$<$numeric\+Type, 3, 1$>$\& \mbox{\hyperlink{classelement_class___q4}{element\+Class\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::get\+\_\+sig\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the stress vector. \begin{DoxyReturn}{Returns}
+displacement vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelement_class___q4_a70653030dc6fd2a1032e1056d3e856e1}\label{classelement_class___q4_a70653030dc6fd2a1032e1056d3e856e1}} 
+\index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!get\+\_\+u\+Vec@{get\+\_\+u\+Vec}}
+\index{get\+\_\+u\+Vec@{get\+\_\+u\+Vec}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}
+\subsubsection{\texorpdfstring{get\+\_\+u\+Vec()}{get\_uVec()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type $>$ \\
+const Matrix$<$numeric\+Type, 8, 1$>$\& \mbox{\hyperlink{classelement_class___q4}{element\+Class\+\_\+\+Q4}}$<$ numeric\+Type $>$\+::get\+\_\+u\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the displacement vector. \begin{DoxyReturn}{Returns}
+displacement vector. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classelement_class___q4_abe3f00cce16a360c1810f50f56fff445}\label{classelement_class___q4_abe3f00cce16a360c1810f50f56fff445}} 
 \index{element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}!get\+M\+\_\+nodal\+Connectivity@{get\+M\+\_\+nodal\+Connectivity}}
 \index{get\+M\+\_\+nodal\+Connectivity@{get\+M\+\_\+nodal\+Connectivity}!element\+Class\+\_\+\+Q4@{element\+Class\+\_\+\+Q4}}

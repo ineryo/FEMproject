@@ -29,26 +29,23 @@ virtual Eigen\+::\+Matrix$<$ unsigned int, Eigen\+::\+Dynamic, 1 $>$ \mbox{\hype
 \item 
 virtual Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}{evaluate\+Global\+Stiff\+Mat}} ()
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_a8ae8b924f3c1c20f131db1570544cb90}\label{classbase_structural_analysis_class_a8ae8b924f3c1c20f131db1570544cb90}} 
-virtual Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ {\bfseries evaluate\+Global\+Displac\+Vec} ()
+virtual Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classbase_structural_analysis_class_a7cfa00b107c0014bbc7f364791949ef6}{evaluate\+Global\+Force\+Vec}} ()
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_a110e4cdc86a9e8611dade6db8751f02d}\label{classbase_structural_analysis_class_a110e4cdc86a9e8611dade6db8751f02d}} 
-virtual Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ {\bfseries rotation\+Matrix} (Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ \&dir\+Elem\+Vec) const =0
+virtual Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ \mbox{\hyperlink{classbase_structural_analysis_class_a8ae8b924f3c1c20f131db1570544cb90}{evaluate\+Global\+Displac\+Vec}} ()
+\item 
+bool \mbox{\hyperlink{classbase_structural_analysis_class_a51b20160503d1a07359ae5e174b582c4}{update\+Local\+Info}} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_ad40dbcb71e338b8cd998ad4bf80fef1a}\label{classbase_structural_analysis_class_ad40dbcb71e338b8cd998ad4bf80fef1a}} 
-unsigned int {\bfseries m\+\_\+n\+Dim}
+\mbox{\Hypertarget{classbase_structural_analysis_class_a58fc392e34ba87cc9dff3a0901127faa}\label{classbase_structural_analysis_class_a58fc392e34ba87cc9dff3a0901127faa}} 
+unsigned int {\bfseries m\+\_\+n\+Spatial\+Dimension}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_af7ea30f9a3e3c353eeaba07c31c445a0}\label{classbase_structural_analysis_class_af7ea30f9a3e3c353eeaba07c31c445a0}} 
 unsigned int {\bfseries m\+\_\+max\+Node\+Deg\+Free}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_aed50959156544fc3d15af79eb38d6ae0}\label{classbase_structural_analysis_class_aed50959156544fc3d15af79eb38d6ae0}} 
 unsigned int {\bfseries m\+\_\+n\+Node\+Per\+Elem}
-\item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_abec1d294a55c84f5ef8e227a69d4e5f4}\label{classbase_structural_analysis_class_abec1d294a55c84f5ef8e227a69d4e5f4}} 
-unsigned int {\bfseries m\+\_\+n\+Prop\+Per\+Elem}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_a9c1dbd7cb8a65f514211505672854330}\label{classbase_structural_analysis_class_a9c1dbd7cb8a65f514211505672854330}} 
 unsigned int {\bfseries m\+\_\+n\+Total\+DoF}
@@ -83,17 +80,20 @@ numeric\+Type {\bfseries m\+\_\+young\+Modulus}
 \mbox{\Hypertarget{classbase_structural_analysis_class_adacc82b7726291dd9a0a2441863858b4}\label{classbase_structural_analysis_class_adacc82b7726291dd9a0a2441863858b4}} 
 numeric\+Type {\bfseries m\+\_\+poisson\+Ratio}
 \item 
+\mbox{\Hypertarget{classbase_structural_analysis_class_aad6c2c8b50f5aeb0cd6aa9a3894656b3}\label{classbase_structural_analysis_class_aad6c2c8b50f5aeb0cd6aa9a3894656b3}} 
+numeric\+Type {\bfseries m\+\_\+pressure}
+\item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_a30c9d240e183d6ed546127192b342086}\label{classbase_structural_analysis_class_a30c9d240e183d6ed546127192b342086}} 
 Eigen\+::\+Matrix$<$ unsigned int, Eigen\+::\+Dynamic, 1 $>$ {\bfseries m\+\_\+deg\+Free\+Vec}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_a32476178ae646ba8324440cc1d2efd11}\label{classbase_structural_analysis_class_a32476178ae646ba8324440cc1d2efd11}} 
 Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ {\bfseries m\+\_\+glb\+Stiff\+Mat}
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_a5b4cc2b24256ee92b746ef463f34d035}\label{classbase_structural_analysis_class_a5b4cc2b24256ee92b746ef463f34d035}} 
-Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ {\bfseries m\+\_\+glbnode\+Force\+Vec}
+\mbox{\Hypertarget{classbase_structural_analysis_class_ab6038cf67e12c8125b7b66437442b0b5}\label{classbase_structural_analysis_class_ab6038cf67e12c8125b7b66437442b0b5}} 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ {\bfseries m\+\_\+glb\+Force\+Vec}
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_a9c92d5720fc03e77a2b30a8e5277aeba}\label{classbase_structural_analysis_class_a9c92d5720fc03e77a2b30a8e5277aeba}} 
-Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ {\bfseries m\+\_\+glb\+Displac\+Vec}
+\mbox{\Hypertarget{classbase_structural_analysis_class_adec181a3818b37d91f185bec9495f7d9}\label{classbase_structural_analysis_class_adec181a3818b37d91f185bec9495f7d9}} 
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ {\bfseries m\+\_\+glb\+Displac\+Vec}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_a3497fd3dc60eb8cf056a3d3828000bb2}\label{classbase_structural_analysis_class_a3497fd3dc60eb8cf056a3d3828000bb2}} 
 bool {\bfseries m\+\_\+is\+Elem\+List\+Saved}
@@ -104,23 +104,20 @@ bool {\bfseries m\+\_\+is\+Node\+List\+Saved}
 \mbox{\Hypertarget{classbase_structural_analysis_class_aeda5815de358a24f99b194854252e94b}\label{classbase_structural_analysis_class_aeda5815de358a24f99b194854252e94b}} 
 bool {\bfseries m\+\_\+is\+Initial\+Structure\+Saved}
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_ad5e1782b128ac071695aae4ee8d7d23a}\label{classbase_structural_analysis_class_ad5e1782b128ac071695aae4ee8d7d23a}} 
-bool {\bfseries m\+\_\+is\+Local\+Rotation\+Matrix\+Computed}
-\item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_a60baf19b10caa39342408548d5a834ac}\label{classbase_structural_analysis_class_a60baf19b10caa39342408548d5a834ac}} 
 bool {\bfseries m\+\_\+is\+Degree\+Of\+Freedom\+Vec\+Computed}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_af6d2f4bea68e4bd857a2ac6bea8194ec}\label{classbase_structural_analysis_class_af6d2f4bea68e4bd857a2ac6bea8194ec}} 
 bool {\bfseries m\+\_\+is\+Glb\+Stiff\+Mat\+Computed}
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_a779af0fab2226dacec87b0f6a05e1956}\label{classbase_structural_analysis_class_a779af0fab2226dacec87b0f6a05e1956}} 
-bool {\bfseries m\+\_\+is\+Glbnode\+Force\+Vec\+Computed}
+\mbox{\Hypertarget{classbase_structural_analysis_class_aaaf8d7f94bb441f267ebbd271216669c}\label{classbase_structural_analysis_class_aaaf8d7f94bb441f267ebbd271216669c}} 
+bool {\bfseries m\+\_\+is\+Glb\+Force\+Vec\+Computed}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_a920c4ef5aedc3e9bf397c7d67786e696}\label{classbase_structural_analysis_class_a920c4ef5aedc3e9bf397c7d67786e696}} 
 bool {\bfseries m\+\_\+is\+Glb\+Displac\+Vec\+Computed}
 \item 
-\mbox{\Hypertarget{classbase_structural_analysis_class_ac89e923d65f5fc5f8e08d15bf5b65bb5}\label{classbase_structural_analysis_class_ac89e923d65f5fc5f8e08d15bf5b65bb5}} 
-bool {\bfseries m\+\_\+is\+Local\+Elem\+Info\+Updated}
+\mbox{\Hypertarget{classbase_structural_analysis_class_ac713f66fa8305712d1b77dd4b2b66b52}\label{classbase_structural_analysis_class_ac713f66fa8305712d1b77dd4b2b66b52}} 
+bool {\bfseries m\+\_\+is\+Local\+Info\+Updated}
 \item 
 \mbox{\Hypertarget{classbase_structural_analysis_class_a5930a49c82de1cc5d03d0b44788f8af0}\label{classbase_structural_analysis_class_a5930a49c82de1cc5d03d0b44788f8af0}} 
 bool {\bfseries m\+\_\+is\+Local\+Node\+Info\+Updated}
@@ -182,6 +179,26 @@ Eigen\+::\+Matrix$<$ unsigned int, Eigen\+::\+Dynamic, 1 $>$ \mbox{\hyperlink{cl
 Method to run all the set of nodes and create the DoF order. \begin{DoxyReturn}{Returns}
 vector with 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classbase_structural_analysis_class_a8ae8b924f3c1c20f131db1570544cb90}\label{classbase_structural_analysis_class_a8ae8b924f3c1c20f131db1570544cb90}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!evaluate\+Global\+Displac\+Vec@{evaluate\+Global\+Displac\+Vec}}
+\index{evaluate\+Global\+Displac\+Vec@{evaluate\+Global\+Displac\+Vec}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{evaluate\+Global\+Displac\+Vec()}{evaluateGlobalDisplacVec()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, 1 $>$ \mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::evaluate\+Global\+Displac\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Method to evaluate the global displacement vector (solves the linear system). \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbase_structural_analysis_class_a7cfa00b107c0014bbc7f364791949ef6}\label{classbase_structural_analysis_class_a7cfa00b107c0014bbc7f364791949ef6}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!evaluate\+Global\+Force\+Vec@{evaluate\+Global\+Force\+Vec}}
+\index{evaluate\+Global\+Force\+Vec@{evaluate\+Global\+Force\+Vec}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{evaluate\+Global\+Force\+Vec()}{evaluateGlobalForceVec()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+Eigen\+::\+Sparse\+Matrix$<$ numeric\+Type $>$ \mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::evaluate\+Global\+Force\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Method to evaluate the global force vector. \begin{DoxyReturn}{Returns}
+Global force vector. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}\label{classbase_structural_analysis_class_a773fa080feae6b17e47e58e5ed810885}} 
 \index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!evaluate\+Global\+Stiff\+Mat@{evaluate\+Global\+Stiff\+Mat}}
 \index{evaluate\+Global\+Stiff\+Mat@{evaluate\+Global\+Stiff\+Mat}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
@@ -235,6 +252,16 @@ Method\+: reads P\+A\+RT of a formated file to store the list of nodes.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
+flag. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbase_structural_analysis_class_a51b20160503d1a07359ae5e174b582c4}\label{classbase_structural_analysis_class_a51b20160503d1a07359ae5e174b582c4}} 
+\index{base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}!update\+Local\+Info@{update\+Local\+Info}}
+\index{update\+Local\+Info@{update\+Local\+Info}!base\+Structural\+Analysis\+Class@{base\+Structural\+Analysis\+Class}}
+\subsubsection{\texorpdfstring{update\+Local\+Info()}{updateLocalInfo()}}
+{\footnotesize\ttfamily template$<$class numeric\+Type , class elem\+Class , class node\+Class $>$ \\
+bool \mbox{\hyperlink{classbase_structural_analysis_class}{base\+Structural\+Analysis\+Class}}$<$ numeric\+Type, elem\+Class, node\+Class $>$\+::update\+Local\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Method to update the local information of the element with its displacement. \begin{DoxyReturn}{Returns}
 flag. 
 \end{DoxyReturn}
 

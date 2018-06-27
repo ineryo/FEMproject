@@ -34,17 +34,32 @@
   <component name="ChangeListManager">
     <list default="true" id="689990d1-8a8a-49eb-bcc5-64b613622b12" name="Default" comment="Pega ai Lucas!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exemplos e Arquivos Abaqus/Exemplos Final/inp/Q4_120.inp" beforeDir="false" afterPath="$PROJECT_DIR$/Exemplos e Arquivos Abaqus/Exemplos Final/inp/Q4_120.inp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseNodeClass.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/baseNodeClass.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baseStructuralAnalysisClass.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/baseStructuralAnalysisClass.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/main.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Doxyfile" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Doxyfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FEMproject.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/FEMproject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/FEMproject.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/html/base_structural_analysis_class_8hpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/base_structural_analysis_class_8hpp_source.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/html/classbase_structural_analysis_class-members.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/classbase_structural_analysis_class-members.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/html/classbase_structural_analysis_class.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/classbase_structural_analysis_class.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classeigen_linear_solver_info-members.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/classeigen_linear_solver_info-members.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classeigen_linear_solver_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/classeigen_linear_solver_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classelement_class___q4-members.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/classelement_class___q4-members.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/classelement_class___q4.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/classelement_class___q4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/element_class___q4_8hpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/element_class___q4_8hpp_source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/functions.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/functions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/functions_func.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/functions_func.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/menudata.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/menudata.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/all_4.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/all_4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search/searchdata.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/searchdata.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/latex/refman.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/latex/refman.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/all_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/all_2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/all_5.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/all_5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/functions_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/functions_2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search/functions_5.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search/functions_5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/classbase_structural_analysis_class.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/latex/classbase_structural_analysis_class.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/classeigen_linear_solver_info.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/latex/classeigen_linear_solver_info.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/classelement_class___q4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/latex/classelement_class___q4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/latex/index.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/latex/index.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elementClass_Q4.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/elementClass_Q4.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -58,11 +73,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="137" column="78" selection-start-line="137" selection-start-column="78" selection-end-line="137" selection-end-column="78" />
+            <state relative-caret-position="442">
+              <caret line="26" column="152" selection-start-line="26" selection-start-column="152" selection-end-line="26" selection-end-column="152" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
@@ -70,11 +85,29 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CwiseNullaryOp.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/src/Core/CwiseNullaryOp.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="197" selection-start-line="197" selection-end-line="197" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaticAssert.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/src/Core/util/StaticAssert.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="baseNodeClass.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baseNodeClass.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="52" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="52" />
+            <state relative-caret-position="255">
+              <caret line="24" column="17" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="17" />
               <folding>
                 <element signature="e#187#238#0" expanded="true" />
               </folding>
@@ -85,31 +118,62 @@
       <file leaf-file-name="elementClass_Q4.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elementClass_Q4.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="54" column="35" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="35" />
+            <state relative-caret-position="228">
+              <caret line="60" column="59" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="59" />
+              <folding>
+                <element signature="e#4132#4487#0" />
+                <element signature="e#4489#4908#0" />
+                <element signature="e#4910#6336#0" />
+                <element signature="e#6338#8152#0" />
+                <element signature="e#8163#8182#0" expanded="true" />
+                <element signature="e#8154#9740#0" />
+                <element signature="e#10561#10580#0" expanded="true" />
+                <element signature="e#9871#9988#0" />
+                <element signature="e#9742#10700#0" />
+                <element signature="e#10702#12004#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseStructuralAnalysisClass.hpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="baseStructuralAnalysisClass.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baseStructuralAnalysisClass.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="619" column="72" selection-start-line="619" selection-start-column="72" selection-end-line="619" selection-end-column="72" />
+            <state relative-caret-position="2534">
+              <caret line="804" lean-forward="true" selection-start-line="804" selection-end-line="804" />
               <folding>
                 <element signature="e#145#164#0" expanded="true" />
-                <element signature="e#6555#6608#0" expanded="true" />
-                <element signature="e#7831#9170#0" />
-                <element signature="e#16194#16247#0" expanded="true" />
-                <element signature="e#16145#17981#0" />
+                <element signature="e#6153#6430#0" />
+                <element signature="e#8624#12849#0" />
+                <element signature="e#12676#14866#0" />
+                <element signature="e#14825#16398#0" />
+                <element signature="e#16120#17992#0" />
+                <element signature="e#18448#18501#0" expanded="true" />
+                <element signature="e#17994#23730#0" />
+                <element signature="e#24148#24201#0" expanded="true" />
+                <element signature="e#24140#28349#0" />
+                <element signature="e#28352#31503#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AssignEvaluator.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/src/Core/AssignEvaluator.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="833" selection-start-line="833" selection-end-line="833" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Q4_120.inp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exemplos e Arquivos Abaqus/Exemplos Final/inp/Q4_120.inp">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="52" selection-start-line="52" selection-end-line="53" selection-end-column="18" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
@@ -127,6 +191,9 @@
     <findStrings>
       <find>///</find>
       <find>stoul</find>
+      <find>*Static</find>
+      <find>m_isLocalRotationMatrixComputed</find>
+      <find>updateLocalElemInfo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,13 +211,14 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/nodeClass.hpp" />
         <option value="$PROJECT_DIR$/baseElemIsoparClass.hpp" />
-        <option value="$PROJECT_DIR$/baseNodeClass.hpp" />
         <option value="$PROJECT_DIR$/elementIsopar_Q4.hpp" />
         <option value="$PROJECT_DIR$/baseElemClass.hpp" />
         <option value="$PROJECT_DIR$/Q4_encastre.inp" />
+        <option value="$PROJECT_DIR$/Exemplos e Arquivos Abaqus/Exemplos Final/inp/Q4_120.inp" />
         <option value="$PROJECT_DIR$/elementClass_Q4.hpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/baseNodeClass.hpp" />
         <option value="$PROJECT_DIR$/baseStructuralAnalysisClass.hpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -175,6 +243,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -204,7 +273,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,6 +321,8 @@
       <workItem from="1529584048531" duration="21213000" />
       <workItem from="1529690469349" duration="5104000" />
       <workItem from="1529696242322" duration="24915000" />
+      <workItem from="1530011669633" duration="3487000" />
+      <workItem from="1530043153628" duration="32723000" />
     </task>
     <task id="LOCAL-00001" summary="Pega ai Lucas!">
       <created>1529608391384</created>
@@ -265,22 +335,22 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80985000" />
+    <option name="totallyTimeSpent" value="117195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.4325186" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.911796" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32943678" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2805526" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.1402763" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
       <window_info anchor="right" id="LuaJ" order="3" />
       <window_info anchor="bottom" id="TeamCity" order="7" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
@@ -290,27 +360,28 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.32943678" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2805526" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2805526" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="right" id="LuaJ" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
       <window_info anchor="bottom" id="TeamCity" order="7" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.4325186" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.32943678" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.4325186" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -328,82 +399,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="53" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/baseStructuralAnalysisClass.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5219">
-          <caret line="307" column="21" lean-forward="true" selection-start-line="307" selection-start-column="21" selection-end-line="309" selection-end-column="64" />
-          <folding>
-            <element signature="e#145#164#0" expanded="true" />
-            <element signature="e#6555#6608#0" expanded="true" />
-            <element signature="e#7831#9170#0" />
-            <element signature="e#16194#16247#0" expanded="true" />
-            <element signature="e#16145#17981#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="29" lean-forward="true" selection-start-line="42" selection-start-column="29" selection-end-line="43" selection-end-column="71" />
-          <folding>
-            <element signature="e#1#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baseNodeClass.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-          <folding>
-            <element signature="e#187#238#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elementClass_Q4.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4216">
-          <caret line="248" column="31" selection-start-line="248" selection-start-column="31" selection-end-line="248" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baseStructuralAnalysisClass.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5049">
-          <caret line="297" column="17" lean-forward="true" selection-start-line="297" selection-start-column="17" selection-end-line="297" selection-end-column="17" />
-          <folding>
-            <element signature="e#145#164#0" expanded="true" />
-            <element signature="e#6555#6608#0" expanded="true" />
-            <element signature="e#7831#9170#0" />
-            <element signature="e#16194#16247#0" expanded="true" />
-            <element signature="e#16145#17981#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#1#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/baseNodeClass.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -583,13 +582,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/baseElemIsoparClass.hpp" />
     <entry file="file://$PROJECT_DIR$/baseElemClass.hpp" />
-    <entry file="file://$PROJECT_DIR$/TEMPORARIO_AQUI_LUCAS_parteDeLeituraDeArquivos.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TEMPORARIO_AQUI_LUCAS_parteDeLeituraDeArquivos.hpp" />
     <entry file="file://C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iostream">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -625,9 +618,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fileComunicationFunctions.hpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/fileComunicationFunctions.hpp" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -642,9 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Exemplos e Arquivos Abaqus/Exemplos Final/inp/Q4_120.inp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="829">
@@ -652,43 +640,378 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseNodeClass.hpp">
+    <entry file="file://$PROJECT_DIR$/doc/html/base_structural_analysis_class_8hpp_source.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="67" column="11454" selection-start-line="67" selection-start-column="11454" selection-end-line="67" selection-end-column="11454" />
+          <folding>
+            <element signature="e#3717#3721#0" expanded="true" />
+            <element signature="e#3729#3733#0" expanded="true" />
+            <element signature="e#3860#3864#0" expanded="true" />
+            <element signature="e#3871#3875#0" expanded="true" />
+            <element signature="e#4002#4006#0" expanded="true" />
+            <element signature="e#4017#4021#0" expanded="true" />
+            <element signature="e#4148#4152#0" expanded="true" />
+            <element signature="e#4158#4162#0" expanded="true" />
+            <element signature="e#4289#4293#0" expanded="true" />
+            <element signature="e#4296#4300#0" expanded="true" />
+            <element signature="e#4427#4431#0" expanded="true" />
+            <element signature="e#4438#4442#0" expanded="true" />
+            <element signature="e#4569#4573#0" expanded="true" />
+            <element signature="e#4584#4588#0" expanded="true" />
+            <element signature="e#4715#4719#0" expanded="true" />
+            <element signature="e#4731#4735#0" expanded="true" />
+            <element signature="e#4862#4866#0" expanded="true" />
+            <element signature="e#4894#4898#0" expanded="true" />
+            <element signature="e#5107#5113#0" expanded="true" />
+            <element signature="e#5124#5130#0" expanded="true" />
+            <element signature="e#7624#7628#0" expanded="true" />
+            <element signature="e#7764#7768#0" expanded="true" />
+            <element signature="e#10931#10935#0" expanded="true" />
+            <element signature="e#10964#10968#0" expanded="true" />
+            <element signature="e#11222#11226#0" expanded="true" />
+            <element signature="e#11237#11241#0" expanded="true" />
+            <element signature="e#11576#11580#0" expanded="true" />
+            <element signature="e#11608#11612#0" expanded="true" />
+            <element signature="e#13840#13844#0" expanded="true" />
+            <element signature="e#13853#13857#0" expanded="true" />
+            <element signature="e#14133#14137#0" expanded="true" />
+            <element signature="e#14149#14153#0" expanded="true" />
+            <element signature="e#14416#14420#0" expanded="true" />
+            <element signature="e#14429#14433#0" expanded="true" />
+            <element signature="e#14680#14684#0" expanded="true" />
+            <element signature="e#14696#14700#0" expanded="true" />
+            <element signature="e#16030#16034#0" expanded="true" />
+            <element signature="e#16063#16067#0" expanded="true" />
+            <element signature="e#16331#16335#0" expanded="true" />
+            <element signature="e#16346#16350#0" expanded="true" />
+            <element signature="e#16605#16609#0" expanded="true" />
+            <element signature="e#16637#16641#0" expanded="true" />
+            <element signature="e#16907#16911#0" expanded="true" />
+            <element signature="e#16939#16943#0" expanded="true" />
+            <element signature="e#20778#20782#1" expanded="true" />
+            <element signature="e#20920#20924#0" expanded="true" />
+            <element signature="e#21133#21137#0" expanded="true" />
+            <element signature="e#21168#21172#0" expanded="true" />
+            <element signature="e#23139#23143#1" expanded="true" />
+            <element signature="e#23281#23285#0" expanded="true" />
+            <element signature="e#23494#23498#0" expanded="true" />
+            <element signature="e#23529#23533#0" expanded="true" />
+            <element signature="e#23990#23994#0" expanded="true" />
+            <element signature="e#24025#24029#0" expanded="true" />
+            <element signature="e#24521#24525#1" expanded="true" />
+            <element signature="e#24663#24667#0" expanded="true" />
+            <element signature="e#24921#24925#0" expanded="true" />
+            <element signature="e#24956#24960#0" expanded="true" />
+            <element signature="e#32208#32212#1" expanded="true" />
+            <element signature="e#32350#32354#0" expanded="true" />
+            <element signature="e#32601#32605#0" expanded="true" />
+            <element signature="e#32636#32640#0" expanded="true" />
+            <element signature="e#36428#36433#0" expanded="true" />
+            <element signature="e#36434#36439#0" expanded="true" />
+            <element signature="e#36908#36914#0" expanded="true" />
+            <element signature="e#36922#36928#0" expanded="true" />
+            <element signature="e#37196#37201#0" expanded="true" />
+            <element signature="e#37725#37731#0" expanded="true" />
+            <element signature="e#37736#37742#0" expanded="true" />
+            <element signature="e#38010#38015#0" expanded="true" />
+            <element signature="e#38547#38553#0" expanded="true" />
+            <element signature="e#38561#38567#0" expanded="true" />
+            <element signature="e#39252#39257#0" expanded="true" />
+            <element signature="e#39258#39263#0" expanded="true" />
+            <element signature="e#39578#39583#0" expanded="true" />
+            <element signature="e#39584#39589#0" expanded="true" />
+            <element signature="e#40287#40293#0" expanded="true" />
+            <element signature="e#40319#40325#0" expanded="true" />
+            <element signature="e#41242#41247#0" expanded="true" />
+            <element signature="e#41248#41253#0" expanded="true" />
+            <element signature="e#42202#42208#0" expanded="true" />
+            <element signature="e#42232#42238#0" expanded="true" />
+            <element signature="e#43007#43012#0" expanded="true" />
+            <element signature="e#43013#43018#0" expanded="true" />
+            <element signature="e#43491#43496#0" expanded="true" />
+            <element signature="e#43497#43502#0" expanded="true" />
+            <element signature="e#43973#43978#0" expanded="true" />
+            <element signature="e#43979#43984#0" expanded="true" />
+            <element signature="e#44656#44660#0" expanded="true" />
+            <element signature="e#45813#45818#0" expanded="true" />
+            <element signature="e#45818#45823#0" expanded="true" />
+            <element signature="e#45833#45838#0" expanded="true" />
+            <element signature="e#45838#45843#0" expanded="true" />
+            <element signature="e#45853#45858#0" expanded="true" />
+            <element signature="e#45858#45863#0" expanded="true" />
+            <element signature="e#45878#45883#0" expanded="true" />
+            <element signature="e#45883#45888#0" expanded="true" />
+            <element signature="e#46348#46352#1" expanded="true" />
+            <element signature="e#46490#46494#0" expanded="true" />
+            <element signature="e#46741#46745#0" expanded="true" />
+            <element signature="e#46776#46780#0" expanded="true" />
+            <element signature="e#47612#47617#0" expanded="true" />
+            <element signature="e#47617#47622#0" expanded="true" />
+            <element signature="e#47644#47649#0" expanded="true" />
+            <element signature="e#47649#47654#0" expanded="true" />
+            <element signature="e#47905#47911#0" expanded="true" />
+            <element signature="e#47915#47921#0" expanded="true" />
+            <element signature="e#48267#48271#0" expanded="true" />
+            <element signature="e#49537#49542#0" expanded="true" />
+            <element signature="e#49543#49548#0" expanded="true" />
+            <element signature="e#50273#50278#0" expanded="true" />
+            <element signature="e#50279#50284#0" expanded="true" />
+            <element signature="e#50832#50836#0" expanded="true" />
+            <element signature="e#50848#50852#0" expanded="true" />
+            <element signature="e#51030#51034#0" expanded="true" />
+            <element signature="e#51334#51339#0" expanded="true" />
+            <element signature="e#51340#51345#0" expanded="true" />
+            <element signature="e#52127#52131#0" expanded="true" />
+            <element signature="e#52172#52176#0" expanded="true" />
+            <element signature="e#52386#52390#0" expanded="true" />
+            <element signature="e#53073#53077#0" expanded="true" />
+            <element signature="e#53089#53093#0" expanded="true" />
+            <element signature="e#53095#53100#0" expanded="true" />
+            <element signature="e#53138#53142#0" expanded="true" />
+            <element signature="e#53157#53161#0" expanded="true" />
+            <element signature="e#53162#53167#0" expanded="true" />
+            <element signature="e#54192#54197#0" expanded="true" />
+            <element signature="e#54197#54202#0" expanded="true" />
+            <element signature="e#54661#54665#1" expanded="true" />
+            <element signature="e#54803#54807#0" expanded="true" />
+            <element signature="e#55054#55058#0" expanded="true" />
+            <element signature="e#55089#55093#0" expanded="true" />
+            <element signature="e#55925#55930#0" expanded="true" />
+            <element signature="e#55930#55935#0" expanded="true" />
+            <element signature="e#56187#56193#0" expanded="true" />
+            <element signature="e#56197#56203#0" expanded="true" />
+            <element signature="e#56549#56553#0" expanded="true" />
+            <element signature="e#57819#57824#0" expanded="true" />
+            <element signature="e#57825#57830#0" expanded="true" />
+            <element signature="e#58555#58560#0" expanded="true" />
+            <element signature="e#58561#58566#0" expanded="true" />
+            <element signature="e#59114#59118#0" expanded="true" />
+            <element signature="e#59130#59134#0" expanded="true" />
+            <element signature="e#59312#59316#0" expanded="true" />
+            <element signature="e#59616#59621#0" expanded="true" />
+            <element signature="e#59622#59627#0" expanded="true" />
+            <element signature="e#60409#60413#0" expanded="true" />
+            <element signature="e#60441#60445#0" expanded="true" />
+            <element signature="e#60635#60639#0" expanded="true" />
+            <element signature="e#60942#60947#0" expanded="true" />
+            <element signature="e#60948#60953#0" expanded="true" />
+            <element signature="e#61455#61459#0" expanded="true" />
+            <element signature="e#61490#61494#0" expanded="true" />
+            <element signature="e#62627#62631#1" expanded="true" />
+            <element signature="e#62769#62773#0" expanded="true" />
+            <element signature="e#62870#62874#0" expanded="true" />
+            <element signature="e#62905#62909#0" expanded="true" />
+            <element signature="e#63035#63039#0" expanded="true" />
+            <element signature="e#63070#63074#0" expanded="true" />
+            <element signature="e#64308#64313#0" expanded="true" />
+            <element signature="e#64313#64318#0" expanded="true" />
+            <element signature="e#64548#64552#0" expanded="true" />
+            <element signature="e#64581#64585#0" expanded="true" />
+            <element signature="e#64619#64623#0" expanded="true" />
+            <element signature="e#64654#64658#0" expanded="true" />
+            <element signature="e#64778#64782#0" expanded="true" />
+            <element signature="e#64810#64814#0" expanded="true" />
+            <element signature="e#66496#66500#0" expanded="true" />
+            <element signature="e#66663#66669#0" expanded="true" />
+            <element signature="e#66672#66678#0" expanded="true" />
+            <element signature="e#66870#66874#0" expanded="true" />
+            <element signature="e#69180#69184#0" expanded="true" />
+            <element signature="e#69215#69219#0" expanded="true" />
+            <element signature="e#69524#69528#1" expanded="true" />
+            <element signature="e#69666#69670#0" expanded="true" />
+            <element signature="e#69773#69777#0" expanded="true" />
+            <element signature="e#69788#69792#0" expanded="true" />
+            <element signature="e#69918#69922#0" expanded="true" />
+            <element signature="e#69953#69957#0" expanded="true" />
+            <element signature="e#72739#72743#0" expanded="true" />
+            <element signature="e#72754#72758#0" expanded="true" />
+            <element signature="e#73027#73032#0" expanded="true" />
+            <element signature="e#73032#73037#0" expanded="true" />
+            <element signature="e#73069#73074#0" expanded="true" />
+            <element signature="e#73074#73079#0" expanded="true" />
+            <element signature="e#73113#73118#0" expanded="true" />
+            <element signature="e#73118#73123#0" expanded="true" />
+            <element signature="e#73507#73511#0" expanded="true" />
+            <element signature="e#73540#73544#0" expanded="true" />
+            <element signature="e#73690#73694#0" expanded="true" />
+            <element signature="e#73723#73727#0" expanded="true" />
+            <element signature="e#73876#73880#0" expanded="true" />
+            <element signature="e#73909#73913#0" expanded="true" />
+            <element signature="e#74060#74064#0" expanded="true" />
+            <element signature="e#74076#74080#0" expanded="true" />
+            <element signature="e#74300#74304#0" expanded="true" />
+            <element signature="e#74315#74319#0" expanded="true" />
+            <element signature="e#74543#74547#0" expanded="true" />
+            <element signature="e#74588#74592#0" expanded="true" />
+            <element signature="e#74852#74856#0" expanded="true" />
+            <element signature="e#74867#74871#0" expanded="true" />
+            <element signature="e#75074#75078#0" expanded="true" />
+            <element signature="e#75093#75097#0" expanded="true" />
+            <element signature="e#78091#78095#0" expanded="true" />
+            <element signature="e#78768#78773#0" expanded="true" />
+            <element signature="e#78781#78786#0" expanded="true" />
+            <element signature="e#79010#79014#0" expanded="true" />
+            <element signature="e#79237#79241#0" expanded="true" />
+            <element signature="e#79270#79274#0" expanded="true" />
+            <element signature="e#80417#80421#0" expanded="true" />
+            <element signature="e#81146#81150#0" expanded="true" />
+            <element signature="e#82527#82532#0" expanded="true" />
+            <element signature="e#82532#82537#0" expanded="true" />
+            <element signature="e#82548#82552#0" expanded="true" />
+            <element signature="e#84272#84277#0" expanded="true" />
+            <element signature="e#84277#84282#0" expanded="true" />
+            <element signature="e#84314#84319#0" expanded="true" />
+            <element signature="e#84319#84324#0" expanded="true" />
+            <element signature="e#85295#85299#1" expanded="true" />
+            <element signature="e#85437#85441#0" expanded="true" />
+            <element signature="e#85538#85542#0" expanded="true" />
+            <element signature="e#85572#85576#0" expanded="true" />
+            <element signature="e#85668#85672#0" expanded="true" />
+            <element signature="e#85703#85707#0" expanded="true" />
+            <element signature="e#88091#88096#0" expanded="true" />
+            <element signature="e#88096#88101#0" expanded="true" />
+            <element signature="e#88474#88478#0" expanded="true" />
+            <element signature="e#88506#88510#0" expanded="true" />
+            <element signature="e#88540#88544#0" expanded="true" />
+            <element signature="e#88572#88576#0" expanded="true" />
+            <element signature="e#88958#88962#0" expanded="true" />
+            <element signature="e#88973#88977#0" expanded="true" />
+            <element signature="e#89120#89124#0" expanded="true" />
+            <element signature="e#89152#89156#0" expanded="true" />
+            <element signature="e#89307#89311#0" expanded="true" />
+            <element signature="e#89340#89344#0" expanded="true" />
+            <element signature="e#89486#89490#0" expanded="true" />
+            <element signature="e#89518#89522#0" expanded="true" />
+            <element signature="e#89876#89880#0" expanded="true" />
+            <element signature="e#90127#90132#0" expanded="true" />
+            <element signature="e#90140#90145#0" expanded="true" />
+            <element signature="e#90299#90303#0" expanded="true" />
+            <element signature="e#90332#90336#0" expanded="true" />
+            <element signature="e#91110#91114#0" expanded="true" />
+            <element signature="e#91614#91620#0" expanded="true" />
+            <element signature="e#91623#91629#0" expanded="true" />
+            <element signature="e#93080#93084#0" expanded="true" />
+            <element signature="e#93096#93100#0" expanded="true" />
+            <element signature="e#93111#93115#0" expanded="true" />
+            <element signature="e#93128#93132#0" expanded="true" />
+            <element signature="e#95123#95128#0" expanded="true" />
+            <element signature="e#95128#95133#0" expanded="true" />
+            <element signature="e#95163#95168#0" expanded="true" />
+            <element signature="e#95168#95173#0" expanded="true" />
+            <element signature="e#95844#95848#0" expanded="true" />
+            <element signature="e#95876#95880#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="780" selection-start-line="780" selection-end-line="780" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/src/Core/Matrix.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="379" selection-start-line="379" selection-end-line="379" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/html/classbase_structural_analysis_class.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="446" column="114" selection-start-line="446" selection-start-column="114" selection-end-line="446" selection-end-column="114" />
+          <folding>
+            <element signature="e#29531#29537#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exemplos e Arquivos Abaqus/Exemplos Final/inp/Q4_120.inp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="52" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="52" />
+          <caret line="52" selection-start-line="52" selection-end-line="53" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseNodeClass.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="17" />
           <folding>
             <element signature="e#187#238#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/elementClass_Q4.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="137" column="78" selection-start-line="137" selection-start-column="78" selection-end-line="137" selection-end-column="78" />
+        <state relative-caret-position="228">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="59" />
           <folding>
-            <element signature="e#1#20#0" expanded="true" />
+            <element signature="e#4132#4487#0" />
+            <element signature="e#4489#4908#0" />
+            <element signature="e#4910#6336#0" />
+            <element signature="e#6338#8152#0" />
+            <element signature="e#8163#8182#0" expanded="true" />
+            <element signature="e#8154#9740#0" />
+            <element signature="e#10561#10580#0" expanded="true" />
+            <element signature="e#9871#9988#0" />
+            <element signature="e#9742#10700#0" />
+            <element signature="e#10702#12004#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elementClass_Q4.hpp">
+    <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/src/Core/CwiseNullaryOp.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="54" column="35" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="35" />
+        <state relative-caret-position="169">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/src/Core/util/StaticAssert.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eigenlib/Eigen/src/Core/AssignEvaluator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="833" selection-start-line="833" selection-end-line="833" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/baseStructuralAnalysisClass.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="619" column="72" selection-start-line="619" selection-start-column="72" selection-end-line="619" selection-end-column="72" />
+        <state relative-caret-position="2534">
+          <caret line="804" lean-forward="true" selection-start-line="804" selection-end-line="804" />
           <folding>
             <element signature="e#145#164#0" expanded="true" />
-            <element signature="e#6555#6608#0" expanded="true" />
-            <element signature="e#7831#9170#0" />
-            <element signature="e#16194#16247#0" expanded="true" />
-            <element signature="e#16145#17981#0" />
+            <element signature="e#6153#6430#0" />
+            <element signature="e#8624#12849#0" />
+            <element signature="e#12676#14866#0" />
+            <element signature="e#14825#16398#0" />
+            <element signature="e#16120#17992#0" />
+            <element signature="e#18448#18501#0" expanded="true" />
+            <element signature="e#17994#23730#0" />
+            <element signature="e#24148#24201#0" expanded="true" />
+            <element signature="e#24140#28349#0" />
+            <element signature="e#28352#31503#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="152" selection-start-line="26" selection-start-column="152" selection-end-line="26" selection-end-column="152" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>

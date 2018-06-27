@@ -47,12 +47,49 @@ public:
      */
     Eigen::SparseMatrix<numericType> sprMatK(numericType youngModulus,numericType poissonRatio) const;
 
+    /**
+     * Evaluate the area of the element.
+     * @return area of the element.
+     */
+    numericType evalArea() const;
+
     // GETTER & SETTER
     /**
      * Getter Method: Get the identificators of all nodes of this element.
      * @return the identificators of all nodes of this element.
      */
     const std::vector<unsigned int> &getM_nodalConnectivity() const;
+
+    /**
+     * Returns the displacement vector.
+     * @return displacement vector.
+     */
+    const Matrix<numericType, 8, 1> &get_uVec() const {
+        return m_uVec;
+    }
+
+    /**
+     * Returns the strain vector.
+     * @return displacement vector.
+     */
+    const Matrix<numericType, 3, 1> &get_eVec() const {
+        return m_eVec;
+    }
+
+    /**
+     * Returns the stress vector.
+     * @return displacement vector.
+     */
+    const Matrix<numericType, 3, 1> &get_sigVec() const {
+        return m_sigVec;
+    }
+
+    /**
+     * Evaluates stress strain and saves it.
+     * @param uVec displacement vector.
+     */
+    void evaluateStressStrain(const Matrix<numericType, 8, 1> &uVec, numericType youngModulus,numericType posissonRatio);
+
 
 private:
     // MEMBERS
@@ -70,6 +107,23 @@ private:
      * Member: It stores coordinates of all nodes of this element.
      */
     Eigen::Matrix<numericType,4,2> m_nodalPosCoord;
+
+    /**
+     * Memeber: Stores the displacement vector.
+     */
+    Eigen::Matrix<numericType,8,1> m_uVec;
+
+    /**
+     * Memeber: Stores the strain vector.
+     */
+    Eigen::Matrix<numericType,3,1> m_eVec;
+
+    /**
+     * Memeber: Stores the stress vector.
+     */
+    Eigen::Matrix<numericType,3,1> m_sigVec;
+
+private:
 
     // METHODS
     /**
@@ -229,6 +283,33 @@ sprMatK(numericType youngModulus,numericType poissonRatio) const {
 
     return Kl;
 }
+
+template <class numericType>
+void  elementClass_Q4<numericType>::
+evaluateStressStrain(const Matrix<numericType, 8, 1> &uVec, numericType youngModulus,numericType poissonRatio) {
+
+    Matrix<numericType, 2, 1> pointVec;
+    pointVec << 0., 0.;
+
+    Eigen::SparseMatrix<numericType> B;
+    Eigen::SparseMatrix<numericType> C;
+    C = evalConstitutiveMatrix(youngModulus,poissonRatio);
+    B = this->sprMatB(pointVec);
+
+    m_uVec = uVec;
+    m_eVec = B*uVec;
+    m_sigVec = C*m_eVec;
+};
+
+template <class numericType>
+numericType elementClass_Q4<numericType>::
+evalArea() const{
+    Eigen::Matrix<numericType,2,2> mat1 = m_nodalPosCoord.block(0,0,2,2);
+    Eigen::Matrix<numericType,2,2> mat2 = m_nodalPosCoord.block(2,0,2,2);
+
+    return 0.5*(abs(mat1.determinant())+abs(mat2.determinant()));
+}
+
 
 template <class numericType>
 Eigen::Matrix<numericType, 4, 1> elementClass_Q4<numericType>::

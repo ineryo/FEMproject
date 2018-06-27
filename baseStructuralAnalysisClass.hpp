@@ -108,8 +108,23 @@ protected:
      */
     virtual Eigen::SparseMatrix<numericType>    evaluateGlobalStiffMat();
 
+    /**
+     * Method to evaluate the global force vector.
+     * @return Global force vector.
+     */
+    virtual Eigen::SparseMatrix<numericType> evaluateGlobalForceVec();
 
+    /**
+     * Method to evaluate the global displacement vector (solves the linear system).
+     * @return
+     */
     virtual Eigen::Matrix<numericType,Eigen::Dynamic,1>evaluateGlobalDisplacVec();
+
+    /**
+     * Method to update the local information of the element with its displacement.
+     * @return flag.
+     */
+    bool updateLocalInfo();
 
     // MEMBERS - scalar, list
     // Spacial dimension
@@ -137,6 +152,7 @@ protected:
     eigenLinearSolverInfo m_linSolverInfo;
     numericType m_youngModulus;
     numericType m_poissonRatio;
+    numericType m_pressure;
 
     // MEMBERS - vector, matrix
     // Degrees of freedom vector
@@ -144,9 +160,9 @@ protected:
     // Global stiffness matrix
     Eigen::SparseMatrix<numericType> m_glbStiffMat;
     // Global force vector
-    Eigen::Matrix<numericType,Eigen::Dynamic,1> m_glbnodeForceVec;
+    Eigen::SparseMatrix<numericType> m_glbForceVec;
     // Global displacement vector
-    Eigen::Matrix<numericType,Eigen::Dynamic,1> m_glbDisplacVec;
+    Eigen::SparseMatrix<numericType> m_glbDisplacVec;
 
     // MEMBERS - boolean
     // Check if initialization info of the elements is saved already
@@ -155,18 +171,16 @@ protected:
     bool m_isNodeListSaved;
     // Check if initialization info is saved already
     bool m_isInitialStructureSaved;
-    // Check if all local rotation matrix are saved already (one for each element)
-    bool m_isLocalRotationMatrixComputed;
     // Check if initialization info is saved already
     bool m_isDegreeOfFreedomVecComputed;
     // Check if global stiffness matrix is computed already
     bool m_isGlbStiffMatComputed;
     // Check if global force vector is computed already
-    bool m_isGlbnodeForceVecComputed;
+    bool m_isGlbForceVecComputed;
     // Check if global displacement vector is computed already
     bool m_isGlbDisplacVecComputed;
     // Check if local element information (force and displacement) is updated already
-    bool m_isLocalElemInfoUpdated;
+    bool m_isLocalInfoUpdated;
     // Check if local nodal information (force and displacement) is updated already
     bool m_isLocalNodeInfoUpdated;
 };
@@ -174,13 +188,13 @@ protected:
 template<class numericType, class elemClass, class nodeClass>
 baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
 ::baseStructuralAnalysisClass():
-        m_isElemListSaved(false),m_isNodeListSaved(false),m_isInitialStructureSaved(false),m_isLocalRotationMatrixComputed(false),m_isDegreeOfFreedomVecComputed(false), m_isGlbStiffMatComputed(false), m_isGlbnodeForceVecComputed(false), m_isGlbDisplacVecComputed(false), m_isLocalElemInfoUpdated(false), m_isLocalNodeInfoUpdated(false)
+        m_isElemListSaved(false),m_isNodeListSaved(false),m_isInitialStructureSaved(false),m_isDegreeOfFreedomVecComputed(false), m_isGlbStiffMatComputed(false), m_isGlbForceVecComputed(false), m_isGlbDisplacVecComputed(false), m_isLocalInfoUpdated(false), m_isLocalNodeInfoUpdated(false)
 {
-    nodeClass aNode;
+    //nodeClass aNode;
     m_maxNodeDegFree = 2;           // MUST BE EDITED TO BE MORE GENERAL
     m_nSpatialDimension = 2;           // MUST BE EDITED TO BE MORE GENERAL
 
-    elemClass anElem;
+    //elemClass anElem;
     m_nNodePerElem = 4;           // MUST BE EDITED TO BE MORE GENERAL
 }
 
@@ -216,8 +230,8 @@ unsigned int baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
             if (flag) {
                 ++numOperations;
                 // evaluate Global Force Vector!
-                //evaluateGlobalnodeForceVec();
-                flag = m_isGlbnodeForceVecComputed;
+                evaluateGlobalForceVec();
+                flag = m_isGlbForceVecComputed;
                 if (flag) {
                     ++numOperations;
                     // evaluate Global Stiffness Matrix!
@@ -226,18 +240,13 @@ unsigned int baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                     if (flag) {
                         ++numOperations;
                         // evaluate Global Displacement Vector (solve problem)!
-                        //evaluateGlobalDisplacVec();
+                        evaluateGlobalDisplacVec();
                         flag = m_isGlbDisplacVecComputed;
                         if (flag) {
                             ++numOperations;
-                            // update Local Nodal Information!
-                            //flag = updateLocalNodeInfo();
-                            if (flag) {
-                                ++numOperations;
-                                // evaluate Local Element Information!
-                                //flag = updateLocalElemInfo();
-                                if (flag) { ++numOperations; }
-                            }
+                            // evaluate Local Element Information!
+                            flag = updateLocalInfo();
+                            if (flag) { ++numOperations; }
                         }
                     }
                 }
@@ -254,6 +263,8 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
     bool flagOpen = false;
     bool flagElem = false;
     bool flagNode = false;
+    bool flagPressure = false;
+    bool flagMaterial = false;
     bool flagForceElem = false;
     bool flagFixedNode = false;
 
@@ -261,6 +272,7 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
     {
         std::string aLine;
         std::string buff;
+        std::string laterLine="00000";
 
         unsigned int numNode = 0;
         unsigned int numElem = 0;
@@ -278,19 +290,19 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                 if(aLine[0] != '*') continue;
 
                 // Check if it list Elements
-                if ( aLine.find("*Element")!=std::string::npos )
+                if ( aLine == "*Element, type=CPS4" )
                 {
                     flagElem = readFromFile_ElemList( &inFile);
                 }
 
                 // Check if it list Nodes
-                if ( aLine.find("*Node")!=std::string::npos )
+                if ( aLine == "*Node" )
                 {
                     flagNode = readFromFile_NodeList( &inFile);
                 }
 
                 // Check if it list Material Data
-                if ( aLine.find("*Elastic")!=std::string::npos )
+                if ( aLine == "*Elastic" )
                 {
                     getline(inFile,aLine);
                     std::string pieceLine;
@@ -299,23 +311,39 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                     m_youngModulus = std::stod(pieceLine);
                     std::getline(thisLine, pieceLine, ',');
                     m_poissonRatio = std::stod(pieceLine);
+
+                    flagMaterial = true;
                 }
 
                 // Check if it list Elements with pressure applied in it
-                if ( aLine.find("*Elset, elset=_load_set_S3")!=std::string::npos )
+                if ( aLine == "*Elset, elset=_Set_Load_S3, internal, instance=Part_Geometry-1" )
                 {
                     getline(inFile,aLine);
                     std::string pieceLine;
                     std::stringstream thisLine (aLine);
                     unsigned int curAux=0;
                     while (std::getline(thisLine, pieceLine, ',')){
-                        m_elemListWithPressureApplied.push_back(curAux++);
+                        m_elemListWithPressureApplied.push_back(std::stoul(pieceLine)-1u);
                     }
                     flagForceElem = true;
                 }
 
+                // Check if it list Elements with pressure applied in it
+                if ( aLine == "*Dsload" )
+                {
+                    getline(inFile,aLine);
+                    std::string pieceLine;
+                    std::stringstream thisLine(aLine);
+                    std::getline(thisLine, pieceLine, ',');
+                    std::getline(thisLine, pieceLine, ',');
+                    std::getline(thisLine, pieceLine, ',');
+                    m_pressure = std::stod(pieceLine);
+
+                    flagPressure = true;
+                }
+
                 // Check if it list fixed nodes
-                if ( aLine.find("*Nset, nset=encastre_set")!=std::string::npos )
+                if ( aLine == "*Nset, nset=Set_Encastre, instance=Part_Geometry-1, generate" )
                 {
                     getline(inFile,aLine);
                     std::string pieceLine;
@@ -334,14 +362,14 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                     for(curValue=(auxBegin-1); curValue<auxEnd; curValue+=auxStep) {
                         m_fixedNodes.insert(curValue);
                     }
+                    flagFixedNode = true;
                 }
-                flagFixedNode = true;
             }
             inFile.close();
         }
     }
 
-    m_isInitialStructureSaved = (m_isInitialStructureSaved) || (flagOpen && flagElem && flagNode && flagForceElem && flagFixedNode);
+    m_isInitialStructureSaved = (m_isInitialStructureSaved) || (flagOpen && flagElem && flagNode && flagPressure && flagMaterial && flagForceElem && flagFixedNode);
     return m_isInitialStructureSaved;
 }
 
@@ -350,6 +378,7 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
 ::readFromFile_ElemList(ifstream *openedFile)
 {
     bool flagOpen = false;
+    Eigen::Matrix<numericType,2,1> curPos;
 
     if( (!m_isInitialStructureSaved) && (!m_isElemListSaved) && (m_isNodeListSaved) )
     {
@@ -365,33 +394,34 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
             unsigned int curElem;
             unsigned int curAux;
 
+            getline(*openedFile,aLine);
             while(aLine[0] != '*') {
-                if( getline(*openedFile,aLine) )
+                std::stringstream thisLine (aLine);
+                // Reading id
+                std::getline(thisLine, pieceLine, ',');
+                // aux_unsigned_int= std::stoul(pieceLine);
+
+                // Reading nodalConnectivity[4]
+                std::vector<unsigned int> nodalConnectivity;
+                for(curAux = 0; curAux< m_nNodePerElem ; ++curAux)
                 {
-                    std::stringstream thisLine (aLine);
-                    // Reading id
                     std::getline(thisLine, pieceLine, ',');
-                    // aux_unsigned_int= std::stoul(pieceLine);
-
-                    // Reading nodalConnectivity[4]
-                    std::vector<unsigned int> nodalConnectivity;
-                    for(curAux = 0; curAux< m_nNodePerElem ; ++curAux)
-                    {
-                        std::getline(thisLine, pieceLine, ',');
-                        aux_unsigned_int= std::stoul(pieceLine);
-                        nodalConnectivity.push_back(aux_unsigned_int);
-                    }
-
-                    // Evaluating nodalPosCoord[4,2]
-                    Eigen::Matrix<numericType,Eigen::Dynamic,Eigen::Dynamic> nodalPosCoord(m_nNodePerElem,m_nSpatialDimension);
-                    for(curAux = 0; curAux<m_nNodePerElem; ++curAux)
-                    {
-                        nodalPosCoord.row(curAux) = m_nodeList[nodalConnectivity[curAux]].getM_position().transpose();
-                    }
-
-                    // elementClass_Q4(const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord);
-                    m_elemList.push_back( elemClass(nodalConnectivity, nodalPosCoord) );
+                    aux_unsigned_int= (std::stoul(pieceLine)-1u);
+                    nodalConnectivity.push_back(aux_unsigned_int);
                 }
+
+                // Evaluating nodalPosCoord[4,2]
+                Eigen::Matrix<numericType,Eigen::Dynamic,Eigen::Dynamic> nodalPosCoord(m_nNodePerElem,m_nSpatialDimension);
+                for(curAux = 0; curAux<m_nNodePerElem; ++curAux)
+                {
+                    curPos = (m_nodeList[nodalConnectivity[curAux]].getM_position());
+                    nodalPosCoord.row(curAux) = curPos.transpose();
+                }
+
+                // elementClass_Q4(const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord);
+                m_elemList.push_back( elemClass(nodalConnectivity, nodalPosCoord) );
+
+                getline(*openedFile,aLine);
             }
         }
     }
@@ -422,34 +452,25 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
             unsigned int curNode;
             unsigned int curAux;
 
+            getline(*openedFile,aLine);
             while(aLine[0] != '*') {
-                if( getline(*openedFile,aLine) )
+                std::stringstream thisLine (aLine);
+                // Reading id
+                std::getline(thisLine, pieceLine, ',');
+                // aux_unsigned_int= std::stoul(pieceLine);
+
+                Eigen::Matrix<numericType,Eigen::Dynamic,1> position(m_nSpatialDimension);
+                for(curAux = 0; curAux<m_nSpatialDimension; ++curAux)
                 {
-                    std::stringstream thisLine (aLine);
-                    // Reading id
                     std::getline(thisLine, pieceLine, ',');
-                    // aux_unsigned_int= std::stoul(pieceLine);
-
-                    // Reading nodalConnectivity[4]
-                    std::vector<unsigned int> nodalConnectivity;
-                    for(curAux = 0; curAux< m_nNodePerElem ; ++curAux)
-                    {
-                        std::getline(thisLine, pieceLine, ',');
-                        aux_unsigned_int= std::stoul(pieceLine);
-                        nodalConnectivity.push_back(aux_unsigned_int);
-                    }
-
-                    // Evaluating nodalPosCoord[4,2]
-                    Eigen::Matrix<numericType,Eigen::Dynamic,1> position(m_nSpatialDimension);
-                    for(curAux = 0; curAux<m_nSpatialDimension; ++curAux)
-                    {
-                        std::getline(thisLine, pieceLine, ',');
-                        position(curAux) = std::stod(pieceLine);
-                    }
-
-                    // baseNodeClass(Eigen::Matrix<numericType,nSpatialDimension,1> position);
-                    m_nodeList.push_back( nodeClass( position) );
+                    position(curAux) = std::stod(pieceLine);
                 }
+
+                // baseNodeClass(Eigen::Matrix<numericType,nSpatialDimension,1> position);
+                m_nodeList.push_back( nodeClass( position) );
+
+                // Next line
+                getline(*openedFile,aLine);
             }
         }
     }
@@ -514,9 +535,9 @@ Eigen::SparseMatrix<numericType> baseStructuralAnalysisClass<numericType,elemCla
     unsigned int idNode_curElem;                    // Initial node of an element
 
     // Global Stiffness Matrix
-    Eigen::SparseMatrix<numericType> glbStiffMatrix(numNode,numNode);
+    Eigen::SparseMatrix<numericType> glbStiffMatrix(numNode*numNodeDegFree,numNode*numNodeDegFree);
 
-    if( (m_isInitialStructureSaved && m_isDegreeOfFreedomVecComputed && m_isLocalRotationMatrixComputed) && (!m_isGlbStiffMatComputed) )
+    if( (m_isInitialStructureSaved && m_isDegreeOfFreedomVecComputed ) && (!m_isGlbStiffMatComputed) )
     {
         // Getting some small vectors and matrix
         Eigen::Matrix<unsigned int,Eigen::Dynamic,1> elemDofPosition_curElem(numElemDegFree);
@@ -546,7 +567,7 @@ Eigen::SparseMatrix<numericType> baseStructuralAnalysisClass<numericType,elemCla
 
             // Getting the 'position' of the DoF of the nodes that connects an element
             for(idNode_curElem = 0; idNode_curElem < numNodePerElem; ++idNode_curElem){
-                elemDofPosition_curElem.block(idNode_curElem*numNodePerElem,0,numNodePerElem,1) = Matrix<unsigned int,Eigen::Dynamic,1>::LinSpaced(numNodeDegFree,elemConnection_curElem[idNode_curElem]*numNodeDegFree,(elemConnection_curElem[idNode_curElem]+1u)*numNodeDegFree - 1u);
+                elemDofPosition_curElem.block(idNode_curElem*numNodeDegFree,0,numNodeDegFree,1) = Matrix<unsigned int,Eigen::Dynamic,1>::LinSpaced(numNodeDegFree,elemConnection_curElem[idNode_curElem]*numNodeDegFree,(elemConnection_curElem[idNode_curElem]+1u)*numNodeDegFree - 1u);
             }
 
             // Computing the local stiffness matrix of an element and its rotation matrix
@@ -581,12 +602,77 @@ Eigen::SparseMatrix<numericType> baseStructuralAnalysisClass<numericType,elemCla
     }
 
     // Updating flag
-    m_isGlbStiffMatComputed = (m_isInitialStructureSaved && m_isDegreeOfFreedomVecComputed && m_isLocalRotationMatrixComputed);
+    m_isGlbStiffMatComputed = (m_isInitialStructureSaved && m_isDegreeOfFreedomVecComputed );
 
     // Returning suitable value
     if(m_isGlbStiffMatComputed)   { return m_glbStiffMat;   }
     else                            return glbStiffMatrix;
 }
+
+template<class numericType, class elemClass, class nodeClass>
+Eigen::SparseMatrix<numericType> baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
+::evaluateGlobalForceVec(){
+
+    // Getting constantes and some auxiliar variables
+    unsigned int numNodePerElem = m_nNodePerElem;   // Number of nodes per element [USING =2]!!!!!!!!!!!!!
+    unsigned int numNodeDegFree = m_maxNodeDegFree; // Number of possible degrees of freedom in each node
+    unsigned int numElemDegFree = numNodePerElem*numNodeDegFree;// Number of possible degrees of freedom in each elem
+    unsigned int numElemWithPressure = m_elemListWithPressureApplied.size();       // Number of elements
+    unsigned int numNode = m_nodeList.size();       // Number of nodes
+    unsigned int idCurElemWithPressure;                         // Index of an element
+    unsigned int idNode_curElem;                    // Initial node of an element
+
+    // Global Stiffness Matrix
+    Eigen::SparseMatrix<numericType> forceVec(numNode*numNodeDegFree,1);
+
+    if( (m_isInitialStructureSaved && m_isDegreeOfFreedomVecComputed ) && (!m_isGlbForceVecComputed) )
+    {
+        // Getting some small vectors and matrix
+        Eigen::Matrix<unsigned int,Eigen::Dynamic,1> elemDofPosition_curElem(numElemDegFree);
+        Eigen::Matrix<unsigned int,Eigen::Dynamic,1> iniNodeDofPosition_curElem(numNodeDegFree);
+        Eigen::Matrix<unsigned int,Eigen::Dynamic,1> endNodeDofPosition_curElem(numNodeDegFree);
+        std::vector<unsigned int> elemConnection_curElem(numNodePerElem);       // ConnectionVector of an element
+        Eigen::SparseMatrix<numericType> localStifffMat_CurElem(numElemDegFree,numElemDegFree);  // localStiffMatrix of an element
+        Eigen::Matrix<numericType,Eigen::Dynamic,Eigen::Dynamic> rotationMat_CurElem(numElemDegFree,numElemDegFree);     // rotationMatrix of an element
+        typedef Eigen::Triplet<numericType> TripNumericType;                // Triplet typedef for a sparse matrix
+        std::vector<TripNumericType> tripletList;                           // Triplet list for indexzation of sparse matrix
+        tripletList.reserve(numNodePerElem*numElemWithPressure);         // Allocating memory for the triplet list
+        unsigned int curRow_LclForcVec =0;                                   // Index of a row at localStiffMatrix
+        //    unsigned int curRowDof_LclStfMat =0;                              // DoF of the IndexRow @ localStiffMatrix
+        //    unsigned int curColDof_LclStfMat =0;                              // DoF of the IndexCol @ localStiffMatrix
+        unsigned int glbIdRow = 0;                                          // Index of the row @ globalStiffMatrix
+        unsigned int glbIdCol = 0;                                          // Index of the col @ globalStiffMatrix
+        numericType curElemArea = 0;
+        numericType force;                                                  // An element of the localStiffMatrix
+        numericType maxValue = 0;                                           // Variable to compute the max value of localStiffMatrix
+
+
+        // Trick...
+        // Walking inside the elementList: elem by elem
+        for( idCurElemWithPressure=0; idCurElemWithPressure<numElemWithPressure; ++idCurElemWithPressure)
+        {
+            // Saving the connection (id nodes) of an element
+            unsigned int teste1 = idCurElemWithPressure;
+            unsigned int teste2 = m_elemListWithPressureApplied[idCurElemWithPressure];
+            elemConnection_curElem = m_elemList[m_elemListWithPressureApplied[idCurElemWithPressure]].getM_nodalConnectivity();
+
+            // Walking inside the localStiffMatrix: row by row
+            for( idNode_curElem = 0; idNode_curElem<numNodePerElem ; ++idNode_curElem)
+            {
+                    tripletList.push_back( TripNumericType( elemConnection_curElem[idNode_curElem]*numNodeDegFree+1 , 0 , -m_pressure ) );
+            }
+        }
+
+        // Saving global stiffness matrix as sparse (from triplets(i,j,v_ij))
+        forceVec.setFromTriplets(tripletList.begin(), tripletList.end());
+        m_glbForceVec = forceVec;
+
+        m_isGlbForceVecComputed = true;
+    }
+
+    return forceVec;
+}
+
 
 template<class numericType, class elemClass, class nodeClass>
 Eigen::Matrix<numericType, Eigen::Dynamic, 1> baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
@@ -599,64 +685,152 @@ Eigen::Matrix<numericType, Eigen::Dynamic, 1> baseStructuralAnalysisClass<numeri
     unsigned int numNode = m_nodeList.size();       // Number of nodes
     unsigned int numDof = numNode*numNodeDegFree;   // Number of DoF
     unsigned int curDof_CurNode;                     // Index of an DoF
-    unsigned int idCurNode;                         // Index of an DoF
-    unsigned int idCurDof;
+    unsigned int idCurFixNode;                         // Index of an DoF
+    bool isFixed;
 
-    if( m_isGlbStiffMatComputed && m_isGlbnodeForceVecComputed)
+    if( m_isGlbStiffMatComputed && m_isGlbForceVecComputed)
     {
         // Global Displacement Vector
-        Eigen::Matrix<numericType,Eigen::Dynamic,1> displacVector = Eigen::Matrix<numericType,Eigen::Dynamic,1>::Zero(numDof);
+        Eigen::SparseMatrix<numericType> displacVector(numDof,1);
 
         // Getting global force vector and stiffness matrix
         Eigen::SparseMatrix<numericType> penalizedStiffMatrix = m_glbStiffMat;
-        Eigen::Matrix<numericType,Eigen::Dynamic,1> penalizednodeForceVector = m_glbnodeForceVec;
+        Eigen::SparseMatrix<numericType> penalizedForceVector = m_glbForceVec;
         Eigen::Matrix<unsigned int,Eigen::Dynamic,1> dofPosition_curNode(numNodeDegFree);
-        Eigen::Matrix<numericType,Eigen::Dynamic,1> dispVec_curNode(numNodeDegFree);
 
+        for (std::set<unsigned int>::iterator it=m_fixedNodes.begin(); it!=m_fixedNodes.end(); ++it){
+            idCurFixNode = *it;
 
-        for ( idCurNode=0; idCurNode<numNode; ++idCurNode)
-        {
-            // Getting the 'position' of the DoF of the node
-            dofPosition_curNode = Matrix<unsigned int,Eigen::Dynamic,1>::LinSpaced(numNodeDegFree,idCurNode*numNodeDegFree,(idCurNode+1u)*numNodeDegFree - 1u);
+            penalizedStiffMatrix.coeffRef(idCurFixNode*numNodeDegFree,idCurFixNode*numNodeDegFree) = m_penalty;
+            penalizedStiffMatrix.coeffRef(idCurFixNode*numNodeDegFree+1,idCurFixNode*numNodeDegFree+1) = m_penalty;
 
-            // Getting the displacement vector od the node
-//            dispVec_curNode = m_nodeList[idCurNode].displacVec();
-
-            for ( curDof_CurNode=0; curDof_CurNode<numNodeDegFree; ++curDof_CurNode)
-            {
-                idCurDof = dofPosition_curNode(curDof_CurNode);
-
-                // Check if this "DoF" is fixed (not an actually DoF)
-                if( m_degFreeVec(idCurDof) == 0 )
-                {
-                    // If it is fixed:
-                    penalizedStiffMatrix.coeffRef(idCurDof,idCurDof) = m_penalty;
-                    penalizednodeForceVector(idCurDof) = m_penalty * dispVec_curNode(curDof_CurNode);
-                }
-            }
+            penalizedForceVector.coeffRef(idCurFixNode*numNodeDegFree,0) = 0;
+            penalizedForceVector.coeffRef(idCurFixNode*numNodeDegFree+1,0) = 0;
         }
+
+        std::cout << "GLOBAL FORCE VECTOR" << std::endl << m_glbForceVec.transpose() << std::endl << std::endl;
+        std::cout << "GLOBAL STIFF MATRIX" << std::endl << m_glbStiffMat << std::endl << std::endl;
+        std::cout << "reduced force vector" << std::endl << penalizedForceVector.transpose() << std::endl << std::endl;
+        std::cout << "reduced stiff matrix" << std::endl << penalizedStiffMatrix << std::endl << std::endl;
 
         // Solving by conjugate gradiente method
         ConjugateGradient<SparseMatrix<numericType>, Lower|Upper> cgSolver;
 //        cgSolver.setTolerance(1e-8);
+        cgSolver.setMaxIterations(5000);
         cgSolver.compute(penalizedStiffMatrix);
-        displacVector = cgSolver.solve(penalizednodeForceVector);
+        displacVector = cgSolver.solve(penalizedForceVector);
         m_linSolverInfo.setValues (cgSolver.iterations(),cgSolver.error(),cgSolver.info());
 
         if(m_linSolverInfo.info == Eigen::Success)
         {
             isSolverSuccess = true;
-            m_glbnodeForceVec = m_glbStiffMat * displacVector;      // Updating global force vector!
+            m_glbForceVec = m_glbStiffMat * displacVector;      // Updating global force vector!
             m_glbDisplacVec = displacVector;
         }
     }
 
     // Updating flag
-    m_isGlbDisplacVecComputed = (( m_isGlbStiffMatComputed && m_isGlbnodeForceVecComputed) && isSolverSuccess);
+    m_isGlbDisplacVecComputed = (( m_isGlbStiffMatComputed && m_isGlbForceVecComputed) && isSolverSuccess);
 
     // Returning suitable value
     if(m_isGlbDisplacVecComputed)   {   return m_glbDisplacVec; }
     else                                return Eigen::Matrix<numericType,Eigen::Dynamic,1>::Zero(numDof);
 }
+
+template<class numericType, class elemClass, class nodeClass>
+bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
+::updateLocalInfo() {
+
+    if((m_isGlbDisplacVecComputed && m_isGlbForceVecComputed && m_isGlbStiffMatComputed) && !m_isLocalInfoUpdated)
+    {
+        // Getting constantes and some auxiliar variables
+        unsigned int numNodePerElem = m_nNodePerElem;   // Number of nodes per element [USING =2]!!!!!!!!!!!!!
+        unsigned int numNodeDegFree = m_maxNodeDegFree; // Number of possible degrees of freedom in each node
+        unsigned int numElemDegFree = numNodePerElem*numNodeDegFree;// Number of possible degrees of freedom in each elem
+        unsigned int numElem = m_elemList.size();       // Number of elements
+        unsigned int numNode = m_nodeList.size();       // Number of elements
+        unsigned int idCurElem;                         // Index of an element
+        unsigned int idNode;
+        unsigned int idNode_curElem;                    // Initial node of an element
+        unsigned int curIdDof;
+
+
+        // Getting some small vectors and matrix
+        Eigen::Matrix<unsigned int,Eigen::Dynamic,1> elemDofPosition_curElem(numElemDegFree);
+        std::vector<unsigned int> elemConnection_curElem;       // ConnectionVector of an element
+        Eigen::Matrix<numericType,Eigen::Dynamic,Eigen::Dynamic> rotationMat_CurElem;     // RotationMatrix of an element
+        Eigen::Matrix<numericType,Eigen::Dynamic,1>    nodeForceVec_curElem(numElemDegFree);           // nodeForceVector of the iniNode
+//        Eigen::Matrix<numericType,Eigen::Dynamic,1>    internForceVec_curElem(numNodeDegFree);           // nodeForceVector of the iniNode
+        Eigen::Matrix<numericType,Eigen::Dynamic,1>    posVec_iniNode_curElem;     // PositionVector of the iniNode
+        Eigen::Matrix<numericType,Eigen::Dynamic,1>    posVec_endNode_curElem;     // PositionVector of the endNode
+        Eigen::Matrix<numericType,Eigen::Dynamic,1>    dispVec_iniNode_curElem;    // DisplacementVector of the iniNode
+        Eigen::Matrix<numericType,Eigen::Dynamic,1>    dispVec_endNode_curElem;    // DisplacementVector of the endNode
+        Eigen::Matrix<numericType,Eigen::Dynamic,1>    tempVec;                    // Temporary vector
+        numericType iniLength;
+
+        Eigen::SparseMatrix<numericType> glbDispVec = m_glbDisplacVec;
+        Eigen::SparseMatrix<numericType> lclDispVec(numElemDegFree,1);
+        Eigen::Matrix<numericType,3,1> lclStress;
+        Eigen::Matrix<numericType,3,1> lclStrain;
+
+        Eigen::Matrix<unsigned int,Eigen::Dynamic,Eigen::Dynamic> counterNodes = Eigen::Matrix<unsigned int,Eigen::Dynamic,Eigen::Dynamic>::Zero(numNode,1);
+        Eigen::Matrix<numericType,Eigen::Dynamic,Eigen::Dynamic> lclStressNodes = Eigen::Matrix<numericType,Eigen::Dynamic,Eigen::Dynamic>::Zero(3,numNode);
+        Eigen::Matrix<numericType,Eigen::Dynamic,Eigen::Dynamic> lclStrainNodes = Eigen::Matrix<numericType,Eigen::Dynamic,Eigen::Dynamic>::Zero(3,numNode);
+
+
+        // Walking inside the elementList: elem by elem
+        for( idCurElem=0; idCurElem<numElem; ++idCurElem)
+        {
+            // Saving the connection (id nodes) of an element
+            elemConnection_curElem = m_elemList[idCurElem].getM_nodalConnectivity();
+
+            // Getting the 'position' of the DoF of the nodes that connects an element
+            for(idNode_curElem = 0; idNode_curElem < numNodePerElem; ++idNode_curElem){
+                elemDofPosition_curElem.block(idNode_curElem*numNodeDegFree,0,numNodeDegFree,1) = Matrix<unsigned int,Eigen::Dynamic,1>::LinSpaced(numNodeDegFree,elemConnection_curElem[idNode_curElem]*numNodeDegFree,(elemConnection_curElem[idNode_curElem]+1u)*numNodeDegFree - 1u);
+            }
+
+            // Getting the local displacement vector of the curElem
+            for(curIdDof = 0; curIdDof < numElemDegFree; ++curIdDof){
+                lclDispVec.coeffRef(curIdDof,0) = glbDispVec.coeffRef(elemDofPosition_curElem(curIdDof,0),0);
+            }
+
+            // Evaluating the curElem displacement (SHOULD BE THE REDUCED GAUSSIAN INTEGRATION POINT. FOR THIS PROJECT U MAY USE (0,0))
+            m_elemList[idCurElem].evaluateStressStrain(lclDispVec, m_youngModulus, m_poissonRatio);
+
+            // Getting the local strain vector
+            lclStrain = m_elemList[idCurElem].get_eVec();
+
+            // Getting the local stress vector
+            lclStress = m_elemList[idCurElem].get_sigVec();
+
+            // Walking inside the nodes of the element
+            for(idNode_curElem = 0; idNode_curElem < numNodePerElem; ++idNode_curElem){
+                idNode = elemConnection_curElem[idNode_curElem];
+                lclStressNodes.col(idNode)  += lclStress;
+                lclStrainNodes.col(idNode)  += lclStrain;
+                counterNodes(idNode,0)      += 1;
+            }
+        }
+
+        lclStressNodes.transposeInPlace();
+        lclStrainNodes.transposeInPlace();
+
+        // Walking inside the nodeList: node by node
+        for( idNode=0; idNode<numNode; ++idNode) {
+            lclStressNodes.row(idNode) /= counterNodes(idNode,0);
+            lclStrainNodes.row(idNode) /= counterNodes(idNode,0);
+
+            m_nodeList[idNode].set_eVec(lclStressNodes.row(idNode));
+            m_nodeList[idNode].set_sigVec(lclStrainNodes.row(idNode));
+        }
+
+        std::cout << " Stress Nodes Matrix" << endl << lclStressNodes << endl << endl;
+        std::cout << " Strain Nodes Matrix" << endl << lclStrainNodes << endl << endl;
+    }
+
+
+    m_isLocalInfoUpdated = m_isLocalNodeInfoUpdated;
+    return m_isLocalInfoUpdated;
+};
 
 #endif //FEMPROJECT_BASESTRUCTURALANALYSISCLASS_HPP

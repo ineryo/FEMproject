@@ -67,7 +67,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classbase_structural_analysis_class-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">baseStructuralAnalysisClass&lt; numericType, elemClass, nodeClass &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">baseStructuralAnalysisClass&lt; numericType, elemClass, nodeClass &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -97,27 +97,24 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:aca53b1f1642a1dae799df8f906479f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a773fa080feae6b17e47e58e5ed810885"><td class="memItemLeft" align="right" valign="top">virtual Eigen::SparseMatrix&lt; numericType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_structural_analysis_class.html#a773fa080feae6b17e47e58e5ed810885">evaluateGlobalStiffMat</a> ()</td></tr>
 <tr class="separator:a773fa080feae6b17e47e58e5ed810885"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ae8b924f3c1c20f131db1570544cb90"><td class="memItemLeft" align="right" valign="top"><a id="a8ae8b924f3c1c20f131db1570544cb90"></a>
-virtual Eigen::Matrix&lt; numericType, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateGlobalDisplacVec</b> ()</td></tr>
+<tr class="memitem:a7cfa00b107c0014bbc7f364791949ef6"><td class="memItemLeft" align="right" valign="top">virtual Eigen::SparseMatrix&lt; numericType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_structural_analysis_class.html#a7cfa00b107c0014bbc7f364791949ef6">evaluateGlobalForceVec</a> ()</td></tr>
+<tr class="separator:a7cfa00b107c0014bbc7f364791949ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae8b924f3c1c20f131db1570544cb90"><td class="memItemLeft" align="right" valign="top">virtual Eigen::Matrix&lt; numericType, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_structural_analysis_class.html#a8ae8b924f3c1c20f131db1570544cb90">evaluateGlobalDisplacVec</a> ()</td></tr>
 <tr class="separator:a8ae8b924f3c1c20f131db1570544cb90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a110e4cdc86a9e8611dade6db8751f02d"><td class="memItemLeft" align="right" valign="top"><a id="a110e4cdc86a9e8611dade6db8751f02d"></a>
-virtual Eigen::Matrix&lt; numericType, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rotationMatrix</b> (Eigen::Matrix&lt; numericType, Eigen::Dynamic, 1 &gt; &amp;dirElemVec) const =0</td></tr>
-<tr class="separator:a110e4cdc86a9e8611dade6db8751f02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b20160503d1a07359ae5e174b582c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_structural_analysis_class.html#a51b20160503d1a07359ae5e174b582c4">updateLocalInfo</a> ()</td></tr>
+<tr class="separator:a51b20160503d1a07359ae5e174b582c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ad40dbcb71e338b8cd998ad4bf80fef1a"><td class="memItemLeft" align="right" valign="top"><a id="ad40dbcb71e338b8cd998ad4bf80fef1a"></a>
+<tr class="memitem:a58fc392e34ba87cc9dff3a0901127faa"><td class="memItemLeft" align="right" valign="top"><a id="a58fc392e34ba87cc9dff3a0901127faa"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>m_nSpatialDimension</b></td></tr>
-<tr class="separator:ad40dbcb71e338b8cd998ad4bf80fef1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a58fc392e34ba87cc9dff3a0901127faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7ea30f9a3e3c353eeaba07c31c445a0"><td class="memItemLeft" align="right" valign="top"><a id="af7ea30f9a3e3c353eeaba07c31c445a0"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>m_maxNodeDegFree</b></td></tr>
 <tr class="separator:af7ea30f9a3e3c353eeaba07c31c445a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed50959156544fc3d15af79eb38d6ae0"><td class="memItemLeft" align="right" valign="top"><a id="aed50959156544fc3d15af79eb38d6ae0"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>m_nNodePerElem</b></td></tr>
 <tr class="separator:aed50959156544fc3d15af79eb38d6ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abec1d294a55c84f5ef8e227a69d4e5f4"><td class="memItemLeft" align="right" valign="top"><a id="abec1d294a55c84f5ef8e227a69d4e5f4"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>m_nPropPerElem</b></td></tr>
-<tr class="separator:abec1d294a55c84f5ef8e227a69d4e5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c1dbd7cb8a65f514211505672854330"><td class="memItemLeft" align="right" valign="top"><a id="a9c1dbd7cb8a65f514211505672854330"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>m_nTotalDoF</b></td></tr>
 <tr class="separator:a9c1dbd7cb8a65f514211505672854330"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,18 +148,21 @@ numericType&#160;</td><td class="memItemRight" valign="bottom"><b>m_youngModulus
 <tr class="memitem:adacc82b7726291dd9a0a2441863858b4"><td class="memItemLeft" align="right" valign="top"><a id="adacc82b7726291dd9a0a2441863858b4"></a>
 numericType&#160;</td><td class="memItemRight" valign="bottom"><b>m_poissonRatio</b></td></tr>
 <tr class="separator:adacc82b7726291dd9a0a2441863858b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6c2c8b50f5aeb0cd6aa9a3894656b3"><td class="memItemLeft" align="right" valign="top"><a id="aad6c2c8b50f5aeb0cd6aa9a3894656b3"></a>
+numericType&#160;</td><td class="memItemRight" valign="bottom"><b>m_pressure</b></td></tr>
+<tr class="separator:aad6c2c8b50f5aeb0cd6aa9a3894656b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30c9d240e183d6ed546127192b342086"><td class="memItemLeft" align="right" valign="top"><a id="a30c9d240e183d6ed546127192b342086"></a>
 Eigen::Matrix&lt; unsigned int, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_degFreeVec</b></td></tr>
 <tr class="separator:a30c9d240e183d6ed546127192b342086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32476178ae646ba8324440cc1d2efd11"><td class="memItemLeft" align="right" valign="top"><a id="a32476178ae646ba8324440cc1d2efd11"></a>
 Eigen::SparseMatrix&lt; numericType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_glbStiffMat</b></td></tr>
 <tr class="separator:a32476178ae646ba8324440cc1d2efd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b4cc2b24256ee92b746ef463f34d035"><td class="memItemLeft" align="right" valign="top"><a id="a5b4cc2b24256ee92b746ef463f34d035"></a>
-Eigen::Matrix&lt; numericType, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_glbnodeForceVec</b></td></tr>
-<tr class="separator:a5b4cc2b24256ee92b746ef463f34d035"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c92d5720fc03e77a2b30a8e5277aeba"><td class="memItemLeft" align="right" valign="top"><a id="a9c92d5720fc03e77a2b30a8e5277aeba"></a>
-Eigen::Matrix&lt; numericType, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_glbDisplacVec</b></td></tr>
-<tr class="separator:a9c92d5720fc03e77a2b30a8e5277aeba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6038cf67e12c8125b7b66437442b0b5"><td class="memItemLeft" align="right" valign="top"><a id="ab6038cf67e12c8125b7b66437442b0b5"></a>
+Eigen::SparseMatrix&lt; numericType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_glbForceVec</b></td></tr>
+<tr class="separator:ab6038cf67e12c8125b7b66437442b0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adec181a3818b37d91f185bec9495f7d9"><td class="memItemLeft" align="right" valign="top"><a id="adec181a3818b37d91f185bec9495f7d9"></a>
+Eigen::SparseMatrix&lt; numericType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_glbDisplacVec</b></td></tr>
+<tr class="separator:adec181a3818b37d91f185bec9495f7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3497fd3dc60eb8cf056a3d3828000bb2"><td class="memItemLeft" align="right" valign="top"><a id="a3497fd3dc60eb8cf056a3d3828000bb2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isElemListSaved</b></td></tr>
 <tr class="separator:a3497fd3dc60eb8cf056a3d3828000bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,24 +172,21 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isNodeListSaved</b>
 <tr class="memitem:aeda5815de358a24f99b194854252e94b"><td class="memItemLeft" align="right" valign="top"><a id="aeda5815de358a24f99b194854252e94b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isInitialStructureSaved</b></td></tr>
 <tr class="separator:aeda5815de358a24f99b194854252e94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5e1782b128ac071695aae4ee8d7d23a"><td class="memItemLeft" align="right" valign="top"><a id="ad5e1782b128ac071695aae4ee8d7d23a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isLocalRotationMatrixComputed</b></td></tr>
-<tr class="separator:ad5e1782b128ac071695aae4ee8d7d23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60baf19b10caa39342408548d5a834ac"><td class="memItemLeft" align="right" valign="top"><a id="a60baf19b10caa39342408548d5a834ac"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isDegreeOfFreedomVecComputed</b></td></tr>
 <tr class="separator:a60baf19b10caa39342408548d5a834ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6d2f4bea68e4bd857a2ac6bea8194ec"><td class="memItemLeft" align="right" valign="top"><a id="af6d2f4bea68e4bd857a2ac6bea8194ec"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isGlbStiffMatComputed</b></td></tr>
 <tr class="separator:af6d2f4bea68e4bd857a2ac6bea8194ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a779af0fab2226dacec87b0f6a05e1956"><td class="memItemLeft" align="right" valign="top"><a id="a779af0fab2226dacec87b0f6a05e1956"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isGlbnodeForceVecComputed</b></td></tr>
-<tr class="separator:a779af0fab2226dacec87b0f6a05e1956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaf8d7f94bb441f267ebbd271216669c"><td class="memItemLeft" align="right" valign="top"><a id="aaaf8d7f94bb441f267ebbd271216669c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isGlbForceVecComputed</b></td></tr>
+<tr class="separator:aaaf8d7f94bb441f267ebbd271216669c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a920c4ef5aedc3e9bf397c7d67786e696"><td class="memItemLeft" align="right" valign="top"><a id="a920c4ef5aedc3e9bf397c7d67786e696"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isGlbDisplacVecComputed</b></td></tr>
 <tr class="separator:a920c4ef5aedc3e9bf397c7d67786e696"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac89e923d65f5fc5f8e08d15bf5b65bb5"><td class="memItemLeft" align="right" valign="top"><a id="ac89e923d65f5fc5f8e08d15bf5b65bb5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isLocalElemInfoUpdated</b></td></tr>
-<tr class="separator:ac89e923d65f5fc5f8e08d15bf5b65bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac713f66fa8305712d1b77dd4b2b66b52"><td class="memItemLeft" align="right" valign="top"><a id="ac713f66fa8305712d1b77dd4b2b66b52"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isLocalInfoUpdated</b></td></tr>
+<tr class="separator:ac713f66fa8305712d1b77dd4b2b66b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5930a49c82de1cc5d03d0b44788f8af0"><td class="memItemLeft" align="right" valign="top"><a id="a5930a49c82de1cc5d03d0b44788f8af0"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isLocalNodeInfoUpdated</b></td></tr>
 <tr class="separator:a5930a49c82de1cc5d03d0b44788f8af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -315,6 +312,62 @@ template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Method to run all the set of nodes and create the DoF order. </p><dl class="section return"><dt>Returns</dt><dd>vector with </dd></dl>
+
+</div>
+</div>
+<a id="a8ae8b924f3c1c20f131db1570544cb90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ae8b924f3c1c20f131db1570544cb90">&#9670;&nbsp;</a></span>evaluateGlobalDisplacVec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt; numericType, Eigen::Dynamic, 1 &gt; <a class="el" href="classbase_structural_analysis_class.html">baseStructuralAnalysisClass</a>&lt; numericType, elemClass, nodeClass &gt;::evaluateGlobalDisplacVec </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Method to evaluate the global displacement vector (solves the linear system). </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a7cfa00b107c0014bbc7f364791949ef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cfa00b107c0014bbc7f364791949ef6">&#9670;&nbsp;</a></span>evaluateGlobalForceVec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::SparseMatrix&lt; numericType &gt; <a class="el" href="classbase_structural_analysis_class.html">baseStructuralAnalysisClass</a>&lt; numericType, elemClass, nodeClass &gt;::evaluateGlobalForceVec </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Method to evaluate the global force vector. </p><dl class="section return"><dt>Returns</dt><dd>Global force vector. </dd></dl>
 
 </div>
 </div>
@@ -448,6 +501,34 @@ template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>flag. </dd></dl>
+
+</div>
+</div>
+<a id="a51b20160503d1a07359ae5e174b582c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51b20160503d1a07359ae5e174b582c4">&#9670;&nbsp;</a></span>updateLocalInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class numericType , class elemClass , class nodeClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classbase_structural_analysis_class.html">baseStructuralAnalysisClass</a>&lt; numericType, elemClass, nodeClass &gt;::updateLocalInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Method to update the local information of the element with its displacement. </p><dl class="section return"><dt>Returns</dt><dd>flag. </dd></dl>
 
 </div>
 </div>

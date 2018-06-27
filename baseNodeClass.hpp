@@ -22,9 +22,29 @@ public:
     // GETTER & SETTER
     const Eigen::Matrix<numericType, nSpatialDimension, 1> &getM_position() const;
 
+    bool set_eVec(const Eigen::Matrix<numericType,Eigen::Dynamic, Eigen::Dynamic> &eVec){
+        m_eVec = eVec;
+    }
+
+    bool set_sigVec(const Eigen::Matrix<numericType,Eigen::Dynamic, Eigen::Dynamic> &sigVec){
+        m_sigVec = sigVec;
+    }
+
 protected:
     // MEMBERS
     Eigen::Matrix<numericType, nSpatialDimension, 1> m_position;
+
+    /**
+     * Memeber: Stores the strain vector.
+     */
+    Eigen::Matrix<numericType,Eigen::Dynamic, Eigen::Dynamic> m_eVec;
+
+    /**
+     * Memeber: Stores the stress vector.
+     */
+    Eigen::Matrix<numericType,Eigen::Dynamic, Eigen::Dynamic> m_sigVec;
+
+
 
 };
 

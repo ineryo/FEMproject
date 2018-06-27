@@ -78,13 +78,74 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ade0aa681b0ac36364b31a7fcf4b4c295"><td class="memItemLeft" align="right" valign="top"><a id="ade0aa681b0ac36364b31a7fcf4b4c295"></a>
 const Eigen::Matrix&lt; numericType, nSpatialDimension, 1 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getM_position</b> () const</td></tr>
 <tr class="separator:ade0aa681b0ac36364b31a7fcf4b4c295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa6828b452178715f4609db7cd3b0afe"><td class="memItemLeft" align="right" valign="top"><a id="afa6828b452178715f4609db7cd3b0afe"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>set_eVec</b> (const Eigen::Matrix&lt; numericType, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;eVec)</td></tr>
+<tr class="separator:afa6828b452178715f4609db7cd3b0afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1de8165f05e483dd45d6d79058fcfb9"><td class="memItemLeft" align="right" valign="top"><a id="af1de8165f05e483dd45d6d79058fcfb9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>set_sigVec</b> (const Eigen::Matrix&lt; numericType, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;sigVec)</td></tr>
+<tr class="separator:af1de8165f05e483dd45d6d79058fcfb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a68f14d13ea4a416c943f67a60d3107aa"><td class="memItemLeft" align="right" valign="top"><a id="a68f14d13ea4a416c943f67a60d3107aa"></a>
 Eigen::Matrix&lt; numericType, nSpatialDimension, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_position</b></td></tr>
 <tr class="separator:a68f14d13ea4a416c943f67a60d3107aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a754f5d47539b21d91a48d600efa05b5a"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; numericType, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_node_class.html#a754f5d47539b21d91a48d600efa05b5a">m_eVec</a></td></tr>
+<tr class="separator:a754f5d47539b21d91a48d600efa05b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0381fa3d308b32934e3188bd7c2df84"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; numericType, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_node_class.html#ad0381fa3d308b32934e3188bd7c2df84">m_sigVec</a></td></tr>
+<tr class="separator:ad0381fa3d308b32934e3188bd7c2df84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a754f5d47539b21d91a48d600efa05b5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a754f5d47539b21d91a48d600efa05b5a">&#9670;&nbsp;</a></span>m_eVec</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int nSpatialDimension, class numericType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt;numericType,Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="classbase_node_class.html">baseNodeClass</a>&lt; nSpatialDimension, numericType &gt;::m_eVec</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Memeber: Stores the strain vector. </p>
+
+</div>
+</div>
+<a id="ad0381fa3d308b32934e3188bd7c2df84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0381fa3d308b32934e3188bd7c2df84">&#9670;&nbsp;</a></span>m_sigVec</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int nSpatialDimension, class numericType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt;numericType,Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="classbase_node_class.html">baseNodeClass</a>&lt; nSpatialDimension, numericType &gt;::m_sigVec</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Memeber: Stores the stress vector. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/Users/igorn/Documents/GitHub/FEMproject/<a class="el" href="base_node_class_8hpp_source.html">baseNodeClass.hpp</a></li>
 </ul>

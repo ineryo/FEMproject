@@ -8,14 +8,41 @@
 \item 
 \mbox{\Hypertarget{classbase_node_class_ade0aa681b0ac36364b31a7fcf4b4c295}\label{classbase_node_class_ade0aa681b0ac36364b31a7fcf4b4c295}} 
 const Eigen\+::\+Matrix$<$ numeric\+Type, n\+Spatial\+Dimension, 1 $>$ \& {\bfseries get\+M\+\_\+position} () const
+\item 
+\mbox{\Hypertarget{classbase_node_class_afa6828b452178715f4609db7cd3b0afe}\label{classbase_node_class_afa6828b452178715f4609db7cd3b0afe}} 
+bool {\bfseries set\+\_\+e\+Vec} (const Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&e\+Vec)
+\item 
+\mbox{\Hypertarget{classbase_node_class_af1de8165f05e483dd45d6d79058fcfb9}\label{classbase_node_class_af1de8165f05e483dd45d6d79058fcfb9}} 
+bool {\bfseries set\+\_\+sig\+Vec} (const Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&sig\+Vec)
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classbase_node_class_a68f14d13ea4a416c943f67a60d3107aa}\label{classbase_node_class_a68f14d13ea4a416c943f67a60d3107aa}} 
 Eigen\+::\+Matrix$<$ numeric\+Type, n\+Spatial\+Dimension, 1 $>$ {\bfseries m\+\_\+position}
+\item 
+Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \mbox{\hyperlink{classbase_node_class_a754f5d47539b21d91a48d600efa05b5a}{m\+\_\+e\+Vec}}
+\item 
+Eigen\+::\+Matrix$<$ numeric\+Type, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \mbox{\hyperlink{classbase_node_class_ad0381fa3d308b32934e3188bd7c2df84}{m\+\_\+sig\+Vec}}
 \end{DoxyCompactItemize}
 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classbase_node_class_a754f5d47539b21d91a48d600efa05b5a}\label{classbase_node_class_a754f5d47539b21d91a48d600efa05b5a}} 
+\index{base\+Node\+Class@{base\+Node\+Class}!m\+\_\+e\+Vec@{m\+\_\+e\+Vec}}
+\index{m\+\_\+e\+Vec@{m\+\_\+e\+Vec}!base\+Node\+Class@{base\+Node\+Class}}
+\subsubsection{\texorpdfstring{m\+\_\+e\+Vec}{m\_eVec}}
+{\footnotesize\ttfamily template$<$unsigned int n\+Spatial\+Dimension, class numeric\+Type $>$ \\
+Eigen\+::\+Matrix$<$numeric\+Type,Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$ \mbox{\hyperlink{classbase_node_class}{base\+Node\+Class}}$<$ n\+Spatial\+Dimension, numeric\+Type $>$\+::m\+\_\+e\+Vec\hspace{0.3cm}{\ttfamily [protected]}}
+
+Memeber\+: Stores the strain vector. \mbox{\Hypertarget{classbase_node_class_ad0381fa3d308b32934e3188bd7c2df84}\label{classbase_node_class_ad0381fa3d308b32934e3188bd7c2df84}} 
+\index{base\+Node\+Class@{base\+Node\+Class}!m\+\_\+sig\+Vec@{m\+\_\+sig\+Vec}}
+\index{m\+\_\+sig\+Vec@{m\+\_\+sig\+Vec}!base\+Node\+Class@{base\+Node\+Class}}
+\subsubsection{\texorpdfstring{m\+\_\+sig\+Vec}{m\_sigVec}}
+{\footnotesize\ttfamily template$<$unsigned int n\+Spatial\+Dimension, class numeric\+Type $>$ \\
+Eigen\+::\+Matrix$<$numeric\+Type,Eigen\+::\+Dynamic, Eigen\+::\+Dynamic$>$ \mbox{\hyperlink{classbase_node_class}{base\+Node\+Class}}$<$ n\+Spatial\+Dimension, numeric\+Type $>$\+::m\+\_\+sig\+Vec\hspace{0.3cm}{\ttfamily [protected]}}
+
+Memeber\+: Stores the stress vector. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
