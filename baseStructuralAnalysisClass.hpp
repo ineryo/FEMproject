@@ -383,7 +383,7 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                     {
                         auxNodeId = std::stoul(pieceLine)-1;
                         m_fixedNodes.insert(auxNodeId);
-                        cout<<auxNodeId<<endl;
+//                        cout<<auxNodeId<<endl;
                     }
 
                     flagFixedNode = true;
@@ -686,7 +686,7 @@ Eigen::SparseMatrix<numericType> baseStructuralAnalysisClass<numericType,elemCla
             curEdge -=m_nodeList[elemConnection_curElem[2]].getM_position();
 
             edge_size = curEdge.norm();
-            cout<< edge_size<<endl;
+//            cout<< edge_size<<endl;
             // Walking inside the localStiffMatrix: row by row
             for( idNode_curElem = int(numNodePerElem/2); idNode_curElem<numNodePerElem ; ++idNode_curElem)
             {
@@ -741,17 +741,18 @@ Eigen::Matrix<numericType, Eigen::Dynamic, 1> baseStructuralAnalysisClass<numeri
 
 //        std::cout << "GLOBAL FORCE VECTOR" << std::endl << m_glbForceVec.transpose() << std::endl << std::endl;
 //        std::cout << "GLOBAL STIFF MATRIX" << std::endl << m_glbStiffMat << std::endl << std::endl;
-        std::cout << "reduced force vector" << std::endl << penalizedForceVector.transpose() << std::endl << std::endl;
+//        std::cout << "reduced force vector" << std::endl << penalizedForceVector.transpose() << std::endl << std::endl;
 //        std::cout << "reduced stiff matrix" << std::endl << penalizedStiffMatrix << std::endl << std::endl;
 
         // Solving by conjugate gradiente method
         ConjugateGradient<SparseMatrix<numericType>, Lower|Upper> cgSolver;
-//        cgSolver.setTolerance(1e-4);
-//        cgSolver.setMaxIterations(1000000);
+//        cgSolver.setTolerance(1e-3);
+//        cgSolver.setMaxIterations(100000);
         cgSolver.compute(penalizedStiffMatrix);
         displacVector = cgSolver.solve(penalizedForceVector);
         m_linSolverInfo.setValues (cgSolver.iterations(),cgSolver.error(),cgSolver.info());
 
+//        cout<<displacVector<<endl;
 
         if(m_linSolverInfo.info == Eigen::Success)
         {
@@ -858,8 +859,8 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
             m_nodeList[idNode].set_sigVec(lclStrainNodes.row(idNode));
         }
 
-//        std::cout << " Stress Nodes Matrix" << endl << lclStressNodes << endl << endl;
-//        std::cout << " Strain Nodes Matrix" << endl << lclStrainNodes << endl << endl;
+        std::cout << " Stress Nodes Matrix" << endl << lclStressNodes << endl << endl;
+        std::cout << " Strain Nodes Matrix" << endl << lclStrainNodes << endl << endl;
     }
 
 

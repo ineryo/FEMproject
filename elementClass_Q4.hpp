@@ -328,7 +328,6 @@ evalInterpFuncDiff(const Matrix<numericType, 2, 1> &positionVec) const{
 template <class numericType>
 numericType elementClass_Q4<numericType>::
 evalJacobDet(const Matrix<numericType, 2, 1> &positionVec) const{
-    cout<<((this->evalInterpFuncDiff(positionVec)) * (this->m_nodalPosCoord)).determinant()<<endl;
     return std::abs(((this->evalInterpFuncDiff(positionVec)) * (this->m_nodalPosCoord)).determinant());
 }
 template <class numericType>

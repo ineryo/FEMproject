@@ -261,7 +261,7 @@ void  elementClass_T6<numericType>::
 evaluateStressStrain(const Matrix<numericType, 12, 1> &uVec, numericType youngModulus,numericType poissonRatio) {
 
     Matrix<numericType, 2, 1> pointVec;
-    pointVec << 0., 0.;
+    pointVec << 0.5, 0.5;
 
     Eigen::SparseMatrix<numericType> B;
     Eigen::SparseMatrix<numericType> C;

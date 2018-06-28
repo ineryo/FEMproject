@@ -63,6 +63,7 @@
      54, 0.0666666701,           1.
      55,   0.13333334,           1.
      56,  0.200000003,           1.
+** End Node
 *Element, type=CPS4
  1,  1,  2,  6,  5
  2,  2,  3,  7,  6
@@ -103,6 +104,7 @@
 37, 49, 50, 54, 53
 38, 50, 51, 55, 54
 39, 51, 52, 56, 55
+** End Element
 *Nset, nset=Set_Section, generate
   1,  56,   1
 *Elset, elset=Set_Section, generate
