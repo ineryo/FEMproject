@@ -336,6 +336,29 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                 }
 
                 // Check if it list Elements with pressure applied in it
+                if ( aLine == "*Elset, elset=_Set_Load_S3, internal, instance=Part_Geometry-1, generate" )
+                {
+                    getline(inFile,aLine);
+                    std::string pieceLine;
+                    std::stringstream thisLine (aLine);
+
+                    std::getline(thisLine, pieceLine, ',');
+                    unsigned int auxBegin = std::stoul(pieceLine);
+
+                    std::getline(thisLine, pieceLine, ',');
+                    unsigned int auxEnd = std::stoul(pieceLine);
+
+                    std::getline(thisLine, pieceLine, ',');
+                    unsigned int auxStep = std::stoul(pieceLine);
+
+                    unsigned int curValue;
+                    for(curValue=(auxBegin-1); curValue<auxEnd; curValue+=auxStep) {
+                        m_elemListWithPressureApplied.push_back((curValue)-1u);
+                    }
+                    flagForceElem = true;
+                }
+
+                // Check if it list Elements with pressure applied in it
                 if ( aLine == "*Dsload" )
                 {
                     getline(inFile,aLine);
@@ -383,7 +406,6 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                     {
                         auxNodeId = std::stoul(pieceLine)-1;
                         m_fixedNodes.insert(auxNodeId);
-//                        cout<<auxNodeId<<endl;
                     }
 
                     flagFixedNode = true;
@@ -686,7 +708,7 @@ Eigen::SparseMatrix<numericType> baseStructuralAnalysisClass<numericType,elemCla
             curEdge -=m_nodeList[elemConnection_curElem[2]].getM_position();
 
             edge_size = curEdge.norm();
-//            cout<< edge_size<<endl;
+
             // Walking inside the localStiffMatrix: row by row
             for( idNode_curElem = int(numNodePerElem/2); idNode_curElem<numNodePerElem ; ++idNode_curElem)
             {
@@ -752,7 +774,6 @@ Eigen::Matrix<numericType, Eigen::Dynamic, 1> baseStructuralAnalysisClass<numeri
         displacVector = cgSolver.solve(penalizedForceVector);
         m_linSolverInfo.setValues (cgSolver.iterations(),cgSolver.error(),cgSolver.info());
 
-//        cout<<displacVector<<endl;
 
         if(m_linSolverInfo.info == Eigen::Success)
         {
