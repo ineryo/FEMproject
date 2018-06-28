@@ -959,6 +959,7 @@
     950,  0.169230774,           1.
     951,  0.184615389,           1.
     952,  0.200000003,           1.
+** End Node
 *Element, type=CPS4
   1,   1,   2,  16,  15
   2,   2,   3,  17,  16
@@ -1831,6 +1832,7 @@
 869, 935, 936, 950, 949
 870, 936, 937, 951, 950
 871, 937, 938, 952, 951
+** End Element
 *Nset, nset=Set_Section, generate
    1,  952,    1
 *Elset, elset=Set_Section, generate

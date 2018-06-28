@@ -22,15 +22,9 @@ public:
     elementClass_T6();
 
     /// General Constructor
-    elementClass_T6(numericType youngModulus,numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,6,2> &nodalPosCoord);
+    elementClass_T6(const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,6,2> &nodalPosCoord);
 
     // METHODS
-    /**
-     * Method: Get interpolation functions of the isoparametric element. It returns the uncompressed format.
-     * @param positionVec Position Vector of a point inside the element (to interpolate).
-     * @return Returns N (uncompressed version): Represents the nodal interpolation functions of the isoparametric element. N(2,6);
-     */
-    Eigen::SparseMatrix<numericType>  sprMatN(const Matrix<numericType, 2, 1> &positionVec) const;
 
     /**
      * Method: Get interpolation function derivatives of the isoparametric element. It returns the uncompressed format.
@@ -43,7 +37,7 @@ public:
      * Method: Evaluate the local stiffness matrix of the element.
      * @return local stiffness matrix of the element.
      */
-    Eigen::SparseMatrix<numericType> sprMatK() const;
+    Eigen::SparseMatrix<numericType> sprMatK(numericType youngModulus,numericType poissonRatio) const;
 
     // GETTER & SETTER
     /**
@@ -51,6 +45,44 @@ public:
      * @return the identificators of all nodes of this element.
      */
     const std::vector<unsigned int> &getM_nodalConnectivity() const;
+
+    /**
+     * Returns the displacement vector.
+     * @return displacement vector.
+     */
+    const Matrix<numericType, 12, 1> &get_uVec() const {
+        return m_uVec;
+    }
+
+    /**
+     * Returns the strain vector.
+     * @return displacement vector.
+     */
+    const Matrix<numericType, 3, 1> &get_eVec() const {
+        return m_eVec;
+    }
+
+    /**
+     * Returns the stress vector.
+     * @return displacement vector.
+     */
+    const Matrix<numericType, 3, 1> &get_sigVec() const {
+        return m_sigVec;
+    }
+
+    /**
+     * Evaluates stress strain and saves it.
+     * @param uVec displacement vector.
+     */
+    void evaluateStressStrain(const Matrix<numericType, 12, 1> &uVec, numericType youngModulus,numericType posissonRatio);
+
+    /**
+     * Method: Get number of nodes
+     */
+
+    unsigned int getnumberofNodes() const;
+
+
 
 private:
     // MEMBERS
@@ -65,19 +97,29 @@ private:
     std::vector<unsigned int> m_nodalConnectivity;
 
     /**
+     * Member: It stores the number of noder per element
+     */
+    unsigned int m_numberOfNodesPerElement = 6;
+
+/**
      * Member: It stores coordinates of all nodes of this element.
      */
     Eigen::Matrix<numericType,6,2> m_nodalPosCoord;
 
     /**
-     * Member: It stores the constitutive constant Young's Modulus (Hooke's Law).
-     */
-    numericType m_youngModulus;
+    * Memeber: Stores the displacement vector.
+    */
+    Eigen::Matrix<numericType,12,1> m_uVec;
 
     /**
-     * Member: It stores the constitutive constant Poisson Ratio.
+     * Memeber: Stores the strain vector.
      */
-    numericType m_poissonRatio;
+    Eigen::Matrix<numericType,3,1> m_eVec;
+
+    /**
+     * Memeber: Stores the stress vector.
+     */
+    Eigen::Matrix<numericType,3,1> m_sigVec;
 
     // METHODS
     /**
@@ -101,11 +143,14 @@ private:
      */
     numericType evalJacobDet(const Matrix<numericType, 2, 1> &positionVec) const;
 
+
+
+
     /**
      * Method: Evaluate the constitutive matrix of the element.
      * @return C(this->E,this->v).
      */
-    Eigen::SparseMatrix<numericType>  evalConstitutiveMatrix() const;
+    Eigen::SparseMatrix<numericType>  evalConstitutiveMatrix(numericType youngModulus,numericType poissonRatio) const;
 
 };
 
@@ -125,8 +170,10 @@ elementClass_T6()
 
 template <class numericType>
 elementClass_T6<numericType>::
-elementClass_T6(numericType youngModulus, numericType poissonRatio, const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,6,2> &nodalPosCoord):
-        m_youngModulus(youngModulus), m_poissonRatio(poissonRatio), m_nodalConnectivity(nodalConnectivity), m_nodalPosCoord(nodalPosCoord)
+elementClass_T6(const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,6,2> &nodalPosCoord):
+        m_nodalConnectivity(nodalConnectivity), m_nodalPosCoord(nodalPosCoord)
+
+
 {
     this->m_interpFunCoeff <<   0, -1, 0, 2, 0, 0,
             0, 0, -1 , 0, 0, 2,
@@ -136,32 +183,7 @@ elementClass_T6(numericType youngModulus, numericType poissonRatio, const std::v
             0, 0, 4, 0, -4, -4;
 }
 
-template <class numericType>
-Eigen::SparseMatrix<numericType>  elementClass_T6<numericType>::
-sprMatN(const Matrix<numericType, 2, 1> &positionVec) const {
 
-    Eigen::SparseMatrix<numericType> N_uncompressed(2,12); // Sparse matrix to be returned (must be filled)
-
-    // Auxiliar objects to help fill a sparse matrix
-    typedef Eigen::Triplet<numericType> TripNumericType;                // Triplet typedef for a sparse matrix
-    std::vector<TripNumericType> tripletList;                           // Triplet list for indexation of sparse matrix
-    tripletList.reserve(12);                                             // Allocating memory for the triplet list
-
-    Eigen::Matrix<numericType, 6, 1>  N_compressed;                     // Stores the compressed N vector
-    N_compressed = this->evalInterpFunc(positionVec);                   // Evaluating the compressed N vector
-
-    unsigned int curNodeFun = 0;    // current node's interpolation function
-    unsigned int curRow = 0;        // current row
-
-    for(curNodeFun = 0; curNodeFun < 6; ++curNodeFun){
-        for(curRow = 0; curRow < 2; ++curRow) {
-            tripletList.push_back(TripNumericType(curRow, curRow+curNodeFun*2, N_compressed(curNodeFun,0)));    // [curRow,curRow+curNodeFun*spaceDimension]: interpFunVectorComp(curNodeFun,0)
-        }
-    }
-
-    N_uncompressed.setFromTriplets(tripletList.begin(), tripletList.end());
-    return N_uncompressed;
-}
 
 template <class numericType>
 Eigen::SparseMatrix<numericType>  elementClass_T6<numericType>::
@@ -197,12 +219,12 @@ sprMatB(const Matrix<numericType, 2, 1> &positionVec) const {
 
 template <class numericType>
 Eigen::SparseMatrix<numericType>  elementClass_T6<numericType>::
-sprMatK() const {
+sprMatK(numericType youngModulus,numericType poissonRatio) const {
 
     Eigen::Matrix<numericType,2,1> pointVec;
     Eigen::SparseMatrix<numericType> B;
     Eigen::SparseMatrix<numericType> C;
-    C = evalConstitutiveMatrix();
+    C = evalConstitutiveMatrix(youngModulus,poissonRatio);
     numericType jacobDet = 0;
 
     Eigen::SparseMatrix<numericType> Kl;
@@ -233,6 +255,24 @@ sprMatK() const {
 
     return Kl;
 }
+
+template <class numericType>
+void  elementClass_T6<numericType>::
+evaluateStressStrain(const Matrix<numericType, 12, 1> &uVec, numericType youngModulus,numericType poissonRatio) {
+
+    Matrix<numericType, 2, 1> pointVec;
+    pointVec << 0., 0.;
+
+    Eigen::SparseMatrix<numericType> B;
+    Eigen::SparseMatrix<numericType> C;
+    C = evalConstitutiveMatrix(youngModulus,poissonRatio);
+    B = this->sprMatB(pointVec);
+
+    m_uVec = uVec;
+    m_eVec = B*uVec;
+    m_sigVec = C*m_eVec;
+};
+
 
 template <class numericType>
 Eigen::Matrix<numericType, 6, 1> elementClass_T6<numericType>::
@@ -277,8 +317,18 @@ evalInterpFuncDiff(const Matrix<numericType, 2, 1> &positionVec) const{
 template <class numericType>
 numericType elementClass_T6<numericType>::
 evalJacobDet(const Matrix<numericType, 2, 1> &positionVec) const{
-    return ((this->evalInterpFuncDiff(positionVec)) * (this->m_nodalPosCoord)).determinant();
+    return abs(((this->evalInterpFuncDiff(positionVec)) * (this->m_nodalPosCoord)).determinant());
 }
+
+
+template <class numericType>
+unsigned int elementClass_T6<numericType>::getnumberofNodes() const
+{
+
+    return(this->m_numberOfNodesPerElement);
+
+}
+
 
 template<class numericType>
 const std::vector<unsigned int> &elementClass_T6<numericType>::getM_nodalConnectivity() const {
@@ -287,7 +337,7 @@ const std::vector<unsigned int> &elementClass_T6<numericType>::getM_nodalConnect
 
 template <class numericType>
 Eigen::SparseMatrix<numericType> elementClass_T6<numericType>::
-evalConstitutiveMatrix() const{
+evalConstitutiveMatrix(numericType youngModulus,numericType poissonRatio) const{
 
     // Auxiliar objects to help fill a sparse matrix
     typedef Eigen::Triplet<numericType> TripNumericType;                // Triplet typedef for a sparse matrix
@@ -297,9 +347,8 @@ evalConstitutiveMatrix() const{
     Eigen::SparseMatrix<numericType> C(3,3);                            // Sparse matrix to be returned (must be filled)
 
     // Plane Stress:
-    numericType poisson = this->m_poissonRatio;                         // Poisson
-    numericType auxValue1 = this->m_youngModulus/(1.-poisson*poisson);  // auxValue1 = E/(1-v^2)
-    numericType auxValue2 = poisson*auxValue1;                          // auxValue2 = v*E/(1-v^2)
+    numericType auxValue1 = youngModulus/(1.-poissonRatio*poissonRatio);  // auxValue1 = E/(1-v^2)
+    numericType auxValue2 = poissonRatio*auxValue1;                          // auxValue2 = v*E/(1-v^2)
 
 
     // Feeding triplet to fill the sparse matrix
@@ -307,7 +356,7 @@ evalConstitutiveMatrix() const{
     tripletList.push_back(TripNumericType(0, 1, auxValue2));
     tripletList.push_back(TripNumericType(1, 0, auxValue2));
     tripletList.push_back(TripNumericType(1, 1, auxValue1));
-    tripletList.push_back(TripNumericType(2, 2, auxValue1*(1.-poisson)*.5));
+    tripletList.push_back(TripNumericType(2, 2, auxValue1*(1.-poissonRatio)*.5));
 
     C.setFromTriplets(tripletList.begin(), tripletList.end());          // Filling the sparse matrix
     return C;                                                           // Returning the answer

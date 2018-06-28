@@ -25,12 +25,6 @@ public:
     elementClass_Q4(const std::vector<unsigned int>  &nodalConnectivity, const Eigen::Matrix<numericType,4,2> &nodalPosCoord);
 
     // METHODS
-    /**
-     * Method: Get interpolation functions of the isoparametric element. It returns the uncompressed format.
-     * @param positionVec Position Vector of a point inside the element (to interpolate).
-     * @return Returns N (uncompressed version): Represents the nodal interpolation functions of the isoparametric element. N(2,4);
-     */
-    Eigen::SparseMatrix<numericType>  sprMatN(const Matrix<numericType, 2, 1> &positionVec) const;
 
     /**
      * Method: Get interpolation function derivatives of the isoparametric element. It returns the uncompressed format.
@@ -47,13 +41,7 @@ public:
      */
     Eigen::SparseMatrix<numericType> sprMatK(numericType youngModulus,numericType poissonRatio) const;
 
-    /**
-     * Evaluate the area of the element.
-     * @return area of the element.
-     */
-    numericType evalArea() const;
-
-    // GETTER & SETTER
+     //GETTER & SETTER
     /**
      * Getter Method: Get the identificators of all nodes of this element.
      * @return the identificators of all nodes of this element.
@@ -90,6 +78,12 @@ public:
      */
     void evaluateStressStrain(const Matrix<numericType, 8, 1> &uVec, numericType youngModulus,numericType posissonRatio);
 
+    /**
+    * Method: Get number of nodes
+    */
+
+    unsigned int getnumberofNodes() const;
+
 
 private:
     // MEMBERS
@@ -102,6 +96,13 @@ private:
      * Member: It stores identificators of all nodes of this element. It must be stored in counter-clockwise order.
      */
     std::vector<unsigned int> m_nodalConnectivity;
+
+
+    /**
+     * Member: It stores the number of noder per element
+     */
+    unsigned int m_numberOfNodesPerElement = 4;
+
 
     /**
      * Member: It stores coordinates of all nodes of this element.
@@ -122,8 +123,6 @@ private:
      * Memeber: Stores the stress vector.
      */
     Eigen::Matrix<numericType,3,1> m_sigVec;
-
-private:
 
     // METHODS
     /**
@@ -146,6 +145,9 @@ private:
      * @return |J(eps,eta)|, determinant of the matrix.
      */
     numericType evalJacobDet(const Matrix<numericType, 2, 1> &positionVec) const;
+
+
+
 
     /**
      * Method: Evaluate the constitutive matrix of the element.
@@ -180,32 +182,6 @@ elementClass_Q4(const std::vector<unsigned int>  &nodalConnectivity, const Eigen
             .25, .25, -.25, -.25;
 }
 
-template <class numericType>
-Eigen::SparseMatrix<numericType>  elementClass_Q4<numericType>::
-sprMatN(const Matrix<numericType, 2, 1> &positionVec) const {
-
-    Eigen::SparseMatrix<numericType> N_uncompressed(2,8); // Sparse matrix to be returned (must be filled)
-
-    // Auxiliar objects to help fill a sparse matrix
-    typedef Eigen::Triplet<numericType> TripNumericType;                // Triplet typedef for a sparse matrix
-    std::vector<TripNumericType> tripletList;                           // Triplet list for indexation of sparse matrix
-    tripletList.reserve(8);                                             // Allocating memory for the triplet list
-
-    Eigen::Matrix<numericType, 4, 1>  N_compressed;                     // Stores the compressed N vector
-    N_compressed = this->evalInterpFunc(positionVec);                   // Evaluating the compressed N vector
-
-    unsigned int curNodeFun = 0;    // current node's interpolation function
-    unsigned int curRow = 0;        // current row
-
-    for(curNodeFun = 0; curNodeFun < 4; ++curNodeFun){
-        for(curRow = 0; curRow < 2; ++curRow) {
-            tripletList.push_back(TripNumericType(curRow, curRow+curNodeFun*2, N_compressed(curNodeFun,0)));    // [curRow,curRow+curNodeFun*spaceDimension]: interpFunVectorComp(curNodeFun,0)
-        }
-    }
-
-    N_uncompressed.setFromTriplets(tripletList.begin(), tripletList.end());
-    return N_uncompressed;
-}
 
 template <class numericType>
 Eigen::SparseMatrix<numericType>  elementClass_Q4<numericType>::
@@ -247,7 +223,7 @@ sprMatK(numericType youngModulus,numericType poissonRatio) const {
     Eigen::SparseMatrix<numericType> B;
     Eigen::SparseMatrix<numericType> C;
     C = evalConstitutiveMatrix(youngModulus,poissonRatio);
-    numericType jacobDet = 0;
+    numericType jacobDet = 1.;
 
     Eigen::SparseMatrix<numericType> Kl;
 
@@ -255,28 +231,28 @@ sprMatK(numericType youngModulus,numericType poissonRatio) const {
     Eigen::SparseMatrix<numericType> k1;
     pointVec << +1./std::sqrt(3), +1./std::sqrt(3);
     B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
+//    jacobDet = this->evalJacobDet(pointVec);
     k1 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
     // Point ( +1/sqrt(3) , -1/sqrt(3))
     Eigen::SparseMatrix<numericType> k2;
     pointVec << +1./std::sqrt(3), -1./std::sqrt(3);
     B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
+//    jacobDet = this->evalJacobDet(pointVec);
     k2 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
     // Point ( +1/sqrt(3) , +1/sqrt(3))
     Eigen::SparseMatrix<numericType> k3;
     pointVec << -1./std::sqrt(3), +1./std::sqrt(3);
     B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
+//    jacobDet = this->evalJacobDet(pointVec);
     k3 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
     // Point ( +1/sqrt(3) , +1/sqrt(3))
     Eigen::SparseMatrix<numericType> k4;
     pointVec << -1./std::sqrt(3), -1./std::sqrt(3);
     B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
+//    jacobDet = this->evalJacobDet(pointVec);
     k4 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
     Kl = k1+k2+k3+k4;
@@ -300,15 +276,13 @@ evaluateStressStrain(const Matrix<numericType, 8, 1> &uVec, numericType youngMod
     m_eVec = B*uVec;
     m_sigVec = C*m_eVec;
 };
-
-template <class numericType>
-numericType elementClass_Q4<numericType>::
-evalArea() const{
-    Eigen::Matrix<numericType,2,2> mat1 = m_nodalPosCoord.block(0,0,2,2);
-    Eigen::Matrix<numericType,2,2> mat2 = m_nodalPosCoord.block(2,0,2,2);
-
-    return 0.5*(abs(mat1.determinant())+abs(mat2.determinant()));
-}
+//
+//template <class numericType>
+//numericType elementClass_Q4<numericType>::
+//evalEdge() const{
+//
+//    return std::sqrt();
+//}
 
 
 template <class numericType>
@@ -354,8 +328,18 @@ evalInterpFuncDiff(const Matrix<numericType, 2, 1> &positionVec) const{
 template <class numericType>
 numericType elementClass_Q4<numericType>::
 evalJacobDet(const Matrix<numericType, 2, 1> &positionVec) const{
-    return ((this->evalInterpFuncDiff(positionVec)) * (this->m_nodalPosCoord)).determinant();
+    cout<<((this->evalInterpFuncDiff(positionVec)) * (this->m_nodalPosCoord)).determinant()<<endl;
+    return std::abs(((this->evalInterpFuncDiff(positionVec)) * (this->m_nodalPosCoord)).determinant());
 }
+template <class numericType>
+unsigned int elementClass_Q4<numericType>::getnumberofNodes() const
+{
+
+    return(this->m_numberOfNodesPerElement);
+
+}
+
+
 
 template<class numericType>
 const std::vector<unsigned int> &elementClass_Q4<numericType>::getM_nodalConnectivity() const {

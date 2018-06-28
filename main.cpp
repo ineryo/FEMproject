@@ -13,20 +13,19 @@ using namespace std;
 
 int main() {
 
-    MatrixXd m(2,2);
-    m << 1, 2, 3, 4;
-    std::cout << m << std::endl;
-    std::cout << m*m << std::endl;
-
-    m << 4 , 8 , 12, 16;
-    std::cout << m << std::endl;
-    std::cout << m*m << std::endl;
 
 
 
-    baseStructuralAnalysisClass<double,elementClass_Q4<double>,baseNodeClass<2,double>> bora("..//Exemplos e Arquivos Abaqus//Exemplos Final//inp//Q4_15.inp");
 
-    bora.doStructuralAnalysis();
+//    baseStructuralAnalysisClass<double,elementClass_Q4<double>,baseNodeClass<2,double>> bora("..//Exemplos e Arquivos Abaqus//Exemplos Final//inp//Q4_120.inp");
+//
+//    bora.doStructuralAnalysis();
+
+
+    baseStructuralAnalysisClass<double,elementClass_T6<double>,baseNodeClass<2,double>> bora_T6("..//Exemplos e Arquivos Abaqus//Exemplos Final//inp//T6_120.inp");
+
+    bora_T6.doStructuralAnalysis();
+
 
     std::cout << "Hello, World!" << std::endl;
 
