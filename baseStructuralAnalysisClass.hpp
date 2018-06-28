@@ -193,9 +193,9 @@ baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
     //nodeClass aNode;
     m_maxNodeDegFree = 2;           // MUST BE EDITED TO BE MORE GENERAL
     m_nSpatialDimension = 2;           // MUST BE EDITED TO BE MORE GENERAL
-
+    elemClass anElem;
     //elemClass anElem;
-    m_nNodePerElem = 4;           // MUST BE EDITED TO BE MORE GENERAL
+    m_nNodePerElem = anElem.getnumberofNodes();           // MUST BE EDITED TO BE MORE GENERAL
 }
 
 template<class numericType, class elemClass, class nodeClass>
@@ -216,13 +216,16 @@ unsigned int baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
     // Read file!
     if(!flag) {
         flag = readFormatedFile(m_fileInputName);
+
     }
 
     if (flag) {
+
         ++numOperations;
         // evaluate all Local Rotation Matrix!
         //flag = evaluateLocalRotationMat();
         if (flag) {
+
             ++numOperations;
             // compute Degrees of Freedom!
             computeDegreesOfFreedom();
@@ -243,6 +246,7 @@ unsigned int baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                         evaluateGlobalDisplacVec();
                         flag = m_isGlbDisplacVecComputed;
                         if (flag) {
+
                             ++numOperations;
                             // evaluate Local Element Information!
                             flag = updateLocalInfo();
@@ -290,8 +294,9 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                 if(aLine[0] != '*') continue;
 
                 // Check if it list Elements
-                if ( aLine == "*Element, type=CPS4" )
+                if ( (aLine == "*Element, type=CPS4")||(aLine == "*Element, type=CPS6M") )
                 {
+
                     flagElem = readFromFile_ElemList( &inFile);
                 }
 
@@ -299,6 +304,7 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                 if ( aLine == "*Node" )
                 {
                     flagNode = readFromFile_NodeList( &inFile);
+
                 }
 
                 // Check if it list Material Data
@@ -311,12 +317,13 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                     m_youngModulus = std::stod(pieceLine);
                     std::getline(thisLine, pieceLine, ',');
                     m_poissonRatio = std::stod(pieceLine);
-
                     flagMaterial = true;
                 }
 
                 // Check if it list Elements with pressure applied in it
-                if ( aLine == "*Elset, elset=_Set_Load_S3, internal, instance=Part_Geometry-1" )
+                if ( (aLine == "*Elset, elset=_Set_Load_S3, internal, instance=Part_Geometry-1")||
+                        (aLine == "*Elset, elset=_Set_Load_S1, internal, instance=Part_Geometry-1"))
+
                 {
                     getline(inFile,aLine);
                     std::string pieceLine;
@@ -364,6 +371,23 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                     }
                     flagFixedNode = true;
                 }
+
+                if ( aLine == "*Nset, nset=Set_Encastre, instance=Part_Geometry-1" )
+                {
+                    getline(inFile,aLine);
+                    std::stringstream thisLine (aLine);
+                    std::string pieceLine;
+                    unsigned int auxNodeId;
+                    // Reading id
+                    while (std::getline(thisLine, pieceLine, ','))
+                    {
+                        auxNodeId = std::stoul(pieceLine)-1;
+                        m_fixedNodes.insert(auxNodeId);
+                        cout<<auxNodeId<<endl;
+                    }
+
+                    flagFixedNode = true;
+                }
             }
             inFile.close();
         }
@@ -408,6 +432,7 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
                     std::getline(thisLine, pieceLine, ',');
                     aux_unsigned_int= (std::stoul(pieceLine)-1u);
                     nodalConnectivity.push_back(aux_unsigned_int);
+
                 }
 
                 // Evaluating nodalPosCoord[4,2]
@@ -642,7 +667,8 @@ Eigen::SparseMatrix<numericType> baseStructuralAnalysisClass<numericType,elemCla
         //    unsigned int curColDof_LclStfMat =0;                              // DoF of the IndexCol @ localStiffMatrix
         unsigned int glbIdRow = 0;                                          // Index of the row @ globalStiffMatrix
         unsigned int glbIdCol = 0;                                          // Index of the col @ globalStiffMatrix
-        numericType curElemArea = 0;
+        Eigen::Matrix<numericType, 2, 1>  curEdge;
+        numericType edge_size;
         numericType force;                                                  // An element of the localStiffMatrix
         numericType maxValue = 0;                                           // Variable to compute the max value of localStiffMatrix
 
@@ -655,11 +681,16 @@ Eigen::SparseMatrix<numericType> baseStructuralAnalysisClass<numericType,elemCla
             unsigned int teste1 = idCurElemWithPressure;
             unsigned int teste2 = m_elemListWithPressureApplied[idCurElemWithPressure];
             elemConnection_curElem = m_elemList[m_elemListWithPressureApplied[idCurElemWithPressure]].getM_nodalConnectivity();
+            //get Element Edge
+            curEdge = m_nodeList[elemConnection_curElem[1]].getM_position();
+            curEdge -=m_nodeList[elemConnection_curElem[2]].getM_position();
 
+            edge_size = curEdge.norm();
+            cout<< edge_size<<endl;
             // Walking inside the localStiffMatrix: row by row
-            for( idNode_curElem = 0; idNode_curElem<numNodePerElem ; ++idNode_curElem)
+            for( idNode_curElem = int(numNodePerElem/2); idNode_curElem<numNodePerElem ; ++idNode_curElem)
             {
-                    tripletList.push_back( TripNumericType( elemConnection_curElem[idNode_curElem]*numNodeDegFree+1 , 0 , -m_pressure ) );
+                    tripletList.push_back( TripNumericType( elemConnection_curElem[idNode_curElem]*numNodeDegFree+1 , 0 , -m_pressure* edge_size/2) );
             }
         }
 
@@ -708,27 +739,30 @@ Eigen::Matrix<numericType, Eigen::Dynamic, 1> baseStructuralAnalysisClass<numeri
             penalizedForceVector.coeffRef(idCurFixNode*numNodeDegFree+1,0) = 0;
         }
 
-        std::cout << "GLOBAL FORCE VECTOR" << std::endl << m_glbForceVec.transpose() << std::endl << std::endl;
-        std::cout << "GLOBAL STIFF MATRIX" << std::endl << m_glbStiffMat << std::endl << std::endl;
+//        std::cout << "GLOBAL FORCE VECTOR" << std::endl << m_glbForceVec.transpose() << std::endl << std::endl;
+//        std::cout << "GLOBAL STIFF MATRIX" << std::endl << m_glbStiffMat << std::endl << std::endl;
         std::cout << "reduced force vector" << std::endl << penalizedForceVector.transpose() << std::endl << std::endl;
-        std::cout << "reduced stiff matrix" << std::endl << penalizedStiffMatrix << std::endl << std::endl;
+//        std::cout << "reduced stiff matrix" << std::endl << penalizedStiffMatrix << std::endl << std::endl;
 
         // Solving by conjugate gradiente method
         ConjugateGradient<SparseMatrix<numericType>, Lower|Upper> cgSolver;
-//        cgSolver.setTolerance(1e-8);
-        cgSolver.setMaxIterations(5000);
+//        cgSolver.setTolerance(1e-4);
+//        cgSolver.setMaxIterations(1000000);
         cgSolver.compute(penalizedStiffMatrix);
         displacVector = cgSolver.solve(penalizedForceVector);
         m_linSolverInfo.setValues (cgSolver.iterations(),cgSolver.error(),cgSolver.info());
 
+
         if(m_linSolverInfo.info == Eigen::Success)
         {
+
             isSolverSuccess = true;
             m_glbForceVec = m_glbStiffMat * displacVector;      // Updating global force vector!
             m_glbDisplacVec = displacVector;
         }
     }
 
+    std::cout << " Displacements Nodes Vector" << endl << m_glbDisplacVec << endl << endl;
     // Updating flag
     m_isGlbDisplacVecComputed = (( m_isGlbStiffMatComputed && m_isGlbForceVecComputed) && isSolverSuccess);
 
@@ -824,8 +858,8 @@ bool baseStructuralAnalysisClass<numericType,elemClass,nodeClass>
             m_nodeList[idNode].set_sigVec(lclStrainNodes.row(idNode));
         }
 
-        std::cout << " Stress Nodes Matrix" << endl << lclStressNodes << endl << endl;
-        std::cout << " Strain Nodes Matrix" << endl << lclStrainNodes << endl << endl;
+//        std::cout << " Stress Nodes Matrix" << endl << lclStressNodes << endl << endl;
+//        std::cout << " Strain Nodes Matrix" << endl << lclStrainNodes << endl << endl;
     }
 
 
