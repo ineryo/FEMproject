@@ -14,7 +14,7 @@
 
 Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 
-##  ![](Figuras/problema.png)
+##  ![](/Figuras/problema.png)
 @image latex Figuras/problema.png
 
 # Elementos em Estudo 
@@ -22,13 +22,13 @@ Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 ##### Elemento Q4:
 * Elemento Quadilateral de 4 nós
 
-##  ![](Figuras/elementQ4.png)
+##  ![](/Figuras/elementQ4.png)
 @image latex Figuras/elementQ4.png
 
 ##### Elemento T6:
 * Elemento Triangular de 6 nós
 
-##  ![](Figuras/T6.png)
+##  ![](/Figuras/T6.png)
 @image latex Figuras/T6.png
 
 
@@ -52,61 +52,61 @@ Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 * Foram testados exemplos, utilizando como material o aço (Modulo de Young 200 GPa e coeficiente de Poisson 0.3), e estudados os efeitos do tipo de elemento e refinamento da malha nos resultados obtidos. Esses resultados, visulaizados através das ferramentas do software Abaqus. Os campos avaliados foram os deslocamentos (U),tensões (S), reações de apoio (RF) e deformações na estrutura (E).
 
 ### Deslocamentos
-###  ![](Figuras/45U.png)
+###  ![](/Figuras/45U.png)
 @image latex Figuras/45U.png
 
 ### Tensões
-###  ![](Figuras/45S.png)
+###  ![](/Figuras/45S.png)
 @image latex Figuras/45S.png
 
 ### Reações
-###  ![](Figuras/45RF.png)
+###  ![](/Figuras/45RF.png)
 @image latex Figuras/45RF.png
 
 ### Deformações
-###  ![](Figuras/45E.png)
+###  ![](/Figuras/45E.png)
 @image latex Figuras/45E.png
 
 ## Influência do Número de Elementos
 * Para avaliarmos a interferência do refinamento da malha nos resultados obtidos, realizou-se um estudo das tensões e deformações medidas nos elementos. Esse estudo pode ser fisto nas figuras a seguir (simulações do Abqus para variadas divisões de elementos), e no gráfico, que mostra a influência do resultado de acordo com o número de elementos.
 
-###  ![](Figuras/tabela.png)
+###  ![](/Figuras/tabela.png)
 @image latex Figuras/tabela.png
 
 ### Q4
-###  ![](Figuras/stress.png)
+###  ![](/Figuras/stress.png)
 @image latex Figuras/stress.png
 
-###  ![](Figuras/strain.png)
+###  ![](/Figuras/strain.png)
 @image latex Figuras/strain.png
 
 ### T6
-###  ![](Figuras/stress_t6.png)
+###  ![](/Figuras/stress_t6.png)
 @image latex Figuras/stress_t6.png
 
-###  ![](Figuras/strain_t6.png)
+###  ![](/Figuras/strain_t6.png)
 @image latex Figuras/strain_t6.png
 
 ## Gráfico Número de Elementos x Tensões Máximas
 
 ### Q4
-###  ![](Figuras/q4_elementxstress.png)
+###  ![](/Figuras/q4_elementxstress.png)
 @image latex Figuras/q4_elementxstress.png
 
 
 ### T6
-###  ![](Figuras/t6_elementxstress.png)
+###  ![](/Figuras/t6_elementxstress.png)
 @image latex Figuras/t6_elementxstress.png
 
 ## Gráfico Número de Elementos x Deformações Máximas
 
 ### Q4
-###  ![](Figuras/q4_elementxstrain.png)
+###  ![](/Figuras/q4_elementxstrain.png)
 @image latex Figuras/q4_elementxstrain.png
 
 
 ### T6
-###  ![](Figuras/t6_elementxstrain.png)
+###  ![](/Figuras/t6_elementxstrain.png)
 @image latex Figuras/t6_elementxstrain.png
 
 
