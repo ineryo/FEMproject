@@ -14,20 +14,22 @@
 
 Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 
-##  ![](/Figuras/problema.png)
-
+##  ![](Figuras/problema.png)
+@image latex Figuras/problema.png
 
 # Elementos em Estudo 
 
 ##### Elemento Q4:
 * Elemento Quadilateral de 4 nós
 
-##  ![](/Figuras/elementQ4.png)
+##  ![](Figuras/elementQ4.png)
+@image latex Figuras/elementQ4.png
 
 ##### Elemento T6:
 * Elemento Triangular de 6 nós
 
-##  ![](/Figuras/T6.png)
+##  ![](Figuras/T6.png)
+@image latex Figuras/T6.png
 
 
 # Objetivos
