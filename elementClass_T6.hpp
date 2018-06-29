@@ -225,7 +225,7 @@ sprMatK(numericType youngModulus,numericType poissonRatio) const {
     Eigen::SparseMatrix<numericType> B;
     Eigen::SparseMatrix<numericType> C;
     C = evalConstitutiveMatrix(youngModulus,poissonRatio);
-    numericType jacobDet = 0;
+    numericType jacobDet = 1;
 
     Eigen::SparseMatrix<numericType> Kl;
 
@@ -233,21 +233,21 @@ sprMatK(numericType youngModulus,numericType poissonRatio) const {
     Eigen::SparseMatrix<numericType> k1;
     pointVec << 0.5, 0.5;
     B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
+//    jacobDet = this->evalJacobDet(pointVec);
     k1 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
     // Point ( 1/2 , 0, 1/2)
     Eigen::SparseMatrix<numericType> k2;
     pointVec << 0.5, 0;
     B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
+//    jacobDet = this->evalJacobDet(pointVec);
     k2 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
     // Point ( 0 , 1/2, 1/2)
     Eigen::SparseMatrix<numericType> k3;
     pointVec << 0, 0.5;
     B = this->sprMatB(pointVec);
-    jacobDet = this->evalJacobDet(pointVec);
+//    jacobDet = this->evalJacobDet(pointVec);
     k3 = SparseMatrix<numericType>(B.transpose()) * C * B * jacobDet;
 
 
