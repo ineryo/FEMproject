@@ -276,13 +276,6 @@ evaluateStressStrain(const Matrix<numericType, 8, 1> &uVec, numericType youngMod
     m_eVec = B*uVec;
     m_sigVec = C*m_eVec;
 };
-//
-//template <class numericType>
-//numericType elementClass_Q4<numericType>::
-//evalEdge() const{
-//
-//    return std::sqrt();
-//}
 
 
 template <class numericType>

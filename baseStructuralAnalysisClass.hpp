@@ -768,12 +768,8 @@ Eigen::Matrix<numericType, Eigen::Dynamic, 1> baseStructuralAnalysisClass<numeri
 
         // Solving by conjugate gradiente method
         Eigen::SparseLU<SparseMatrix <numericType>> cgSolver;
-//        cgSolver.setTolerance(1e-3);
-//        cgSolver.setMaxIterations(100000);
         cgSolver.compute(penalizedStiffMatrix);
         displacVector = cgSolver.solve(penalizedForceVector);
-//        m_linSolverInfo.setValues (cgSolver.iterations(),cgSolver.error(),cgSolver.info());
-//        std::cout << " Displacements Nodes Vector" << endl << displacVector << endl << endl;
 
 
         if(m_linSolverInfo.info == Eigen::Success)
