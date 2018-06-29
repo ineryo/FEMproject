@@ -38,19 +38,67 @@ Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 # Objetivos
 
 * Implementação e uso dos elementos Q4 e T6 na resolução do problema proposto;
+* Implementação da integração numérica completa (e reduzida para o elemento quadrático);
+* Extrapolação dos valores de tensão e deformação, calculado nos pontos de Gaus, para os valores nodais;
 * Avaliação dos resultadsos e comparação dos mesmos com os do software Abaqus.
 
+# Método de Análise
+
+## O procedimento realizado pelo algoritmo desenvolvido pode ser resumido nas seguintes etapas:
+* Leitura do arquivo de entrada (proveniente do software Abaqus);
+* Calculo das matrizes de rigidez local, e computação das mesmas para matriz global;
+* Solução do sistema para o cálculo dos deslocamentos, fezendo uso do método das penalidades;
+* Cálculo das forças nodais, fazendo uso dos deslocamentos obtidos;
+* Cálculo das tensões e deformações nos pontos de Gauss;
+* Estrapolação e suavização dos valores de tensão e deformação para os nós;
+* Impressão dos resultados de interesse;
+* Comparação dos resultados obtidos com os do software Abaqus.
 
 # Resultados
 
 ## Implementação Computacional dos Elementos T6 e Q4
 
 * As implementações dos elementos, juntamente com um código de análise de problemas usando o Método dos Elementos Finitos, foram feitas fazendo-se uso da linguagem de programação C++;
-* Os códigos e documentações seguem junto a esse PDF, podendo ser acessados de maneira iterativa através do arquivo HTML, onde toda documentação e comentários se encontram.
+* Estudou-se e fez-se uso da biblioteca Eigen, que possui métodos e ferramentas para usa da algebra linear;
+* Estudou-se e fez-se uso do framework Doxygen para geração da documentação da ferramenta computacional desenvolvida, juntamente com o relatório;
+* Os códigos e documentações seguem junto a esse PDF, podendo ser acessados de maneira iterativa através do arquivo HTML, onde toda documentação e comentários se encontram;
+* Foram implementadas duas classes de elementos (T6 e Q4), uma classe para os nós e uma classe para a análise estrutural;
 * A implementação apresentada faz uso do arquivo de entrada do software comercial Abaqus, afim de tirar proveito da ferramenta de geração de malhas do mesmo;
-* Os resultados obtidos através dessa implementação são verificados através do Abaqus, e serão apresentados posteriormente.
+* A ferramenta desenvolvida nesse trabalho faz leitura completa do arquivo de entrada do Abaqus, possibilitando obter todas as informações de interesse (carregamentos, condições de contorno, conectividade e tipo dos elementos, coordenadoas dos nós, etc).;
+* Os resultados obtidos através dessa implementação são verificados através do Abaqus, e serão apresentados posteriormente;
+* Os resultados dos demais testes realizados na implementação do trabalho encontram-se em um arquivo de texto em anexo;
+* Fez-se uso da plataforma Github para desenvolvimento do projeto, que será continuado e melhorado em etapas futuras.
 
-## Abaqus
+## Resultados da Implementação computacional
+
+* A partir da ferramenta para análise através do Método dos Elementos finitos, resolveu-se o problema proposto com variados valores de refinamento de malha. Os resultados obtidos foram comparados aos do software Abaqus, como mostrado nas Figuras a seguir (comparação entre valores aferidos para os nós engastados e submetidos ao carregamento de pressão). Uma vez que o Abaqus não possibilita a integração reduzida do elementod do tipo T6, foram apenas comparados os resultados de integração completa para ambos os elementos;
+* O elemento do tipo Q4 obteve os deslocamentos com erro muito baixo, tomando como referência os resultados do Abaqus;
+* O elemento do tipo T6, por sua vez, representou melhor os valores de tensão e deformação nos pontos.
+
+
+### Elementos do tipo Q4
+###  ![](/Figuras/Tab_Q4_16.png)
+@image latex Figuras/Tab_Q4_16.png
+@image html Figuras/Tab_Q4_16.png
+
+###  ![](/Figuras/Tab_Q4_39.png)
+@image latex Figuras/Tab_Q4_39.png
+@image html Figuras/Tab_Q4_39.png
+
+###  ![](/Figuras/Tab_Q4_871.png)
+@image latex Figuras/Tab_Q4_871.png
+@image html Figuras/Tab_Q4_871.png
+
+### Elementos do tipo T6
+###  ![](/Figuras/Tab_T6_40.png)
+@image latex Figuras/Tab_T6_40.png
+@image html Figuras/Tab_T6_40.png
+
+###  ![](/Figuras/Tab_T6_44.png)
+@image latex Figuras/Tab_T6_44.png
+@image html Figuras/Tab_T6_44.png
+
+## Analises de MEF através do Abaqus
 
 * Foram testados exemplos, utilizando como material o aço (Modulo de Young 200 GPa e coeficiente de Poisson 0.3), e estudados os efeitos do tipo de elemento e refinamento da malha nos resultados obtidos. Esses resultados, visulaizados através das ferramentas do software Abaqus. Os campos avaliados foram os deslocamentos (U),tensões (S), reações de apoio (RF) e deformações na estrutura (E).
 
@@ -128,10 +176,13 @@ Pilar engastado na base, e submetido a uma carga distribuída vertical no topo:
 
 # Análise dos resultados
 
-* A partir dos resultados, avaliou-se a influência do refinamento da malha nos resultados das análises de elementos finitos. Malhas mais refinadas, além de fornecerem resultados com maior grau de suavidade e continuidade, apresentão um comportamento menos rígido em relação as malhas menos refinadas. Apesar de ser uma diferença não tão pronunciada, foi observado que elementos mais refinados tem tanto deformações quanto tensões mais acentuadas.
-* Foi constatado também que, para os elementos do tipo T6, a qualidade da resposta é inferior ao Q4, apesar das funções de interpolação quadrádicas utilizadas.
+* Os objetivos propostos para o trabalho foram alcançados, obtendo assim uma ferramenta computacional capaz de realizar uma análise estrutural utilizando o método dos elementos finitos;
+* Dentre as funcionalidades implementadas, se destacam as classes de elementos Q4 e T6, a leitura completa de arquivos gerados pelo software como entrada da simulação, implementação da integração numérica, métodos necssário para os cálculos da análise de MEF (calculo da rigidez local e global, vetor de forças, aplicação das condições de contorno, etc) e extrapolação e suavização dos valores de tensão e deformação (calculado nos pontos de Gauss) para os nós;
+* Os resultados obtidos para ambos os elementos implementados se mostraram condizentes com os do software comercial Abaqus, apesar de certas discrepâncias observadas;
+* A partir dos resultados, avaliou-se a influência do refinamento da malha nos resultados das análises de elementos finitos. Malhas mais refinadas, além de fornecerem resultados com maior grau de suavidade e continuidade, apresentão um comportamento menos rígido em relação as malhas menos refinadas. Apesar de ser uma diferença não tão pronunciada, foi observado que elementos mais refinados tem tanto deformações quanto tensões mais acentuadas;
+* Foi constatado também que, para os elementos do tipo T6, a qualidade da resposta é inferior ao Q4, apesar das funções de interpolação quadrádicas utilizadas;
 
 
-## Referencias até o momento
+## Referencias
 
 [Eigen Website - Instalation](http://eigen.tuxfamily.org/index.php?title=IDEs#Visual_Studio)
